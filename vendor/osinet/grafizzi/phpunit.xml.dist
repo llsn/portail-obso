@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+  backupGlobals="true"
+  backupStaticAttributes="false"
+  cacheTokens="true"
+  colors="false"
+  convertErrorsToExceptions="true"
+  convertNoticesToExceptions="true"
+  convertWarningsToExceptions="true"
+  forceCoversAnnotation="false"
+  printerFile="phpunit/src/TextUI/ResultPrinter.php"
+  processIsolation="false"
+  stopOnError="false"
+  stopOnFailure="false"
+  stopOnIncomplete="false"
+  stopOnSkipped="false"
+  testSuiteLoaderFile="phpunit/src/Runner/StandardTestSuiteLoader.php"
+  verbose="true">
+
+  <logging>
+    <log type="coverage-clover" target="coverage.xml" />
+    </logging>
+
+  <filter>
+    <whitelist
+      addUncoveredFilesFromWhitelist="true"
+      processUncoveredFilesFromWhitelist="true">
+      <directory>Grafizzi/</directory>
+      <exclude>
+        <directory suffix="Test.php">./</directory>
+        <directory suffix="TestsSuite.php">./</directory>
+      </exclude>
+      </whitelist>
+    </filter>
+
+  <testsuites>
+    <testsuite name="Base Test Suite">
+      <directory>Grafizzi/Graph/Tests</directory>
+      </testsuite>
+    </testsuites>
+  </phpunit>
+

@@ -1,0 +1,20 @@
+# IDE files
+.idea
+
+# Generated documentation
+doxygen
+
+# Composer lock, code, and vendors
+composer.phar
+composer.lock
+vendor
+
+# Custom configuration
+phpunit.xml
+
+# Continuous integration artefacts
+ocular.phar
+coverage/
+coverage.*
+.phpunit.result.cache
+php.log

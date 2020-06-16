@@ -1,0 +1,36 @@
+{
+    "name": "sandfoxme/composer-viz",
+    "type": "composer-plugin",
+    "description": "Generate a GraphViz representation of the dependency graph",
+    "keywords": [
+        "graph",
+        "graphviz",
+        "composer",
+        "dependencies",
+        "composer plugin"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anton Smirnov",
+            "email": "sandfox@sandfox.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SandFoxMe\\ComposerViz\\": "src"
+        }
+    },
+    "extra": {
+        "class": "SandFoxMe\\ComposerViz\\VizPlugin"
+    },
+    "require": {
+        "composer-plugin-api":  "^1.1",
+        "graphp/graphviz":      "~0.2.0",
+
+        "php":  "^5.5|^7.0"
+    },
+    "require-dev": {
+        "composer/composer":    "~1.5"
+    }
+}

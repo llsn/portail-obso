@@ -1,0 +1,7 @@
+nbproject
+vendor
+composer.phar
+composer.lock
+.project
+clover.xml
+.idea

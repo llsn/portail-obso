@@ -1,0 +1,132 @@
+
+
+.imageflottante 
+{
+  float: left;
+  background-image: url(images/logo-cma-cgm.png);
+  background-repeat: no-repeat;
+}
+H1 {
+font-family: "Trebuchet MS", Helvetica, sans-serif;
+font-size: 24px;
+letter-spacing: 1px;
+word-spacing: -2.2px;
+color: #4657FF;
+font-weight: 400;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: uppercase;
+text-align: center;
+}
+
+.debug 
+{
+	font-size:5px;
+	font-family: verdana;
+	
+}
+
+body.blueTable {
+font-family: "Trebuchet MS", Helvetica, sans-serif;
+font-size: 16px;
+letter-spacing: 2px;
+word-spacing: 2px;
+color: #000000;
+font-weight: 400;
+text-decoration: none;
+font-style: normal;
+font-variant: small-caps;
+text-transform: none;
+}
+table.blueTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  table-layout: scroll;
+  
+}
+table.blueTable td, table.blueTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.blueTable tbody td {
+  font-size: 11px;
+}
+table.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+
+}
+table.blueTable thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+
+  
+}
+table.blueTable thead th {
+  font-size: 13px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+
+table.blueTable thead tr {
+  position:relative;
+}
+
+table.blueTable thead th:first-child {
+  border-left: none;
+}
+
+table.blueTable tfoot {
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+table.blueTable tfoot td {
+  font-size: 12px;
+}
+table.blueTable tfoot .links {
+  text-align: right;
+}
+table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+div#bandeau {
+	height:390px;
+	width:100%;
+	position: fixed;
+	top:0;
+	background-color:#FFFFFF;
+	}
+div#contenu {
+	margin-top:390px;
+	width:100%;
+	overflow-x:scroll;
+	overflow:scroll; 
+	border:#000000 1px solid; 
+	height:560px;
+
+
+	}
+div#piedpage {
+	height:50px;
+	background-color:#33FF99;
+	}
+
+

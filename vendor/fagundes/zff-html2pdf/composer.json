@@ -1,0 +1,53 @@
+{
+    "name": "fagundes/zff-html2pdf",
+    "type": "library",
+    "description": "A ZF2 module using html2pdf library",
+    "keywords": ["html", "pdf", "html2pdf", "zf2"],
+    "homepage": "http://github.com/fagundes/ZffHtml2pdf",
+    "license": "MIT",
+    "authors":
+    [
+        {
+            "name": "Vinicius Fagundes",
+            "homepage": "https://github.com/fagundes",
+            "role": "Developer"
+        }
+    ],
+    "require":
+    {
+        "php": ">=5.5",
+        "zendframework/zend-view":"~2.5",
+        "zendframework/zend-http":"~2.5",
+        "spipu/html2pdf":"~4.5"
+    },
+    "require-dev": {
+        "zendframework/zend-modulemanager":"~2.5",
+        "zendframework/zend-mvc":"~2.5",
+        "zendframework/zend-filter":"~2.5",
+        "zendframework/zend-serializer":"~2.5",
+        "zendframework/zend-log":"~2.5",
+        "zendframework/zend-i18n":"~2.5",
+        "zendframework/zend-console":"~2.5",
+        "phpunit/phpunit": "~4.0",
+        "squizlabs/php_codesniffer": "~2"
+    },
+    "autoload":
+    {
+        "psr-4":
+        {
+            "Zff\\Html2Pdf\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ZffTest\\Html2Pdf\\": "test/"
+        }
+    },
+    "extra":
+    {
+        "branch-alias": {
+            "dev-master": "0.5.x-dev",
+            "dev-develop": "0.6.x-dev"
+        }
+    }
+}

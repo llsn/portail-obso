@@ -1,0 +1,57 @@
+{
+    "name": "squad/obsolescence",
+    "description": "Package de gestion de l'obsolescence",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Lionel Severian",
+            "email": "lionel.severian.prod@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"Vendor\\": "src/"}
+    }
+    ,
+    "minimum-stability": "stable",
+    "require": {
+        "mpdf/mpdf": "^8.0",
+        "dompdf/dompdf": "^0.8.3",
+        "twbs/bootstrap": "^4.3",
+        "components/jquery": "^3.4",
+        "datatables/datatables": "^1.10",
+        "fagundes/zff-html2pdf": "^0.5.1",
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi-fpdf": "^2.2",
+        "setasign/fpdi-tcpdf": "^2.2",
+        "setasign/fpdi-tfpdf": "^2.2",
+        "psr/http-message": "^1.0",
+        "zendframework/zend-db": "^2.10",
+        "zendframework/zend-filter": "^2.9",
+        "zendframework/zend-i18n": "^2.10",
+        "zendframework/zend-math": "^3.2",
+        "zendframework/zend-i18n-resources": "^2.6",
+        "zendframework/zend-session": "^2.9",
+        "paragonie/certainty": "^2.6",
+        "zendframework/zend-json-server": "^3.2",
+        "zendframework/zend-xml2json": "^3.1",
+        "zendframework/zend-authentication": "^2.7",
+        "zendframework/zend-feed": "^2.12",
+        "zendframework/zend-mvc": "^3.1",
+        "zendframework/zend-mvc-plugin-flashmessenger": "^1.2",
+        "zendframework/zend-navigation": "^2.9",
+        "zendframework/zend-paginator": "^2.8",
+        "zendframework/zend-permissions-acl": "^2.7",
+        "zendframework/zend-servicemanager": "^3.4",
+        "squizlabs/php_codesniffer": "^3.5",
+        "phpunit/phpunit": "^8.4",
+        "alom/graphviz": "^1.1",
+        "container-interop/container-interop": "^1.2",
+        "graphp/algorithms": "^0.8.1",
+        "graphp/graphviz":"^0.2.2",
+        "sandfoxme/composer-viz": "^2.0",
+        "clue/graph-composer": "^1.0",
+        "osinet/grafizzi": "^0.0.2"
+    }
+
+}
