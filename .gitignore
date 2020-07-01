@@ -3,3 +3,5 @@ database/postgres
 db_keepass
 keepass
 plugins
+taux_obso_by_app.html
+taux_obso_by_app_critic.html
