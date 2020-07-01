@@ -392,7 +392,16 @@
                 echo "<th colspan='1' >Functional Group</th>";
                 if ($functionalgroup != '') 
                 {
-                    echo "<td colspan='5' >".chunk_split($functionalgroup, 100, "<br/>\n")."</td>";
+		    	$list_functional_group=explode('|',$functionalgroup);
+			echo "<td colspan='5'>";
+			if (count($list_functional_group))
+			{
+				foreach ($list_functional_group as $ligne)
+				{
+					echo $ligne."<br/>\n";
+				}
+			}
+                    	echo "</td>";
                 } 
                 else 
                 {
