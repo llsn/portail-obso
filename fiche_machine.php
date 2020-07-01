@@ -295,7 +295,7 @@
                     {
                         case (stristr($osname,'aix')):
                             echo "<th colspan='1'>Fils de</th>";
-                            echo "<td colspan='2'><form id='".$parent."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' target='_blank'><b>".$parent."</b></a><td>";
+                            echo "<td colspan='2'><form id='".$parent."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' ><b>".$parent."</b></a><td>";
                         break;
                         case (stristr($osname,'windows')):
                             $subwinquery="select distinct `parent` from cmdb.relationship where `parent`= '".$parent."';";
@@ -308,22 +308,22 @@
                             if($subwinparent!='')
                             {
                                 echo "<th colspan='1'>Fils de</th>";
-                                echo "<td colspan='2'><form id='".$subwinparent."' method='POST' action='relationship.php'><input type='hidden' name='var_parent' value='".$subwinparent."'/></form><a href='#' onclick='document.getElementById(\"$subwinparent\").submit()' target='_blank'><b>".$subwinparent."</b></a><td>";
+                                echo "<td colspan='2'><form id='".$subwinparent."' method='POST' action='relationship.php'><input type='hidden' name='var_parent' value='".$subwinparent."'/></form><a href='#' onclick='document.getElementById(\"$subwinparent\").submit()' ><b>".$subwinparent."</b></a><td>";
                             }
                             else
                             {
                                 echo "<th colspan='1'>Fils de</th>";
-                                echo "<td colspan='2'><form id='".$parent."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' target='_blank'><b>".$parent."</b></a><td>";
+                                echo "<td colspan='2'><form id='".$parent."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' ><b>".$parent."</b></a><td>";
 
                             }
                         break;
                         case (stristr($osname,'linux')):
                             echo "<th colspan='1'>Fils de</th>";
-                            echo "<td colspan='2'><form id='".$parent."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' target='_blank'><b>".$parent."</b></a><td>";
+                            echo "<td colspan='2'><form id='".$parent."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' ><b>".$parent."</b></a><td>";
                         break;
                         case (stristr($osname,'systemp')):
                             echo "<th colspan='1'>Détail du contenu de</th>";
-                            echo "<td colspan='2'><form id='".$parent."' method='POST' action='virtual_by_hardware.php'><input type='hidden' name='id_machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' target='_blank'><b>".$parent."</b></a><td>";
+                            echo "<td colspan='2'><form id='".$parent."' method='POST' action='virtual_by_hardware.php'><input type='hidden' name='id_machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' ><b>".$parent."</b></a><td>";
                         break;
                         default:
                             echo "<th colspan='1'>Fils de</th>";
@@ -336,7 +336,7 @@
                     if(stristr($osname,'vmnix'))
                     {
                         echo "<th colspan='1'>Détail du contenu de</th>";
-                        echo "<td colspan='2'><form id='".$machine."' method='POST' action='virtual_by_hardware.php'><input type='hidden' name='id_machine' value='".$machine."'/></form><a href='#' onclick='document.getElementById(\"$machine\").submit()' target='_blank'><b>".$machine."</b></a><td>";
+                        echo "<td colspan='2'><form id='".$machine."' method='POST' action='virtual_by_hardware.php'><input type='hidden' name='id_machine' value='".$machine."'/></form><a href='#' onclick='document.getElementById(\"$machine\").submit()' ><b>".$machine."</b></a><td>";
                     }
                     else
                     {
@@ -350,13 +350,13 @@
                 echo "<tr><th colspan='1' >Business Services</th>";
                 if ($businessservices != '') 
                 {
-                    $list_business_services=explode(',',$businessservices);
+                    $list_business_services=explode('|',$businessservices);
                     echo "<td colspan='5' >";
                     if (count($list_business_services))
                     {
                         foreach ($list_business_services as $ligne) 
                         {
-                            echo "<form id='".$ligne."' method='POST' action='gestion_obso_v2.php'><input type='hidden' name='application' value='".$ligne."'/></form><a href='#' onclick='document.getElementById(\"$ligne\").submit()' target='_blank'><b>".$ligne."</b></a>";
+                            echo "<form id='".$ligne."' method='POST' action='gestion_obso_v2.php'><input type='hidden' name='application' value='".$ligne."'/></form><a href='#' onclick='document.getElementById(\"$ligne\").submit()' ><b>".$ligne."</b></a>";
                             echo "<br/>";
                         }
                     }
@@ -371,13 +371,13 @@
                 echo "<th colspan='1' >Business Application</th>";
                 if ($businessapplication != '') 
                 {
-                    $list_business_application=explode(',',$businessapplication);
+                    $list_business_application=explode('|',$businessapplication);
                     echo "<td colspan='5' >";
                     if (count($list_business_application))
                     {
                         foreach ($list_business_application as $ligne) 
                         {
-                            echo "<form id='".$ligne."' method='POST' action='components_detail.php'><input type='hidden' name='var_logical_CI' value='".$ligne."'/><input type='hidden' name='var_consult_component' value='true'/></form><a href='#' onclick='document.getElementById(\"$ligne\").submit()' target='_blank'><b>".$ligne."</b></a>";
+                            echo "<form id='".$ligne."' method='POST' action='components_detail.php'><input type='hidden' name='var_logical_CI' value='".$ligne."'/><input type='hidden' name='var_consult_component' value='true'/></form><a href='#' onclick='document.getElementById(\"$ligne\").submit()' ><b>".$ligne."</b></a>";
                             echo "<br/>";
                         }
                     }
@@ -490,11 +490,11 @@
                                     {
                                         if ($sqlserver == 0) 
                                         {
-                                            echo "<td bgcolor='$BGCOLOR_DB' ><b><form id='$valeur' method='POST' action='application_by_db.php'><input type='hidden' name='db' value='$datasql'/> </form><a href='#' onclick='document.getElementById(\"$valeur\").submit()' target='_blank'>$valeur</a></b></td>";
+                                            echo "<td bgcolor='$BGCOLOR_DB' ><b><form id='$valeur' method='POST' action='application_by_db.php'><input type='hidden' name='db' value='$datasql'/> </form><a href='#' onclick='document.getElementById(\"$valeur\").submit()' >$valeur</a></b></td>";
                                         } 
                                         elseif ($sqlserver == 1) 
                                         {
-                                            echo "<td bgcolor='$BGCOLOR_DB' ><b><form id='$datasql' method='POST' action='application_by_db.php'><input type='hidden' name='db' value='$datasql'/> </form><a href='#' onclick='document.getElementById(\"$datasql\").submit()' target='_blank'>$datasql</a></b></td>";
+                                            echo "<td bgcolor='$BGCOLOR_DB' ><b><form id='$datasql' method='POST' action='application_by_db.php'><input type='hidden' name='db' value='$datasql'/> </form><a href='#' onclick='document.getElementById(\"$datasql\").submit()' >$datasql</a></b></td>";
                                         }
                                     } 
                                     else 
@@ -679,7 +679,7 @@
                                     {
                                         foreach ($var_LIST_MACHINES_IMPACTEES as $value) 
                                         {
-                                            echo "<form id='".$value."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$value."'/></form><a href='#' onclick='document.getElementById(\"$value\").submit()' target='_blank'><b>".$value."</b></a><br/>";                        
+                                            echo "<form id='".$value."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$value."'/></form><a href='#' onclick='document.getElementById(\"$value\").submit()' ><b>".$value."</b></a><br/>";                        
                                             echo "<input type='hidden' name='LIST_MACHINES_IMPACTEES' value='".base64_encode(serialize($var_LIST_MACHINES_IMPACTEES))."' />";
                                         }
                                     }
@@ -692,7 +692,7 @@
                                     {
                                         foreach ($var_LIST_DB_IMPACTEES as $value) 
                                         {
-                                            echo "<form id='".$value."' method='POST' action='application_by_db.php'><input type='hidden' name='db' value='".$value."'/></form><a href='#' onclick='document.getElementById(\"$value\").submit()' target='_blank'><b>".$value."</b></a><br/>"; 
+                                            echo "<form id='".$value."' method='POST' action='application_by_db.php'><input type='hidden' name='db' value='".$value."'/></form><a href='#' onclick='document.getElementById(\"$value\").submit()' ><b>".$value."</b></a><br/>"; 
                                             echo "<input type='hidden' name='LIST_DB_IMPACTEES' value='". base64_encode(serialize($var_LIST_DB_IMPACTEES)) ."' />";
                                         }
                                     }
@@ -780,7 +780,7 @@
                         switch (strtoupper($entete)) 
                         {
                             case 'PGMP':
-                                echo "<td><form id='$col' method='POST' action='PGMP.php'><input type='hidden' name='PGMP' value='$col'/> </form><a href='#' onclick='document.getElementById(\"$col\").submit()' target='_blank'><b>$col</b></a></td>";
+                                echo "<td><form id='$col' method='POST' action='PGMP.php'><input type='hidden' name='PGMP' value='$col'/> </form><a href='#' onclick='document.getElementById(\"$col\").submit()' ><b>$col</b></a></td>";
                                 break;
                             default:
                                 echo "<td>".$col."</td>";

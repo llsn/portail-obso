@@ -427,7 +427,7 @@
 											switch($entete)
 											{
 												case "CONFIGURATIONNAME_WO_EXTENSION":
-													echo "<td><form id=\"".$valeur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$valeur."\"/></form><a href='#' onclick='document.getElementById(\"".$valeur."\").submit()' target=\"_target\"><b>".$valeur."</b></a></td>";
+													echo "<td><form id=\"".$valeur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$valeur."\"/></form><a href='#' onclick='document.getElementById(\"".$valeur."\").submit()' ><b>".$valeur."</b></a></td>";
 													break;
 												case "STATUS":
 													echo "<td>$valeur</td>";

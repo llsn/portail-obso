@@ -60,18 +60,18 @@
     // echo ("<strong>Etat des variables a la ligne : ".__LINE__." dans le fichier : ".__FILE__."</strong><br />\n");
     // $nom_fonction=__FUNCTION__;
     // if (isset($nom_fonction)&&$nom_fonction!="") {
-      // echo ("<strong>Dans la fonction : ".$nom_fonction."</strong><br />\n");
-    // }
+    //   echo ("<strong>Dans la fonction : ".$nom_fonction."</strong><br />\n");
+    //  }
     // foreach ($variables as $key=>$value)
-    // {
-      // if (!in_array($key, $var_ignore)&&strpos($key,"HTTP")===false)
-      // {
-        // echo "<pre class=\"debug\">";
-        // echo ("$".$key." => ");
-        // print_r($value);
-        // echo "</pre>\n";
-      // }
-    // }
+    //  {
+    //    if (!in_array($key, $var_ignore)&&strpos($key,"HTTP")===false)
+    //    {
+    //      echo "<pre class=\"debug\">";
+    //      echo ("$".$key." => ");
+    //      print_r($value);
+    //      echo "</pre>\n";
+    //    }
+    //  }
 // if(isset($_POST['username'])&&isset($_POST['mysql'])&&isset($_POST['db'])&&isset($_POST['username']))
 // {
     // $sqlname=$_POST['mysql'];

@@ -1,6 +1,6 @@
 <?php
 
-$host = 'portail-obso_mysql';
+$host = 'mysql';
 #$host = '192.168.0.40';
 $port = 3306;
 $socket = '';

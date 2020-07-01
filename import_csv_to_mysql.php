@@ -12,17 +12,17 @@
         // echo ("<strong>Etat des variables a la ligne : ".__LINE__." dans le fichier : ".__FILE__."</strong><br />\n");
         // $nom_fonction=__FUNCTION__;
         // if (isset($nom_fonction)&&$nom_fonction!="") {
-          // echo ("<strong>Dans la fonction : ".$nom_fonction."</strong><br />\n");
+        //   echo ("<strong>Dans la fonction : ".$nom_fonction."</strong><br />\n");
         // }
         // foreach ($variables as $key=>$value)
         // {
-          // if (!in_array($key, $var_ignore)&&strpos($key,"HTTP")===false)
-          // {
-            // echo "<pre class=\"debug\">";
-            // echo ("$".$key." => ");
-            // print_r($value);
-            // echo "</pre>\n";
-          // }
+        //   if (!in_array($key, $var_ignore)&&strpos($key,"HTTP")===false)
+        //   {
+        //     echo "<pre class=\"debug\">";
+        //     echo ("$".$key." => ");
+        //     print_r($value);
+        //     echo "</pre>\n";
+        //   }
         // }
 
     ini_set('max_execution_time', 0);
@@ -30,6 +30,7 @@
     ///recupération du fichier client du le serveur
     $file_name = $_FILES['csv']['name'];
     $extension=strrchr($file_name,'.');
+    echo $_SERVER['DOCUMENT_ROOT'].'/imports/'.$_FILES['csv']['name'];
     if ($extension == '.csv')
     {
         // $file_tmp=$_FILES['csv']['tmp_name'];
@@ -37,7 +38,7 @@
         move_uploaded_file($_FILES['csv']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/imports/'.$_FILES['csv']['name']);
 
         $delimiteur = ',';
-        $csv = new SplFileObject($_SERVER['DOCUMENT_ROOT'].'/imports/'.$_FILES['csv']['name']);
+        $csv = new SplFileObject($_SERVER['DOCUMENT_ROOT'].'/var/www/html/imports/'.$_FILES['csv']['name']);
         $csv->setFlags(SplFileObject::READ_CSV);
         $csv->setCsvControl(';');
         $table = str_replace('.csv', '', $file_name);
@@ -120,3 +121,28 @@
     {
         echo "<pre>Le fichier est de type $extension.<br/>Le type de fichier upload n'est pas de type \"CSV\"</pre>";
     }
+
+    // fonction permet de visualiser le contenu de toutes les variables
+
+        // debug de variables
+         echo "<p class=\"debug\">";
+         error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
+
+         $variables = get_defined_vars(); // Donne le contenu et les valeurs de toutes les variables dans la portée actuelle
+         $var_ignore=array("GLOBALS", "_ENV", "_SERVER"); // Détermine les var à ne pas afficher
+         echo ("<strong>Etat des variables a la ligne : ".__LINE__." dans le fichier : ".__FILE__."</strong><br />\n");
+         $nom_fonction=__FUNCTION__;
+	 if (isset($nom_fonction)&&$nom_fonction!="") 
+	 {
+           echo ("<strong>Dans la fonction : ".$nom_fonction."</strong><br />\n");
+         }
+         foreach ($variables as $key=>$value)
+         {
+           if (!in_array($key, $var_ignore)&&strpos($key,"HTTP")===false)
+           {
+             echo "<pre class=\"debug\">";
+             echo ("$".$key." => ");
+             print_r($value);
+             echo "</pre>\n";
+           }
+         }
