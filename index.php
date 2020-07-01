@@ -27,7 +27,7 @@
                </ul>
             </li>
 <!--            <li><a href="http://10.1.84.101:3000/" target="_blank">Metabase</a></li> -->
-            <li><a href="http://192.168.0.40:3000/" target="_blank">Metabase</a></li>
+            <li><a href="http://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/" target="_blank">Metabase</a></li>
             <li><a href="#">Consultations de données</a>
                <ul>
                   <li><a href="taux_obso_by_app.html" target="_blank">Taux obsolescence par application</a></li>
@@ -56,10 +56,9 @@
       </center>
    </div>
   
-   <!----------------------------------------------------------------- -->
    <p>
       <div>
-         <iframe src="http://192.168.0.40:3000/public/dashboard/c805f193-21de-4396-bd3e-16166cbe668d" frameborder="0"
+         <iframe src="http://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/public/dashboard/c805f193-21de-4396-bd3e-16166cbe668d" frameborder="0"
             width="100%" height="100%" allowtransparency></iframe>
       </div>
    </p>
