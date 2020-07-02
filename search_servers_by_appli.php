@@ -251,42 +251,13 @@
                         }
                     ?>
                 </datalist>
-                <?php
-                       if($application_name !='')
-                        {
-                            //$version="";
-                            ?>
-                            <input list='list_OSVERSION' name='version' id='OS' width='auto' class='input-lg' onchange='document.getElementById("valid").submit()' value='<?php echo $version?>' onclick="if(this.value!='')this.value=''">
-                <datalist id="list_OSVERSION">
-                            <?php
-                    
-                            $queryOSVERSION="SELECT distinct OSVERSION FROM cmdb.system_inventory where BUSINESSSERVICES REGEXP '(^|,)".$application_name."(,|$)' order by osversion ";
-                            if ($stmt = $con->prepare($queryOSVERSION))
-                            {
-                                $stmt->execute();
-                                while ($resulttable = $stmt->fetch())
-                                {
-                                    if ($version == strtoupper($resulttable[0]))
-                                    {
-                                        echo '<option valeur="'.$resulttable[0].'" selected>'.$resulttable[0].'</option>';
-                                    }
-                                    else
-                                    {
-                                        echo '<option valeur="'.$resulttable[0].'">'.$resulttable[0].'</option>';
-                                    }	
-                                }
-                                $stmt->pdo = null;
-                            }
-                            echo "</datalist>";
-                        }
-                        ?>
         </form>
     </div>
 	<div class="container">
     <?php
-        if($application_name!="" & $version!="")
+        if($application_name!="")
         {
-            $query="call cmdb.SERVER_BY_APPLI('".$application_name."', '".$version."');";
+            $query="call cmdb.SERVER_BY_APPLI('".$application_name."');";
             if ($stmt = $con->prepare($query)) {
                 $stmt->execute();
                 $tuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -311,10 +282,10 @@
                                 switch (strtoupper($entete)) 
                                 {
                                     case 'LOCAL NAME':
-                                        echo "<td><form id=\"".$col."\" method=\"POST\" action=\"gestion_obso_v2.php\"><input type=\"hidden\" name=\"application\" value=\"".$col."\"/></form><a href='#' target=\"_blank\" onclick='document.getElementById(\"".$col."\").submit()'><b>".$col."</b></a></td>";
+                                        echo "<td><form id=\"".$col."\" method=\"POST\" action=\"gestion_obso_v2.php\"><input type=\"hidden\" name=\"application\" value=\"".$col."\"/></form><a href='#' onclick='document.getElementById(\"".$col."\").submit()'><b>".$col."</b></a></td>";
                                         break;
-                                    case 'CONFIGURATIONNAME_WO_EXTENSION':
-                                        echo "<td><form id=\"".$col."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$col."\"/></form><a href='#' target=\"_blank\" onclick='document.getElementById(\"".$col."\").submit()'><b>".$col."</b></a></td>";
+                                    case 'HOSTNAME':
+                                        echo "<td><form id=\"".$col."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$col."\"/></form><a href='#' onclick='document.getElementById(\"".$col."\").submit()'><b>".$col."</b></a></td>";
                                         break;
                                     default:
                                         echo '<td>'.$col.'</td>';

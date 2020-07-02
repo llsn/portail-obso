@@ -279,7 +279,7 @@ if ($table != '') {
                             <form id='".$hostname."' method=\"POST\" action=\"fiche_machine.php\">
                                 <input type=\"hidden\" name=\"machine\" value=\"".$hostname."\"/> 
                             </form>
-                            <a href='#' onclick='document.getElementById(\"".$hostname."\").submit()' target=\"_blank\">
+                            <a href='#' onclick='document.getElementById(\"".$hostname."\").submit()' >
                                 <b>".$hostname."</b>
                             </a>
                         </td>

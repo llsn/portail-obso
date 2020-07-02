@@ -472,10 +472,10 @@
                                     switch ($entete)
                                     {
                                         case "child":
-                                            echo "<td><form id=\"".$col."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$col."\"/> </form><a href='#' onclick='document.getElementById(\"$col\").submit()' target='_blank'><b>".$col."</b></a></td>";
+                                            echo "<td><form id=\"".$col."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$col."\"/> </form><a href='#' onclick='document.getElementById(\"$col\").submit()' ><b>".$col."</b></a></td>";
                                             break;
                                         case "parent":
-                                            echo "<td><form id=\"".$col."\" method=\"POST\" action=\"components_detail.php\"><input type=\"hidden\" name=\"var_consult_component\" value=\"true\"/><input type=\"hidden\" name=\"var_logical_CI\" value=\"".$col."\"/> </form><a href='#' onclick='document.getElementById(\"$col\").submit()' target='_blank'><b>".$col."</b></a></td>";
+                                            echo "<td><form id=\"".$col."\" method=\"POST\" action=\"components_detail.php\"><input type=\"hidden\" name=\"var_consult_component\" value=\"true\"/><input type=\"hidden\" name=\"var_logical_CI\" value=\"".$col."\"/> </form><a href='#' onclick='document.getElementById(\"$col\").submit()' ><b>".$col."</b></a></td>";
                                             break;
                                         default:
                                             echo '<td>'.$col.'</td>';

@@ -181,7 +181,7 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
 
     <body>
         <script src="js/pace.min.js"></script>
-        <a href="Descriptif.php" target="_blank">Liste des tables et vues du portail</a>
+        <a href="Descriptif.php" >Liste des tables et vues du portail</a>
         <center>
             <form method="POST" action="inventory.php">
                 <select name="table" size="1" maxlength="15" value="<?php if ($table != '') {
@@ -403,10 +403,10 @@ if ($table != null) {
                         foreach ($tuple as $entete => $col) {
                             switch (strtoupper($entete)) {
                                 case 'CONFIGURATIONNAME_WO_EXTENSION':
-                                    echo '<td><form id="'.$col.'" method="POST" action="fiche_machine.php"><input type="hidden" name="machine" value="'.$col."\"/> </form><a href='#' onclick='document.getElementById(\"".$col."\").submit()' target=\"_blank\"><b>".$col.'</b></a></td>';
+                                    echo '<td><form id="'.$col.'" method="POST" action="fiche_machine.php"><input type="hidden" name="machine" value="'.$col."\"/> </form><a href='#' onclick='document.getElementById(\"".$col."\").submit()' ><b>".$col.'</b></a></td>';
                                     break;
                                 case 'HOSTNAME':
-                                    echo '<td><form id="'.$col.'" method="POST" action="fiche_machine.php"><input type="hidden" name="machine" value="'.$col."\"/> </form><a href='#' onclick='document.getElementById(\"".$col."\").submit()' target=\"_blank\"><b>".$col.'</b></a></td>';
+                                    echo '<td><form id="'.$col.'" method="POST" action="fiche_machine.php"><input type="hidden" name="machine" value="'.$col."\"/> </form><a href='#' onclick='document.getElementById(\"".$col."\").submit()' ><b>".$col.'</b></a></td>';
                                     break;
                                 default:
                                     echo '<td>'.$col.'</td>';

@@ -327,7 +327,7 @@
                                 switch (strtoupper($entete)) 
                                 {
                                     case 'LOCAL NAME':
-                                        echo "<td><form id=\"".$col."\" method=\"POST\" action=\"gestion_obso_v2.php\"><input type=\"hidden\" name=\"application\" value=\"".$col."\"/></form><a href='#' target=\"_blank\" onclick='document.getElementById(\"".$col."\").submit()'><b>".$col."</b></a></td>";
+                                        echo "<td><form id=\"".$col."\" method=\"POST\" action=\"gestion_obso_v2.php\"><input type=\"hidden\" name=\"application\" value=\"".$col."\"/></form><a href='#' onclick='document.getElementById(\"".$col."\").submit()'><b>".$col."</b></a></td>";
                                         break;
                                     default:
                                         echo '<td>'.$col.'</td>';

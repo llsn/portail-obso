@@ -234,7 +234,7 @@
                                 <form id="<?php echo $PGMP ?>" method="POST" action="fiche_machine.php">
                                     <input type='hidden' name='PGMP' value='<?php echo $PGMP ?>'/> 
                                 </form>
-                                <!-- <a href='#' onclick='document.getElementById("<?php echo $PGMP ?>").submit()' target="_blank">
+                                <!-- <a href='#' onclick='document.getElementById("<?php echo $PGMP ?>").submit()' >
                                     <center>
                                         <b>
                                             <?php echo $PGMP ?>
@@ -324,7 +324,7 @@
                                             <form id='".$Hostname."' method=\"POST\" action=\"fiche_machine.php\">
                                                 <input type=\"hidden\" name=\"machine\" value=\"".$Hostname."\"/> 
                                             </form>
-                                            <a href='#' onclick='document.getElementById(\"".$Hostname."\").submit()' target=\"_blank\">
+                                            <a href='#' onclick='document.getElementById(\"".$Hostname."\").submit()' >
                                                 <b>".$Hostname."</b>
                                             </a>
                                         </td>
@@ -353,7 +353,7 @@
                                 <form id="<?php echo $MACHINE ?>" method="POST" action="fiche_machine.php">
                                     <input type='hidden' name='machine' value='<?php echo $MACHINE ?>'/> 
                                 </form>
-                                <!-- <a href='#' onclick='document.getElementById("<?php echo $MACHINE ?>").submit()' target="_blank">
+                                <!-- <a href='#' onclick='document.getElementById("<?php echo $MACHINE ?>").submit()' >
                                     <center>
                                         <b>
                                             <?php echo $MACHINE ?>
@@ -443,7 +443,7 @@
                                             <form id='".$PgMP."' method=\"POST\" action=\"PGMP.php\">
                                                 <input type=\"hidden\" name=\"PGMP\" value=\"".$PgMP."\"/> 
                                             </form>
-                                            <a href='#' onclick='document.getElementById(\"".$PgMP."\").submit()' target=\"_blank\">
+                                            <a href='#' onclick='document.getElementById(\"".$PgMP."\").submit()' >
                                                 <b>".$PgMP."</b>
                                             </a>
 
@@ -452,7 +452,7 @@
                                             <form id='".$Hostname."' method=\"POST\" action=\"fiche_machine.php\">
                                                 <input type=\"hidden\" name=\"machine\" value=\"".$Hostname."\"/> 
                                             </form>
-                                            <a href='#' onclick='document.getElementById(\"".$Hostname."\").submit()' target=\"_blank\">
+                                            <a href='#' onclick='document.getElementById(\"".$Hostname."\").submit()' >
                                                 <b>".$Hostname."</b>
                                             </a>
                                         </td>

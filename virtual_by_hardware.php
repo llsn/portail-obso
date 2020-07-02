@@ -209,7 +209,7 @@
                                 <form id="<?php echo $machine ?>" method="POST" action="fiche_machine.php">
                                     <input type='hidden' name='machine' value='<?php echo $machine ?>'/> 
                                 </form>
-                                <a href='#' onclick='document.getElementById("<?php echo $machine ?>").submit()' target="_blank">
+                                <a href='#' onclick='document.getElementById("<?php echo $machine ?>").submit()' >
                                     <center>
                                         <b>
                                             <?php echo $machine ?>
@@ -294,7 +294,7 @@
                                             <form id='".$hostname."' method=\"POST\" action=\"fiche_machine.php\">
                                                 <input type=\"hidden\" name=\"machine\" value=\"".$hostname."\"/> 
                                             </form>
-                                            <a href='#' onclick='document.getElementById(\"".$hostname."\").submit()' target=\"_blank\">
+                                            <a href='#' onclick='document.getElementById(\"".$hostname."\").submit()' >
                                                 <b>".$hostname."</b>
                                             </a>
                                         </td>

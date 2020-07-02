@@ -243,10 +243,10 @@
                                 switch (strtoupper($entete)) 
                                 {
                                     case 'CONFIGURATIONNAME_WO_EXTENSION':
-                                        echo '<td><form id="'.$col.'" method="POST" action="fiche_machine.php"><input type="hidden" name="machine" value="'.$col."\"/> </form><a href='#' onclick='document.getElementById(\"".$col."\").submit()' target=\"_blank\"><b>".$col.'</b></a></td>';
+                                        echo '<td><form id="'.$col.'" method="POST" action="fiche_machine.php"><input type="hidden" name="machine" value="'.$col."\"/> </form><a href='#' onclick='document.getElementById(\"".$col."\").submit()' ><b>".$col.'</b></a></td>';
                                         break;
                                     case 'HOSTNAME':
-                                        echo '<td><form id="'.$col.'" method="POST" action="fiche_machine.php"><input type="hidden" name="machine" value="'.$col."\"/> </form><a href='#' onclick='document.getElementById(\"".$col."\").submit()' target=\"_blank\"><b>".$col.'</b></a></td>';
+                                        echo '<td><form id="'.$col.'" method="POST" action="fiche_machine.php"><input type="hidden" name="machine" value="'.$col."\"/> </form><a href='#' onclick='document.getElementById(\"".$col."\").submit()' ><b>".$col.'</b></a></td>';
                                         break;
                                     default:
                                         echo '<td>'.$col.'</td>';
