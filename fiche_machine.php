@@ -155,7 +155,7 @@
         if (isset($ping_server) != null) 
         {
             echo "<div><pre>";
-            exec("/usr/bin/ping -c 3 $ping_server",$output,$result);
+            exec("/bin/ping -c 3 $ping_server",$output,$result);
             if ($result == 0)
                 echo "Ping du serveur $ping_server réussi!";
             else
