@@ -120,6 +120,7 @@
     else
     {
         echo "<pre>Le fichier est de type $extension.<br/>Le type de fichier upload n'est pas de type \"CSV\"</pre>";
+	move_uploaded_file($_FILES['csv']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/WORK/'.$_FILES['csv']['name']);
     }
 
     // fonction permet de visualiser le contenu de toutes les variables
@@ -129,7 +130,7 @@
          error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
 
          $variables = get_defined_vars(); // Donne le contenu et les valeurs de toutes les variables dans la portée actuelle
-         $var_ignore=array("GLOBALS", "_ENV", "_SERVER"); // Détermine les var à ne pas afficher
+         $var_ignore=array("GLOBALS", "_ENV", "_SERVER", "host", "dbname", "user", "password"); // Détermine les var à ne pas afficher
          echo ("<strong>Etat des variables a la ligne : ".__LINE__." dans le fichier : ".__FILE__."</strong><br />\n");
          $nom_fonction=__FUNCTION__;
 	 if (isset($nom_fonction)&&$nom_fonction!="") 
