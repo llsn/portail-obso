@@ -1,7 +1,14 @@
 #!/usr/bin/ksh
 var_date=$(date +'%Y%m%d')
-WORK=/var/www/html/WORK
-#cd /root/OBSOLESCENCE/EXPORTS/
+HTML=/var/www/html
+WORK=$HTML/WORK
+SYSTEM=$WORK/system
+DB=$WORK/db
+MIDDLEWARE=$WORK/middleware
+SPREADSHEET=$WORK/spreadsheet-csv
+ARCHIVES=$WORK/ARCHIVES
+
+
 cd $WORK
 #Suppression des espace dans les noms de fichiers
 ls *CMDB*|while read i 
@@ -98,13 +105,13 @@ then
 	mkdir SQL
 fi
 cd SQL
-/root/OBSOLESCENCE/SCRIPTS/mktable.ksh /root/OBSOLESCENCE/EXPORTS/spreadsheet-csv/system_inventory_$var_date.csv
-/root/OBSOLESCENCE/SCRIPTS/mktable.ksh /root/OBSOLESCENCE/EXPORTS/spreadsheet-csv/db_inventory_$var_date.csv
-/root/OBSOLESCENCE/SCRIPTS/mktable.ksh /root/OBSOLESCENCE/EXPORTS/spreadsheet-csv/middleware_inventory_$var_date.csv
+$HTML/SCRIPTS/mktable.ksh $WORK/spreadsheet-csv/system_inventory_$var_date.csv
+$HTML/SCRIPTS/mktable.ksh $WORK/spreadsheet-csv/db_inventory_$var_date.csv
+$HTML/SCRIPTS/mktable.ksh $WORK/spreadsheet-csv/middleware_inventory_$var_date.csv
 
-mysql -v -h mysql -uroot -p\!Maverick02# cmdb < /root/OBSOLESCENCE/EXPORTS/SQL/make_table_system_inventory_$var_date.sql
-mysql -v -h mysql -uroot -p\!Maverick02# cmdb < /root/OBSOLESCENCE/EXPORTS/SQL/make_table_db_inventory_$var_date.sql
-mysql -v -h mysql -uroot -p\!Maverick02# cmdb < /root/OBSOLESCENCE/EXPORTS/SQL/make_table_middleware_inventory_$var_date.sql
+mysql -v -h mysql -uroot -p\!Maverick02# cmdb < $WORK/SQL/make_table_system_inventory_$var_date.sql
+mysql -v -h mysql -uroot -p\!Maverick02# cmdb < $WORK/SQL/make_table_db_inventory_$var_date.sql
+mysql -v -h mysql -uroot -p\!Maverick02# cmdb < $WORK/SQL/make_table_middleware_inventory_$var_date.sql
 
 cd ..
 
