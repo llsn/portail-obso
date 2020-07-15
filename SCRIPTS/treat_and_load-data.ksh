@@ -1,7 +1,8 @@
 #!/usr/bin/ksh
 var_date=$(date +'%Y%m%d')
-
-cd /root/OBSOLESCENCE/EXPORTS/
+WORK=/var/www/html/WORK
+#cd /root/OBSOLESCENCE/EXPORTS/
+cd $WORK
 #Suppression des espace dans les noms de fichiers
 ls *CMDB*|while read i 
 do 
@@ -36,8 +37,8 @@ cd ./system
 
 for j in $(ls -1 | sed -e 's/\..*$//') 
 do
-        xlsx2csv -d '£' -s 1 $j.xlsx ../spreadsheet-csv/$j.csv
-        rm -f $j.xlsx
+    xlsx2csv -d '£' -s 1 $j.xlsx ../spreadsheet-csv/$j.csv
+    rm -f $j.xlsx
 	sed -i "s/;/-/g" ../spreadsheet-csv/$j.csv
 	sed -i "s/,/|/g" ../spreadsheet-csv/$j.csv
 	sed -i "s/£/\',\'/g" ../spreadsheet-csv/$j.csv
