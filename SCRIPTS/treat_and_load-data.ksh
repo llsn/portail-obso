@@ -44,11 +44,11 @@ cd $SYSTEM
 
 for j in $(ls -1 | sed -e 's/\..*$//') 
 do
-    xlsx2csv -d '£' -s 1 $j.xlsx $SPREADSHEET/$j.csv
+    xlsx2csv -d '%' -s 1 $j.xlsx $SPREADSHEET/$j.csv
     rm -f $j.xlsx
 	sed -i "s/;/-/g" $SPREADSHEET/$j.csv
 	sed -i "s/,/|/g" $SPREADSHEET/$j.csv
-	sed -i "s/£/\',\'/g" $SPREADSHEET/$j.csv
+	sed -i "s/%/\',\'/g" $SPREADSHEET/$j.csv
 	sed -i "s/^/\'/" $SPREADSHEET/$j.csv
 	sed -i "s/$/\'/" $SPREADSHEET/$j.csv
 	sed -i -E "s/([A-Za-z])'([A-Za-z])/\1-\2/g" $SPREADSHEET/$j.csv
@@ -64,11 +64,11 @@ cd ..
 libreoffice --headless --convert-to xlsx ./CMDB-DB-INSTANCE_* --outdir $DB
 cd $DB
 for j in $(ls -1 | sed -e 's/\..*$//'); do
-        xlsx2csv -d '£' -s 2 $j.xlsx $SPREADSHEET/$j.csv
+        xlsx2csv -d '%' -s 2 $j.xlsx $SPREADSHEET/$j.csv
         rm -f $j.xlsx
         sed -i "s/;/-/g" $SPREADSHEET/$j.csv
         sed -i "s/,/|/g" $SPREADSHEET/$j.csv
-        sed -i "s/£/\',\'/g" $SPREADSHEET/$j.csv
+        sed -i "s/%/\',\'/g" $SPREADSHEET/$j.csv
         sed -i "s/^/\'/" $SPREADSHEET/$j.csv
         sed -i "s/$/\'/" $SPREADSHEET/$j.csv
         sed -i -E "s/([A-Za-z])'([A-Za-z])/\1-\2/g" $SPREADSHEET/$j.csv
@@ -83,11 +83,11 @@ cd ..
 libreoffice --headless --convert-to xlsx ./CMDB-MW_* --outdir $MIDDLEWARE
 cd $MIDDLEWARE
 for j in $(ls -1 | sed -e 's/\..*$//'); do
-        xlsx2csv -d '£' -s 2 $j.xlsx $SPREADSHEET/$j.csv
+        xlsx2csv -d '%' -s 2 $j.xlsx $SPREADSHEET/$j.csv
         rm -f $j.xlsx
         sed -i "s/;/-/g" $SPREADSHEET/$j.csv
         sed -i "s/,/|/g" $SPREADSHEET/$j.csv
-        sed -i "s/£/\',\'/g" $SPREADSHEET/$j.csv
+        sed -i "s/%/\',\'/g" $SPREADSHEET/$j.csv
         sed -i "s/^/\'/" $SPREADSHEET/$j.csv
         sed -i "s/$/\'/" $SPREADSHEET/$j.csv
         sed -i -E "s/([A-Za-z])'([A-Za-z])/\1-\2/g" $SPREADSHEET/$j.csv
