@@ -233,6 +233,9 @@
                   <th>
                     BRM in charge
                   </th>
+                  <th>
+                    Will be Replace By
+                  </th>
                </tr>
             </thead>
             <?php 
@@ -302,6 +305,7 @@
                         $IT_Functionnal="-";
                         $IT_Technical="-";
                         $BRM="-"; 
+                        $ReplaceBy="Nothing for the moment";
 					}                     
                     else
 					{                     
@@ -310,7 +314,8 @@
                         // $BRM=$result[3]; 
                         $IT_Functionnal=$result[4];
                         $IT_Technical=$result[5];
-                        $BRM=$result[6]; 
+                        $BRM=$result[6];
+                        $ReplaceBy=$result[7]; 
                     }
                   }
                   echo "<tr>\n";
@@ -336,6 +341,9 @@
                   echo "<td>";
                   echo $BRM;
                   echo "</td>";
+                  echo "<td>";
+                  echo $ReplaceBy;
+                  echo "</td>";
                   echo "</tr>";
 						$content = ob_get_contents(); // Fin de l'enregistrement
 						// Sauvegarder ma page dans un fichier html
@@ -354,28 +362,28 @@
 $content = ob_get_contents(); // Fin de l'enregistrement
 // Sauvegarder ma page dans un fichier html
 writeTextFile("/var/www/html/taux_obso_by_app.html",$content);//recuperation du nom pour nommer le document
-// debug de variables
-echo "<p class=\"debug\">";
-error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
+// // debug de variables
+// echo "<p class=\"debug\">";
+// error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
 
-$variables = get_defined_vars(); // Donne le contenu et les valeurs de toutes les variables dans la portée actuelle
-$var_ignore=array("GLOBALS", "_ENV", "_SERVER","_GET","host","dbname","user","password","port","socket"); // Détermine les var à ne pas afficher
-echo ("<strong>Etat des variables a la ligne : ".__LINE__." dans le fichier : ".__FILE__."</strong><br />\n");
-$nom_fonction=__FUNCTION__;
-if (isset($nom_fonction)&&$nom_fonction!="")
-{
-	echo ("<strong>Dans la fonction : ".$nom_fonction."</strong><br />\n");
-}
-foreach ($variables as $key=>$value)
-{
-	if (!in_array($key, $var_ignore)&&strpos($key,"HTTP")===false)
-   	{
-		echo "<pre class=\"debug\">";
-		echo ("$".$key." => ");
-		print_r($value);
-		echo "</pre>\n";
-  	}
-}
-echo "</p>";
+// $variables = get_defined_vars(); // Donne le contenu et les valeurs de toutes les variables dans la portée actuelle
+// $var_ignore=array("GLOBALS", "_ENV", "_SERVER","_GET","host","dbname","user","password","port","socket"); // Détermine les var à ne pas afficher
+// echo ("<strong>Etat des variables a la ligne : ".__LINE__." dans le fichier : ".__FILE__."</strong><br />\n");
+// $nom_fonction=__FUNCTION__;
+// if (isset($nom_fonction)&&$nom_fonction!="")
+// {
+// 	echo ("<strong>Dans la fonction : ".$nom_fonction."</strong><br />\n");
+// }
+// foreach ($variables as $key=>$value)
+// {
+// 	if (!in_array($key, $var_ignore)&&strpos($key,"HTTP")===false)
+//    	{
+// 		echo "<pre class=\"debug\">";
+// 		echo ("$".$key." => ");
+// 		print_r($value);
+// 		echo "</pre>\n";
+//   	}
+// }
+// echo "</p>";
 
 ?>

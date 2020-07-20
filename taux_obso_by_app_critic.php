@@ -233,6 +233,9 @@
                     <th>
                     BRM in charge
                     </th>
+                    <th>
+                    Will be Replace By
+                    </th>
                </tr>
             </thead>
             <?php 
@@ -302,6 +305,7 @@
                         $IT_Functionnal="-";
                         $IT_Technical="-";
                         $BRM="-"; 
+                        $ReplaceBy="Nothing for the moment";
 					}                     
                     else
 					{                     
@@ -311,6 +315,7 @@
                         $IT_Functionnal=$result[4];
                         $IT_Technical=$result[5];
                         $BRM=$result[6]; 
+                        $ReplaceBy=$result[7]; 
                     }
                   }
                   echo "<tr>\n";
@@ -335,6 +340,9 @@
                   echo "</td>";
                   echo "<td>";
                   echo $BRM;
+                  echo "</td>";
+                  echo "<td>";
+                  echo $ReplaceBy;
                   echo "</td>";
                   echo "</tr>";
 						$content = ob_get_contents(); // Fin de l'enregistrement
