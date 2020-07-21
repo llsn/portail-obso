@@ -1,6 +1,8 @@
 imports/*
+certs/*
 WORK/
 imports/
+certs/
 database/postgres
 db_keepass
 keepass
