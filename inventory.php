@@ -43,7 +43,7 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
 <head>
     <title>Interrogation de la CMDB - table <?php echo $table; ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" type="text/css" href="stylesheet/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/w3.css" />
 	<link rel="stylesheet" type="text/css" href="vendor/datatables/datatables/media/css/jquery.dataTables.css" />
 	<link rel="stylesheet" type="text/css" href="vendor/datatables/datatables/media/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" type="text/css" href="Datatables/AutoFill-2.3.4/css/autoFill.dataTables.min.css" />
@@ -175,18 +175,18 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
 <div id="bandeau">
     <p class="imageflottante">
         <center>
-            <H1 class="jumbotron"> Consultation de la table <?php echo $table; ?> </H1>
+            <H1 class="w3-center"> Consultation des tables <?php echo $table; ?> </H1>
         </center>
     </p>
 
     <body>
         <script src="js/pace.min.js"></script>
-        <a href="Descriptif.php" >Liste des tables et vues du portail</a>
+        <a href="Descriptif.php" class="w3-button" >Liste des tables et vues du portail</a>
         <center>
             <form method="POST" action="inventory.php">
                 <select name="table" size="1" maxlength="15" value="<?php if ($table != '') {
     echo $table;
-} ?>" class="input-lg">
+} ?>" class="w3-input">
                     <option value="">choisissez une table</option>
 
                     <?php
@@ -209,7 +209,7 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
                 </select>
 
                 <input list="NameServer" name="NameServer" size="50" value="<?php echo $NameServer; ?>"
-                    class="input-lg">
+                    class="w3-input">
                 <datalist id="NameServer">
                     <option value="">choisissez le nom du serveur</option>
                     <?php
@@ -233,7 +233,7 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
 
                 <select name="operatingenvironment" size="1" maxlength="15" value="<?php if ($operatingenvironment != '') {
     echo $operatingenvironment;
-} ?>" class="input-lg"><br>
+} ?>" class="w3-input"><br>
                     <option value="">Environnement Opérationnel</option>
                     <?php
 
@@ -255,7 +255,7 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
 
                 </select>
 
-                <select name="osname" size="1" maxlength="15" class="input-lg">
+                <select name="osname" size="1" maxlength="15" class="w3-input">
                     <option value="">Nom de l'OS</option>
                     <option value="AIX" <?php if ($osname == 'AIX') {
     echo 'selected';
@@ -278,13 +278,13 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
                 </select><br><br>
                 <input type="checkbox" name="chk_archived" <?php if (isset($_POST['chk_archived'])) {
     echo 'checked';
-} ?> class="input-lg">
+} ?> class="w3-input">
                 <label for="chk_archived">Cacher les machines "archived" ?</label></t>
                 <input type="checkbox" name="chk_osversion_null" <?php if (isset($_POST['chk_osversion_null'])) {
     echo 'checked';
-} ?> class="input-lg">
+} ?> class="w3-input">
                 <label for="chk_osversion_null">montrer les osversion à "null"</label>
-                <input type="submit" value="Envoyer" name="envoyer" class="input-lg">
+                <input type="submit" value="Envoyer" name="envoyer" class="w3-input">
 
             </form>
         </center>
