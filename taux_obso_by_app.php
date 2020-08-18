@@ -184,7 +184,7 @@
 <body>
 	<script src="js/pace.min.js"></script>
     <?php
-        $querylistapp = "select `application` from cmdb.application where ARCHIVED <> '1';";
+        $querylistapp = "select `application` from cmdb.application where ARCHIVED is null;";
         if ($stmt = $con->prepare($querylistapp)) 
         {
             $stmt->execute();
