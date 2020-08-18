@@ -172,7 +172,7 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
     <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
 </head>
 </head>
-<div id="bandeau">
+
     
         <center>
             <H1 class="w3-center"> Consultation des tables <?php echo $table; ?> </H1>
@@ -430,12 +430,12 @@ if ($table != null) {
 ?>
         <!-- <center>
             <form method="POST" action="export_to_csv.php" TARGET="_blank">
-                <input type="hidden" name="requete" value="<?php echo $query; ?>">
+                <input type="hidden" name="requete" value="<?php /*echo $query; */?>">
                 <input type="submit" value="Export en CSV" name="export">
             </form>
         </center> -->
-</div>
-<div class="container">
+
+<div class="w3-container">
     <?php
 
         if ($stmt = $con->prepare($query)) {
