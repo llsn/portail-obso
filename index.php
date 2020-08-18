@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="w3-dropdown-hover w3-hover-blue">
-                <button class="w3-button">DECOMMISSIONNEMENTS</button>
+                <button class="w3-button w3-hover-blue">DECOMMISSIONNEMENTS</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="PGMP.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">PGMP INFO</a>
                     <a href="secteur_decom.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Décommissionnement</a>
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="w3-dropdown-hover w3-hover-blue">
-                <button class="w3-button ">Détails Techniques</button>
+                <button class="w3-button w3-hover-blue">Détails Techniques</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="relationship.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Relation CI</a>
                     <a href="components_detail.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Détails des composants par appli</a>
