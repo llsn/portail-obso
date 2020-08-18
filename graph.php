@@ -7,7 +7,7 @@ use Grafizzi\Graph\Graph as Graph;
 
 $graph = new Graph('G');
 // create some cities
-$rome=$graph->add
+$rome=$graph->add;
 $rome = $graph->createVertex('Rome');
 $madrid = $graph->createVertex('Madrid');
 $cologne = $graph->createVertex('Cologne');

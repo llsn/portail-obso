@@ -1,67 +1,60 @@
 <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+        <link rel="stylesheet" href="css/w3.css">
 
-<head>
-   <title>Exploitation de la CMDB</title>
-   <link rel="stylesheet" type="text/css" href="stylesheet/css/bootstrap.min.css" />
-   <link rel="stylesheet" type="text/css" href="css/menu.css" />
-</head>
-
-<body>
-   <div>
-      <p>
-         <h1>
-            <center>Bienvenue sur la page d'exploitation de la CMDB</center>
-         </h1>
-      </p>
-   </div>
-   
-   <div>
-      <center>
-         <ul id="menu">
-            <li><a href="#">Gestion de la base de données</a>
-               <ul>
-                  <li><a href="inventory.php" target="_blank">Consulter les tables de la CMDB</a></li>
-                  <li><a href="import_to_db.php" target="_blank">Créer une table et importer des données dans la CMDB</a></li>
-                  <li><a href="import_cmdb.php" target="_blank">procédure d'importation de la CMDB dans la base d'exploitation de la CMDB</a></li>
-                  <li><a href="referentiel_support.php" target="_blank">Gestion du Référentiel Support</a></li>
-               </ul>
-            </li>
-<!--            <li><a href="http://10.1.84.101:3000/" target="_blank">Metabase</a></li> -->
-            <li><a href="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/" target="_blank">Metabase</a></li>
-            <li><a href="#">Consultations de données</a>
-               <ul>
-                  <li><a href="taux_obso_by_app.html" target="_blank">Taux obsolescence par application</a></li>
-                  <li><a href="taux_obso_by_app_critic.html" target="_blank">Taux obsolescence par application CRITIQUE</a></li>
-                  <li><a href="taux_obso_by_os.php" target="_blank">Listes des application avec un OS obsolète</a></li>
-                  <li><a href="search_servers_by_appli.php" target="_blank">Recherche des OS par Application</a></li>
-                  <li><a href="fiche_machine.php" target="_blank">Fiche descriptive de machine</a></li>
-               </ul>
-            </li>
-            <li><a href="#">DECOMMISSIONNEMENTS</a>
-               <ul>
-                  <li><a href="PGMP.php" target="_blank">PGMP INFO</a></li>
-                  <li><a href="secteur_decom.php" target="_blank">Décommissionnement</a></li>
-                  <li><a href="archived_servers.php" target="_blank">Serveurs Archivés</a></li>
-               </ul>
-            <li><a href="#">Détails Techniques</a>
-               <ul>
-                  <li><a href="relationship.php" target="_blank">Relation CI</a></li>
-                  <li><a href="components_detail.php" target="_blank">Détails des composants par appli</a></li>
-                  <li><a href="virtual_by_hardware.php" target="_blank">Hardware -> Virtual</a></li>
-                  <li><a href="dependance_hardware.php" target="_blank">Virtual -> Hardware</a></li>
-               </ul>
-            </li>
-            <li><a href="secteur_projet.php" target="_blank">Projets</a></li>
-         </ul> 
-      </center>
-   </div>
-  
-   <p>
-      <div>
-         <iframe src="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/public/dashboard/c805f193-21de-4396-bd3e-16166cbe668d" frameborder="0"
-            width="100%" height="100%" allowtransparency></iframe>
-      </div>
-   </p>
-</body>
-
+        
+    </head>
+    <body >
+        <header>
+            <h1 class="w3-center">Portail de gestion de l'obsolescence</h1>
+        </header>
+        <div id='menu' class="w3-bar w3-center w3-light-grey">
+            <a href="#" class="w3-bar-item w3-button w3-blue">Menu</a>
+            <div class="w3-dropdown-hover"> 
+                <button class="w3-button w3-light-grey w3-hover-blue">Gestion de la base de données</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="inventory.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Consulter les tables de la CMDB</a>
+                    <a href="import_to_db.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Créer une table et importer des données dans la CMDB</a>
+                    <a href="import_cmdb.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">procédure d'importation de la CMDB dans la base d'exploitation de la CMDB</a>
+                    <a href="referentiel_support.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Gestion du Référentiel Support</a>
+                </div>
+            </div>
+            <a href="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Metabase</a>
+            <div class="w3-dropdown-hover w3-hover-blue">
+                <button class="w3-button w3-hover-blue">Consultations de données</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="taux_obso_by_app.html" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Taux obsolescence par application</a>
+                    <a href="taux_obso_by_app_critic.html" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Taux obsolescence par application CRITIQUE</a>
+                    <a href="taux_obso_by_os.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Listes des application avec un OS obsolète</a>
+                    <a href="search_servers_by_appli.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Recherche des OS par Application</a>
+                    <a href="fiche_machine.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Fiche descriptive de machine</a>
+                </div>
+            </div>
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">DECOMMISSIONNEMENTS</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="PGMP.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">PGMP INFO</a>
+                    <a href="secteur_decom.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Décommissionnement</a>
+                    <a href="archived_servers.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Serveurs Archivés</a>
+                </div>
+            </div>
+            <div class="w3-dropdown-hover">
+                <button class="w3-button">Détails Techniques</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="relationship.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Relation CI</a>
+                    <a href="components_detail.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Détails des composants par appli</a>
+                    <a href="virtual_by_hardware.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Hardware -> Virtual</a>
+                    <a href="dependance_hardware.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Virtual -> Hardware</a>
+                </div>
+            </div>
+            <a href="secteur_projet.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Projets</a>
+        </div>
+        <div>
+            <iframe src="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/public/dashboard/c805f193-21de-4396-bd3e-16166cbe668d" frameborder="0" width="100%" height="100%" allowtransparency></iframe>
+        </div>        
+        <footer>
+            <h6 class="w3-center w3-grey">Développé par Lionel SEVERIAN</h6>
+        </footer>
+    </body>
 </html>
