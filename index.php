@@ -1,5 +1,6 @@
 <html>
     <head>
+         <title>Portail de gestion de l'obsolescence</title>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
         <link rel="stylesheet" href="css/w3.css">
 
