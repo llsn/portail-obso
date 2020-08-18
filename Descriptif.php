@@ -3,16 +3,16 @@
 <head>
 	<TITLE>Liste de référence des tables et vue de la table d'exploitation de la CMDB</TITLE>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="stylesheet" href="style.css" media="all" type="text/css" />
+	<link rel="stylesheet" href="css/w3.css" media="all" type="text/css" />
 </head>
 
 <body>
 	<center>
 		<p>Vous trouverez ci-dessous la liste des tables et vues utilisés par le portail avec leurs descriptifs</p>
 
-		<table class="blueTable">
+		<table class="w3-small w3-bordered w3-striped w3-hoverable " style='width:98%'>
 			<thead>
-				<tr>
+				<tr class="w3-blue w3-bordered">
 					<TH>Type(Table ou Vue)</TH>
 					<TH>Nom</TH>
 					<TH>DESCRIPTIF</TH>
