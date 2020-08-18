@@ -369,7 +369,7 @@ if ($table != null) {
         $count_item = $stmt->fetch();
     }
 
-    echo "<center><br><u>Requête SQL générée :</u> <br><br><textarea cols=80 rows=5 disabled>$query</textarea></center><br>";
+    /*echo "<center><br><u>Requête SQL générée :</u> <br><br><textarea cols=80 rows=5 disabled>$query</textarea></center><br>";*/
 
     echo "<center>Nombre d'occurences liées à la requête:".$count_item[0].'</center><br>'; ?>
 
