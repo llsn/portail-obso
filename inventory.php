@@ -184,110 +184,165 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
         <a href="Descriptif.php" class="w3-button w3-blue" >Liste des tables et vues du portail</a><br/>
         <center>
             <form method="POST" action="inventory.php">
-                Sélectionnez une table dans la liste
-                <select name="table" size="1" maxlength="15" value="<?php if ($table != '') {
-    echo $table;
-} ?>" class="w3-select w3-border" style="width:30%">
-                    
-                    <option value="">choisissez une table</option>
+                <div class="w3-container">
+                    Sélectionnez une table dans la liste
+                    <select name="table" size="1" maxlength="15" value="
+                    <?php 
+                    if ($table != '') 
+                    {
+                        echo $table;
+                    } 
+                    ?>
+                    " class="w3-select w3-border" style="width:30%">
+                        
+                        <option value="">choisissez une table</option>
 
-                    <?php
+                        <?php
 
-    $querytable = 'show tables;';
+                            $querytable = 'show tables;';
 
-    if ($stmt = $con->prepare($querytable)) {
-        $stmt->execute();
-        while ($resulttable = $stmt->fetch()) {
-            if ($table == $resulttable[0]) {
-                echo '<option value="'.$resulttable[0].'" selected>'.$resulttable[0].'</option>';
-            } else {
-                echo '<option value="'.$resulttable[0].'">'.$resulttable[0].'</option>';
-            }
+                            if ($stmt = $con->prepare($querytable)) {
+                                $stmt->execute();
+                                while ($resulttable = $stmt->fetch()) {
+                                    if ($table == $resulttable[0]) {
+                                        echo '<option value="'.$resulttable[0].'" selected>'.$resulttable[0].'</option>';
+                                    } else {
+                                        echo '<option value="'.$resulttable[0].'">'.$resulttable[0].'</option>';
+                                    }
 
-            $stmt->pdo = null;
-        }
-    }
-?>
-                </select><br/>
-                Commencer à saisir un nom de serveur 
-                <input list="NameServer" name="NameServer" size="50" value="<?php echo $NameServer; ?>"
-                    class="w3-select w3-border" style="width:30%">
-                <datalist id="NameServer">
-                    <option value="">choisissez le nom du serveur</option>
-                    <?php
+                                    $stmt->pdo = null;
+                                }
+                            }
+                        ?>
+                    </select><br/>
 
-    $querynameserver = 'select configurationname_wo_extension from system_inventory order by configurationname_wo_extension';
+                    Commencer à saisir un nom de serveur 
+                    <input list="NameServer" name="NameServer" size="50" value="<?php echo $NameServer; ?>"
+                        class="w3-select w3-border" style="width:30%">
+                    <datalist id="NameServer">
+                        <option value="">choisissez le nom du serveur</option>
+                        <?php
 
-    if ($stmt = $con->prepare($querynameserver)) {
-        $stmt->execute();
-        while ($resultnameserver = $stmt->fetch()) {
-            if ($NameServer == $resultnameserver[0]) {
-                echo '<option value="'.$resultnameserver[0].'" selected>'.$resultnameserver[0].'</option>';
-            } else {
-                echo '<option value="'.$resultnameserver[0].'" >'.$resultnameserver[0].'</option>';
-            }
+                            $querynameserver = 'select configurationname_wo_extension from system_inventory order by configurationname_wo_extension';
 
-            $stmt->pdo = null;
-        }
-    }
-?>
-                </datalist><br/>
-                Choisissez l'environnement souhaité
-                <select name="operatingenvironment" size="1" maxlength="15" value="<?php if ($operatingenvironment != '') {
-    echo $operatingenvironment;
-} ?>" class="w3-select w3-border" style="width:30%"><br>
-                    <option value="">Environnement Opérationnel</option>
-                    <?php
+                            if ($stmt = $con->prepare($querynameserver)) {
+                                $stmt->execute();
+                                while ($resultnameserver = $stmt->fetch()) {
+                                    if ($NameServer == $resultnameserver[0]) {
+                                        echo '<option value="'.$resultnameserver[0].'" selected>'.$resultnameserver[0].'</option>';
+                                    } else {
+                                        echo '<option value="'.$resultnameserver[0].'" >'.$resultnameserver[0].'</option>';
+                                    }
 
-    $querytable = 'select distinct operatingenvironment from global_inventory;';
+                                    $stmt->pdo = null;
+                                }
+                            }
+                        ?>
+                    </datalist><br/>
+                    Choisissez l'environnement souhaité
+                    <select name="operatingenvironment" size="1" maxlength="15" value="
+                    <?php 
+                    if ($operatingenvironment != '') 
+                    {
+                        echo $operatingenvironment;
+                    } 
+                    ?>
+                    " class="w3-select w3-border" style="width:30%"><br>
+                        <option value="">Environnement Opérationnel</option>
+                        <?php
 
-    if ($stmt = $con->prepare($querytable)) {
-        $stmt->execute();
-        while ($resulttable = $stmt->fetch()) {
-            if ($operatingenvironment == $resulttable[0]) {
-                echo '<option value="'.$resulttable[0].'" selected>'.$resulttable[0].'</option>';
-            } else {
-                echo '<option value="'.$resulttable[0].'">'.$resulttable[0].'</option>';
-            }
+                            $querytable = 'select distinct operatingenvironment from global_inventory;';
 
-            $stmt->pdo = null;
-        }
-    }
-?>
+                            if ($stmt = $con->prepare($querytable)) 
+                            {
+                                $stmt->execute();
+                                while ($resulttable = $stmt->fetch()) 
+                                {
+                                    if ($operatingenvironment == $resulttable[0]) 
+                                    {
+                                        echo '<option value="'.$resulttable[0].'" selected>'.$resulttable[0].'</option>';
+                                    } else {
+                                        echo '<option value="'.$resulttable[0].'">'.$resulttable[0].'</option>';
+                                    }
 
-                </select><br/>
-                Choisissez le type de system d'exploitation
-                <select name="osname" size="1" maxlength="15" class="w3-select w3-border" style="width:30%">
-                    <option value="">Nom de l'OS</option>
-                    <option value="AIX" <?php if ($osname == 'AIX') {
-    echo 'selected';
-} ?>>AIX</option>
-                    <option value="LINUX" <?php if ($osname == 'LINUX') {
-    echo 'selected';
-} ?>>LINUX</option>
-                    <option value="WINDOWS" <?php if ($osname == 'WINDOWS') {
-    echo 'selected';
-} ?>>WINDOWS</option>
-                    <option value="IOS" <?php if ($osname == 'IOS') {
-    echo 'selected';
-} ?>>IOS</option>
-                    <option value="VMNIX" <?php if ($osname == 'VMNIX') {
-    echo 'selected';
-} ?>>VMNIX</option>
-                    <option value="NX-OS" <?php if ($osname == 'NX-OS') {
-    echo 'selected';
-} ?>>NX-OS</option>
-                </select><br><br>
-                <input type="checkbox" name="chk_archived" <?php if (isset($_POST['chk_archived'])) {
-    echo 'checked';
-} ?> class="w3-check">
-                <label for="chk_archived">Cacher les machines "archived" ?</label></t>
-                <input type="checkbox" name="chk_osversion_null" <?php if (isset($_POST['chk_osversion_null'])) {
-    echo 'checked';
-} ?> class="w3-check">
-                <label for="chk_osversion_null">montrer les osversion à "null"</label><br/><br/>
-                <input type="submit" value="Envoyer" name="envoyer" class="w3-button w3-blue">
+                                    $stmt->pdo = null;
+                                }
+                            }
+                        ?>
 
+                    </select><br/>
+                    Choisissez le type de system d'exploitation
+                    <select name="osname" size="1" maxlength="15" class="w3-select w3-border" style="width:30%">
+                        <option value="">Nom de l'OS</option>
+                        <option value="AIX" 
+                            <?php 
+                                if ($osname == 'AIX') 
+                                {
+                                    echo 'selected';
+                                } 
+                            ?>
+                        >AIX</option>
+                        <option value="LINUX" 
+                            <?php 
+                                if ($osname == 'LINUX') 
+                                {
+                                    echo 'selected';
+                                } 
+                            ?>
+                        >LINUX</option>
+                        <option value="WINDOWS" 
+                            <?php 
+                                if ($osname == 'WINDOWS') 
+                                {
+                                    echo 'selected';
+                                } 
+                            ?>
+                        >WINDOWS</option>
+                        <option value="IOS" 
+                            <?php 
+                                if ($osname == 'IOS') 
+                                {
+                                    echo 'selected';
+                                } 
+                            ?>
+                        >IOS</option>
+                        <option value="VMNIX" 
+                            <?php 
+                                if ($osname == 'VMNIX') 
+                                {
+                                    echo 'selected';
+                                } 
+                            ?>
+                        >VMNIX</option>
+                        <option value="NX-OS" 
+                            <?php 
+                                if ($osname == 'NX-OS') 
+                                {
+                                    echo 'selected';
+                                } 
+                            ?>
+                        >NX-OS</option>
+                    </select><br><br>
+                    <input type="checkbox" name="chk_archived" 
+                        <?php 
+                            if (isset($_POST['chk_archived'])) 
+                            {
+                                echo 'checked';
+                            } 
+                        ?> 
+                    class="w3-check">
+                    <label for="chk_archived">Cacher les machines "archived" ?</label></t>
+                    <input type="checkbox" name="chk_osversion_null" 
+                        <?php 
+                            if (isset($_POST['chk_osversion_null'])) 
+                            {
+                                echo 'checked';
+                            } 
+                        ?> 
+                    class="w3-check">
+                    <label for="chk_osversion_null">montrer les osversion à "null"</label><br/><br/>
+                    <input type="submit" value="Envoyer" name="envoyer" class="w3-button w3-blue">
+                </div>
             </form>
         </center>
 
