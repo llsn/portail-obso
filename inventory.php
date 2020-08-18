@@ -280,13 +280,13 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
                 </select><br><br>
                 <input type="checkbox" name="chk_archived" <?php if (isset($_POST['chk_archived'])) {
     echo 'checked';
-} ?> class="w3-input">
+} ?> class="w3-check">
                 <label for="chk_archived">Cacher les machines "archived" ?</label></t>
                 <input type="checkbox" name="chk_osversion_null" <?php if (isset($_POST['chk_osversion_null'])) {
     echo 'checked';
-} ?> class="w3-input">
-                <label for="chk_osversion_null">montrer les osversion à "null"</label>
-                <input type="submit" value="Envoyer" name="envoyer" class="w3-input">
+} ?> class="w3-check">
+                <label for="chk_osversion_null">montrer les osversion à "null"</label><br/>
+                <input type="submit" value="Envoyer" name="envoyer" class="w3-button w3-blue">
 
             </form>
         </center>
