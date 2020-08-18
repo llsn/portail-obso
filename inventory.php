@@ -187,7 +187,7 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
                 Sélectionnez une table dans la liste
                 <select name="table" size="1" maxlength="15" value="<?php if ($table != '') {
     echo $table;
-} ?>" class="w3-select w3-border w3-hover-blue" style="width:30%">
+} ?>" class="w3-select w3-border" style="width:30%">
                     
                     <option value="">choisissez une table</option>
 
@@ -211,7 +211,7 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
                 </select><br/>
                 Commencer à saisir un nom de serveur 
                 <input list="NameServer" name="NameServer" size="50" value="<?php echo $NameServer; ?>"
-                    class="w3-select w3-border w3-hover-blue" style="width:30%">
+                    class="w3-select w3-border" style="width:30%">
                 <datalist id="NameServer">
                     <option value="">choisissez le nom du serveur</option>
                     <?php
@@ -235,7 +235,7 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
                 Choisissez l'environnement souhaité
                 <select name="operatingenvironment" size="1" maxlength="15" value="<?php if ($operatingenvironment != '') {
     echo $operatingenvironment;
-} ?>" class="w3-select w3-border w3-hover-blue" style="width:30%"><br>
+} ?>" class="w3-select w3-border" style="width:30%"><br>
                     <option value="">Environnement Opérationnel</option>
                     <?php
 
@@ -257,7 +257,7 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
 
                 </select><br/>
                 Choisissez le type de system d'exploitation
-                <select name="osname" size="1" maxlength="15" class="w3-select w3-border w3-hover-blue" style="width:30%">
+                <select name="osname" size="1" maxlength="15" class="w3-select w3-border" style="width:30%">
                     <option value="">Nom de l'OS</option>
                     <option value="AIX" <?php if ($osname == 'AIX') {
     echo 'selected';
@@ -285,7 +285,7 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
                 <input type="checkbox" name="chk_osversion_null" <?php if (isset($_POST['chk_osversion_null'])) {
     echo 'checked';
 } ?> class="w3-check">
-                <label for="chk_osversion_null">montrer les osversion à "null"</label><br/>
+                <label for="chk_osversion_null">montrer les osversion à "null"</label><br/><br/>
                 <input type="submit" value="Envoyer" name="envoyer" class="w3-button w3-blue">
 
             </form>
