@@ -173,20 +173,22 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
 </head>
 </head>
 <div id="bandeau">
-    <p class="imageflottante">
+    
         <center>
             <H1 class="w3-center"> Consultation des tables <?php echo $table; ?> </H1>
         </center>
-    </p>
+
 
     <body>
         <script src="js/pace.min.js"></script>
-        <a href="Descriptif.php" class="w3-button" >Liste des tables et vues du portail</a>
+        <a href="Descriptif.php" class="w3-button w3-blue" >Liste des tables et vues du portail</a><br/>
         <center>
             <form method="POST" action="inventory.php">
+                Sélectionnez une table dans la liste
                 <select name="table" size="1" maxlength="15" value="<?php if ($table != '') {
     echo $table;
-} ?>" class="w3-input">
+} ?>" class="w3-select w3-border w3-hover-blue" style="width:30%">
+                    
                     <option value="">choisissez une table</option>
 
                     <?php
@@ -206,10 +208,10 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
         }
     }
 ?>
-                </select>
-
+                </select><br/>
+                Commencer à saisir un nom de serveur 
                 <input list="NameServer" name="NameServer" size="50" value="<?php echo $NameServer; ?>"
-                    class="w3-input">
+                    class="w3-select w3-border w3-hover-blue" style="width:30%">
                 <datalist id="NameServer">
                     <option value="">choisissez le nom du serveur</option>
                     <?php
@@ -229,11 +231,11 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
         }
     }
 ?>
-                </datalist>
-
+                </datalist><br/>
+                Choisissez l'environnement souhaité
                 <select name="operatingenvironment" size="1" maxlength="15" value="<?php if ($operatingenvironment != '') {
     echo $operatingenvironment;
-} ?>" class="w3-input"><br>
+} ?>" class="w3-select w3-border w3-hover-blue" style="width:30%"><br>
                     <option value="">Environnement Opérationnel</option>
                     <?php
 
@@ -253,9 +255,9 @@ $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $p
     }
 ?>
 
-                </select>
-
-                <select name="osname" size="1" maxlength="15" class="w3-input">
+                </select><br/>
+                Choisissez le type de system d'exploitation
+                <select name="osname" size="1" maxlength="15" class="w3-select w3-border w3-hover-blue" style="width:30%">
                     <option value="">Nom de l'OS</option>
                     <option value="AIX" <?php if ($osname == 'AIX') {
     echo 'selected';
