@@ -293,7 +293,7 @@
 						{
 							$stmt->execute();
 							$tuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+							echo count($tuples);
 							if (count($tuples)) 
 							{
 								$columns_names = array_keys($tuples[0]);
