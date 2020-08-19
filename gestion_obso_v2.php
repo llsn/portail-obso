@@ -232,7 +232,7 @@
                                 }
                                 else
                                 {
-                                    $querytable="select application from cmdb.application order by application";
+                                    $querytable="select application from cmdb.application where archived = 0 order by application";
                                 }
                                 if ($stmt = $con->prepare($querytable))
                                 {
