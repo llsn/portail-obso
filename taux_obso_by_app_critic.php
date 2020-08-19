@@ -184,7 +184,7 @@
 <body>
 	<script src="js/pace.min.js"></script>
     <?php
-        $querylistapp = "select application from cmdb.application;";
+        $querylistapp = "select application from cmdb.application where criticity = 1 and archived = 0;";
         if ($stmt = $con->prepare($querylistapp)) 
         {
             $stmt->execute();
