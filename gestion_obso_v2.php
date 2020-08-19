@@ -289,10 +289,8 @@
 						$querycall="call `HOPEX`.`point_of_contact_by_app` ('$application')";
 						if ($stmt = $con->prepare($querycall)) 
 						{
-							print_r($stmt);
 							$stmt->execute();
 							$tuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
-							print_r($tuples);
 							if (count($tuples)) 
 							{
 								$columns_names = array_keys($tuples[0]);
