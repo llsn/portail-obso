@@ -272,7 +272,7 @@
                     if (count($result_ponderation) != 0) 
                     {
                         echo "<td colspan='5' bgcolor='".$BGCOLOR_OS."'>";
-                        echo "<h4>".$result_ponderation[ponderation]."</h4>";
+                        echo "<h4>".$result_ponderation[0][ponderation]."</h4>";
                         echo "</td>";
                     }
                 }
