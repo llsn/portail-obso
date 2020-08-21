@@ -267,7 +267,7 @@
                 $queryponderation = "set @ponderation = 0;
                 call cmdb.poderation(671, @ponderation);
                 select @ponderation;";
-                if ($stmt = $con->prepare($querymachine)) 
+                if ($stmt = $con->prepare($queryponderation)) 
                 {
                     $stmt->execute();
                     $tuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
