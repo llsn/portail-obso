@@ -265,7 +265,7 @@
                 echo "<h4><b>".$machine."</b></h4>";
                 echo "</td>";
                 $queryponderation = "set @ponderation = 0;
-                call cmdb.poderation(671, @ponderation);
+                call cmdb.poderation(".$data[0].", @ponderation);
                 select @ponderation;";
                 if ($stmt = $con->prepare($queryponderation)) 
                 {
