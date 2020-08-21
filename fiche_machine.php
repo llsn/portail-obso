@@ -264,9 +264,7 @@
                 echo "<td colspan='6' bgcolor='". $BGCOLOR_OS."'>";
                 echo "<h4><b>".$machine."</b></h4>";
                 echo "</td>";
-                $queryponderation = "set @ponderation = 0;
-                call cmdb.poderation(".$data[0].", @ponderation);
-                select @ponderation;";
+                $queryponderation = "call cmdb.poderation(".$data[0].", @ponderation);";
                 if ($stmt = $con->prepare($queryponderation)) 
                 {
                     $stmt->execute();
