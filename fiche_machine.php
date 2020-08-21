@@ -270,11 +270,11 @@
                 if ($stmt = $con->prepare($queryponderation)) 
                 {
                     $stmt->execute();
-                    $tuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    if (count($tuples) != 0) 
+                    $result_ponderation = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    if (count($result_ponderation) != 0) 
                     {
                         echo "<td colspan='5' bgcolor='".$BGCOLOR_OS."'>";
-                        print_r($tuples);
+                        print_r($result_ponderation);
                         echo "</td>";
                     }
                 }
