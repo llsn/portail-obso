@@ -261,7 +261,7 @@
                 echo "</thead>";
                 echo "<tbody>";
                 echo "<tr>";
-                echo "<td colspan='6' bgcolor='". $BGCOLOR_OS."'>";
+                echo "<td colspan='1' bgcolor='". $BGCOLOR_OS."'>";
                 echo "<h4><b>".$machine."</b></h4>";
                 echo "</td>";
                 $queryponderation = "call cmdb.poderation(".$data[0].", @ponderation);";
@@ -272,7 +272,7 @@
                     if (count($result_ponderation) != 0) 
                     {
                         echo "<td colspan='5' bgcolor='".$BGCOLOR_OS."'>";
-                        print_r($result_ponderation);
+                        echo "<h4>".$result_ponderation[0]."</h4>";
                         echo "</td>";
                     }
                 }
