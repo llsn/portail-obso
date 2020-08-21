@@ -264,6 +264,20 @@
                 echo "<td colspan='6' bgcolor='". $BGCOLOR_OS."'>";
                 echo "<h4><b>".$machine."</b></h4>";
                 echo "</td>";
+                $queryponderation = "set @ponderation = 0;
+                call cmdb.poderation(671, @ponderation);
+                select @ponderation;";
+                if ($stmt = $con->prepare($querymachine)) 
+                {
+                    $stmt->execute();
+                    $tuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    if (count($tuples) != 0) 
+                    {
+                        echo "<td colspan='5' bgcolor='".$BGCOLOR_OS."'>";
+                        print_r($tuples);
+                        echo "</td>";
+                    }
+                }
                 echo "</tr>";
                 echo "<tr>";
                 echo "<th colspan='1'>Status</th>";
