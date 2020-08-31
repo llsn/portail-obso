@@ -52,8 +52,8 @@
             <a href="secteur_projet.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Projets</a>
         </div>
         <div>
-            <iframe src="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/public/dashboard/5835c413-c905-446b-b1fb-d96eb54d7df4" frameborder="0" width="100%" height="100%" allowtransparency></iframe>
-            <!-- <iframe src="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/public/dashboard/c805f193-21de-4396-bd3e-16166cbe668d" frameborder="0" width="100%" height="100%" allowtransparency></iframe> -->
+            <!-- <iframe src="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/public/dashboard/5835c413-c905-446b-b1fb-d96eb54d7df4" frameborder="0" width="100%" height="100%" allowtransparency></iframe> -->
+            <iframe src="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/public/dashboard/c805f193-21de-4396-bd3e-16166cbe668d" frameborder="0" width="100%" height="100%" allowtransparency></iframe> 
         </div>        
         <footer>
             <h6 class="w3-center w3-grey">Développé par Lionel SEVERIAN</h6>
