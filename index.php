@@ -53,7 +53,6 @@
         </div>
         <div>
             <iframe src="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/public/dashboard/5835c413-c905-446b-b1fb-d96eb54d7df4" frameborder="0" width="100%" height="100%" allowtransparency></iframe>
-            
             <!-- <iframe src="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/public/dashboard/c805f193-21de-4396-bd3e-16166cbe668d" frameborder="0" width="100%" height="100%" allowtransparency></iframe> -->
         </div>        
         <footer>
