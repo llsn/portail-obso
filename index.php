@@ -52,7 +52,7 @@
             <a href="secteur_projet.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Projets</a>
         </div>
         <div>
-            <iframe src="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/public/dashboard/3bf5b0b9-5c4b-479d-8096-826600ae50a4" frameborder="0" width="100%" height="100%" allowtransparency></iframe>
+            <iframe src="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/public/dashboard/3bf5b0b9-5c4b-479d-8096-826600ae50a4#theme=nigh" frameborder="0" width="100%" height="100%" allowtransparency></iframe>
             <!-- <iframe src="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/public/dashboard/c805f193-21de-4396-bd3e-16166cbe668d" frameborder="0" width="100%" height="100%" allowtransparency></iframe> --> 
         </div>        
         <footer>
