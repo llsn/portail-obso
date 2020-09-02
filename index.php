@@ -6,7 +6,7 @@
 
         
     </head>
-    <body >
+    <body style="background-color:#0A2A29; color:white;">
         <header style="background-color:#0A2A29; color:white;" >
             <h1 class="w3-opacity w3-center">Portail de gestion de l'obsolescence</h1>
         </header>
