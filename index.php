@@ -8,7 +8,7 @@
     </head>
     <body >
         <header style="background-color:#0A2A29; color:white;" >
-            <h1 class="w3-center">Portail de gestion de l'obsolescence</h1>
+            <h1 class="w3-opacity w3-center">Portail de gestion de l'obsolescence</h1>
         </header>
         <div id='menu' class="w3-bar w3-center w3-light-grey">
             <a href="#" class="w3-bar-item w3-button w3-blue">Menu</a>
