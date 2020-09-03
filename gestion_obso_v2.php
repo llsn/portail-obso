@@ -765,15 +765,10 @@
 				// on cloture la connexion à la base de données MYSQL
 				$stmt->pdo = null;
 			}
-						
-		?>
-					</tbody>
-				</table>
-				<!-- fin du tableau des Middleware -->
-				
-				<!-- Fermeture de l'onglet "Logical CI" -->
-			</div>
-			<?php
+			echo "</tbody>";
+			echo "</table>";
+
+			echo "</div>";
 			$PDF_SHEET = ob_get_contents();	
 			echo "<center>";
 			echo "<form id='exporttopdf' class='form-horizontal' method='POST' enctype='multipart/form-data' action='export_to_pdf.php'>";
@@ -786,38 +781,32 @@
 			echo "<input type='submit' class='btn' value='Export en PDF de toutes les informations de $application'>";
 			echo "</form>";
 			echo "</center>";
-			?>
-			<div id="debug" class="tab-pane fade">
-				
-				<?php
-					echo "<p class=\"debug\">";
-					error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
-				
-					$variables = get_defined_vars(); // Donne le contenu et les valeurs de toutes les variables dans la portée actuelle
-					$var_ignore=array("GLOBALS", "_ENV", "_SERVER","_GET","host","dbname","user","password","port","socket"); // Détermine les var à ne pas afficher
-					echo ("<strong>Etat des variables a la ligne : ".__LINE__." dans le fichier : ".__FILE__."</strong><br />\n");
-					$nom_fonction=__FUNCTION__;
-					if (isset($nom_fonction)&&$nom_fonction!="")
+			echo "<div id='debug' class='tab-pane fade'>";
+			echo "<p class='debug'>";
+			error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
+		
+			$variables = get_defined_vars(); // Donne le contenu et les valeurs de toutes les variables dans la portée actuelle
+			$var_ignore=array("GLOBALS", "_ENV", "_SERVER","_GET","host","dbname","user","password","port","socket"); // Détermine les var à ne pas afficher
+			echo ("<strong>Etat des variables a la ligne : ".__LINE__." dans le fichier : ".__FILE__."</strong><br />\n");
+			$nom_fonction=__FUNCTION__;
+			if (isset($nom_fonction)&&$nom_fonction!="")
+			{
+				echo ("<strong>Dans la fonction : ".$nom_fonction."</strong><br />\n");
+			}
+			foreach ($variables as $key=>$valeur)
+			{
+				if (!in_array($key, $var_ignore)&&strpos($key,"HTTP")===false)
 					{
-						echo ("<strong>Dans la fonction : ".$nom_fonction."</strong><br />\n");
+					echo "<pre class=\"debug\">";
+					echo ("$".$key." => ");
+					print_r($valeur);
+					echo "</pre>\n";
 					}
-					foreach ($variables as $key=>$valeur)
-					{
-						if (!in_array($key, $var_ignore)&&strpos($key,"HTTP")===false)
-							{
-							echo "<pre class=\"debug\">";
-							echo ("$".$key." => ");
-							print_r($valeur);
-							echo "</pre>\n";
-							}
-					}
-				
-					echo "</p>";
-				?>
-			</div>
-		</div>
-		<!-- fermeture de la zone du conteneur -->
-		<?php
+			}
+		
+			echo "</p>";
+			echo "</div>";
+			echo "</div>";
 		}
 	?>
 	</div>
