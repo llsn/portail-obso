@@ -19,6 +19,7 @@
                     <a href="import_to_db.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Créer une table et importer des données dans la CMDB</a>
                     <a href="import_cmdb.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">procédure d'importation de la CMDB dans la base d'exploitation de la CMDB</a>
                     <a href="referentiel_support.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Gestion du Référentiel Support</a>
+                    <a href="ibmbox.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Récupération des fichiers de données dans la IBM Box</a>
                 </div>
             </div>
             <a href="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Metabase</a>
