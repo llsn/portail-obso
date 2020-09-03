@@ -761,10 +761,10 @@
 						}
 						echo "</tr>";
 					}
-				}
+				// }
 				// on cloture la connexion à la base de données MYSQL
 				$stmt->pdo = null;
-			// }
+			}
 			echo "</tbody>";
 			echo "</table>";
 
