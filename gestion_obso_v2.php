@@ -705,16 +705,7 @@
 			</div>
 			<!-- Ouverture de l'onglet "LOGICAL CI" -->
 			<div id="LCI" class="tab-pane fade">
-				<?php
-				$query_LCI="call cmdb.LCI('$application');";
-				if ($stmt = $con->prepare($query_LCI))
-                    {
-                        $stmt->execute();
-                        $tuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                        if(count($tuples))
-                        {
-
-	?>
+				
 				<!-- Début du tableau des Logical CI -->
 				<table id="" class="display table" style="width: 100%;">
 					<thead>
@@ -735,37 +726,46 @@
 					<tbody>
 						<?php
 			/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
-			foreach($tuples as $ligne)
+			$query_LCI="call cmdb.LCI('$application');";
+			if ($stmt = $con->prepare($query_LCI))
 			{
-				if($ligne['FUNCTIONALGROUPS']!="")
-				{
-					//on charge le tableau $list_serveur avec la colonne 'CONFIGURATIONNAME_WO_EXTENSION'
-					$list_serveur=array($ligne['CONFIGURATIONNAME_WO_EXTENSION']);
-					// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
-					echo "<tr style='background-color: ".status_obso_os($ligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
-					// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
-					foreach($ligne as $entete=>$valeur)
+				$stmt->execute();
+				$tuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
+				if(count($tuples))
+				{	
+					foreach($tuples as $ligne)
 					{
-						switch($entete)
+						if($ligne['FUNCTIONALGROUPS']!="")
 						{
-							// si $entete="CONFIGURATIONNAME_WO_EXTENSION" alors on créer un formualire avec un lien vers la page fiche_machine.php en trasnmettant $valeur dans la variable "machine"
-							case "CONFIGURATIONNAME_WO_EXTENSION":
-								echo "<td><form id=\"".$valeur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$valeur."\"/></form><a href='#' onclick='document.getElementById(\"".$valeur."\").submit()'><b>".$valeur."</b></a></td>";
-								break;
-							case "OPERATINGENVIRONMENT":
-								echo "<td>$valeur</td>";
-								break;
-							case "FUNCTIONALGROUPS":
-								echo "<td>$valeur</td>";
-								break;                   
+							//on charge le tableau $list_serveur avec la colonne 'CONFIGURATIONNAME_WO_EXTENSION'
+							$list_serveur=array($ligne['CONFIGURATIONNAME_WO_EXTENSION']);
+							// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
+							echo "<tr style='background-color: ".status_obso_os($ligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
+							// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
+							foreach($ligne as $entete=>$valeur)
+							{
+								switch($entete)
+								{
+									// si $entete="CONFIGURATIONNAME_WO_EXTENSION" alors on créer un formualire avec un lien vers la page fiche_machine.php en trasnmettant $valeur dans la variable "machine"
+									case "CONFIGURATIONNAME_WO_EXTENSION":
+										echo "<td><form id=\"".$valeur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$valeur."\"/></form><a href='#' onclick='document.getElementById(\"".$valeur."\").submit()'><b>".$valeur."</b></a></td>";
+										break;
+									case "OPERATINGENVIRONMENT":
+										echo "<td>$valeur</td>";
+										break;
+									case "FUNCTIONALGROUPS":
+										echo "<td>$valeur</td>";
+										break;                   
+								}
+							}
 						}
+						echo "</tr>";
 					}
 				}
-				echo "</tr>";
+				// on cloture la connexion à la base de données MYSQL
+				$stmt->pdo = null;
 			}
-		// on cloture la connexion à la base de données MYSQL
-		$stmt->pdo = null;
-						}
+						
 		?>
 					</tbody>
 				</table>
