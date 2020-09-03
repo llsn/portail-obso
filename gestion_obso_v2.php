@@ -727,34 +727,34 @@
 						<?php
 			/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
 			$query_LCI="call cmdb.LCI('$application');";
-			if ($stmt = $con->prepare($query_LCI))
+			if ($LCIstmt = $con->prepare($query_LCI))
 			{
-				$stmt->execute();
-				$tuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
-				if(count($tuples))
+				$LCIstmt->execute();
+				$LCItuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
+				if(count($LCItuples))
 				{	
-					foreach($tuples as $ligne)
+					foreach($LCItuples as $LCIligne)
 					{
-						if($ligne['FUNCTIONALGROUPS']!="")
+						if($LCIligne['FUNCTIONALGROUPS']!="")
 						{
 							//on charge le tableau $list_serveur avec la colonne 'CONFIGURATIONNAME_WO_EXTENSION'
-							$list_serveur=array($ligne['CONFIGURATIONNAME_WO_EXTENSION']);
+							$list_serveur=array($LCIligne['CONFIGURATIONNAME_WO_EXTENSION']);
 							// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
-							echo "<tr style='background-color: ".status_obso_os($ligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
+							echo "<tr style='background-color: ".status_obso_os($LCIligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
 							// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
-							foreach($ligne as $entete=>$valeur)
+							foreach($LCIligne as $LCIentete=>$LCIvaleur)
 							{
-								switch($entete)
+								switch($LCIentete)
 								{
 									// si $entete="CONFIGURATIONNAME_WO_EXTENSION" alors on créer un formualire avec un lien vers la page fiche_machine.php en trasnmettant $valeur dans la variable "machine"
 									case "CONFIGURATIONNAME_WO_EXTENSION":
-										echo "<td><form id=\"".$valeur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$valeur."\"/></form><a href='#' onclick='document.getElementById(\"".$valeur."\").submit()'><b>".$valeur."</b></a></td>";
+										echo "<td><form id=\"".$LCIvaleur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$LCIvaleur."\"/></form><a href='#' onclick='document.getElementById(\"".$LCIvaleur."\").submit()'><b>".$LCIvaleur."</b></a></td>";
 										break;
 									case "OPERATINGENVIRONMENT":
-										echo "<td>$valeur</td>";
+										echo "<td>$LCIvaleur</td>";
 										break;
 									case "FUNCTIONALGROUPS":
-										echo "<td>$valeur</td>";
+										echo "<td>$LCIvaleur</td>";
 										break;                   
 								}
 							}
@@ -763,7 +763,7 @@
 					}
 				}
 				// on cloture la connexion à la base de données MYSQL
-				$stmt->pdo = null;
+				$LCIstmt->pdo = null;
 			}
 			echo "</tbody>";
 			echo "</table>";
@@ -781,8 +781,9 @@
 			echo "<input type='submit' class='btn' value='Export en PDF de toutes les informations de $application'>";
 			echo "</form>";
 			echo "</center>";
-			echo "<div id='debug' class='tab-pane fade'>";
-			echo "<p class='debug'>";
+
+			echo "<div id=\"debug\" class=\"tab-pane fade\">";
+			echo "<p class=\"debug\">";
 			error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
 		
 			$variables = get_defined_vars(); // Donne le contenu et les valeurs de toutes les variables dans la portée actuelle
