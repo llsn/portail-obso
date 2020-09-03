@@ -781,9 +781,10 @@
 			echo "<input type='submit' class='btn' value='Export en PDF de toutes les informations de $application'>";
 			echo "</form>";
 			echo "</center>";
-
-			echo "<div id=\"debug\" class=\"tab-pane fade\">";
-			echo "<p class=\"debug\">";
+			?>
+			<div id="debug" class="tab-pane fade">
+			<p class="debug">
+			<?php
 			error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
 		
 			$variables = get_defined_vars(); // Donne le contenu et les valeurs de toutes les variables dans la portée actuelle
