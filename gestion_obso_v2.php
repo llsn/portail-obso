@@ -344,7 +344,7 @@
                 if ($application!="")
                 {
 					/*on charge les données de la table "global_inventory" dans le tableau $list_serveur */
-                    $queryserver="select CONFIGURATIONNAME_WO_EXTENSION,STATUS,OPERATINGENVIRONMENT,OSNAME,OSVERSION,`DB Subsystem Type`,`DB Middleware Edition`,`DB Middleware Version`,`DB Instance Name`,`DB Instance`,`MDW Subsystem Type`,`MDW Middleware Edition`,`MDW Middleware Version`,`MDW Type`,`MDW STATUS`,`CRITICALITY` from cmdb.global_inventory where status <> 'ARCHIVED' and businessservices REGEXP '(^|\|)".$application."(\||$)' order by OPERATINGENVIRONMENT;";
+                    $queryserver="select CONFIGURATIONNAME_WO_EXTENSION,STATUS,OPERATINGENVIRONMENT,OSNAME,OSVERSION,FUNCTIONALGROUPS,`DB Subsystem Type`,`DB Middleware Edition`,`DB Middleware Version`,`DB Instance Name`,`DB Instance`,`MDW Subsystem Type`,`MDW Middleware Edition`,`MDW Middleware Version`,`MDW Type`,`MDW STATUS`,`CRITICALITY` from cmdb.global_inventory where status <> 'ARCHIVED' and businessservices REGEXP '(^|\|)".$application."(\||$)' order by OPERATINGENVIRONMENT;";
 
                     if ($stmt = $con->prepare($queryserver))
                     {
@@ -360,6 +360,7 @@
 			<li class="active"><a data-toggle="tab" href="#server">Serveurs</a></li>
 			<li><a data-toggle="tab" href="#db">Base de données</a></li>
 			<li><a data-toggle="tab" href="#mdw">Middleware</a></li>
+			<li><a data-toggle="tab" href="#LCI">Logical CI</a></li>
 			<li><a data-toggle="tab" href="#debug">Debug</a></li>
 		</ul>
 		<!----------------onglet-01-------------------------->
@@ -693,7 +694,7 @@
 				echo "</tr>";
 			}
 		// on cloture la connexion à la base de données MYSQL
-		$stmt->pdo = null;
+		//$stmt->pdo = null;
 		
 		?>
 					</tbody>
@@ -701,6 +702,69 @@
 				<!-- fin du tableau des Middleware -->
 				
 				<!-- Fermeture de l'onglet "Middleware" -->
+			</div>
+			<!-- Ouverture de l'onglet "LOGICAL CI" -->
+			<div id="LCI" class="tab-pane fade">
+				<?php
+
+	?>
+				<!-- Début du tableau des Logical CI -->
+				<table id="" class="display table" style="width: 100%;">
+					<thead>
+						<tr>
+							<th colspan='5'>
+								<center>
+									<H3>LISTE DES RELATION CI de l'application <?php echo $application?>
+									
+								</center>
+							</th>
+						</tr>
+						<tr bgcolor='silver'>
+							<th>FUNCTIONAL GROUPS</th>
+							<th>HOSTNAME</th>
+							<th>ENVIRONNEMENT</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+			/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
+			foreach($tuples as $ligne)
+			{
+				if($ligne['FUNCTIONALGROUPS']!="")
+				{
+					//on charge le tableau $list_serveur avec la colonne 'CONFIGURATIONNAME_WO_EXTENSION'
+					$list_serveur=array($ligne['CONFIGURATIONNAME_WO_EXTENSION']);
+					// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
+					echo "<tr style='background-color: ".status_obso_os($ligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
+					// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
+					foreach($ligne as $entete=>$valeur)
+					{
+						switch($entete)
+						{
+							// si $entete="CONFIGURATIONNAME_WO_EXTENSION" alors on créer un formualire avec un lien vers la page fiche_machine.php en trasnmettant $valeur dans la variable "machine"
+							case "CONFIGURATIONNAME_WO_EXTENSION":
+								echo "<td><form id=\"".$valeur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$valeur."\"/></form><a href='#' onclick='document.getElementById(\"".$valeur."\").submit()'><b>".$valeur."</b></a></td>";
+								break;
+							case "OPERATINGENVIRONMENT":
+								echo "<td>$valeur</td>";
+								break;
+							case "FUNCTIONALGROUPS":
+								echo "<td>$valeur</td>";
+								break;                   
+						}
+					}
+				}
+				echo "</tr>";
+			}
+		// on cloture la connexion à la base de données MYSQL
+		$stmt->pdo = null;
+		
+		?>
+					</tbody>
+				</table>
+				<!-- fin du tableau des Middleware -->
+				
+				<!-- Fermeture de l'onglet "Logical CI" -->
 			</div>
 			<?php
 			$PDF_SHEET = ob_get_contents();	
