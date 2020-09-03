@@ -694,7 +694,7 @@
 				echo "</tr>";
 			}
 		// on cloture la connexion à la base de données MYSQL
-		//$stmt->pdo = null;
+		$stmt->pdo = null;
 		
 		?>
 					</tbody>
@@ -706,6 +706,13 @@
 			<!-- Ouverture de l'onglet "LOGICAL CI" -->
 			<div id="LCI" class="tab-pane fade">
 				<?php
+				$query_LCI="call cmdb.LCI('$application');";
+				if ($stmt = $con->prepare($query_LCI))
+                    {
+                        $stmt->execute();
+                        $tuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        if(count($tuples))
+                        {
 
 	?>
 				<!-- Début du tableau des Logical CI -->
@@ -758,7 +765,7 @@
 			}
 		// on cloture la connexion à la base de données MYSQL
 		$stmt->pdo = null;
-		
+						}
 		?>
 					</tbody>
 				</table>
