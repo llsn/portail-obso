@@ -726,7 +726,7 @@
 					<tbody>
 						<?php
 			/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
-			$query_LCI="call cmdb.LCI('$application');";
+			$query_LCI="call cmdb.LCI('".str_replace(" ","_",$application)."');";
 			if ($LCIstmt = $con->prepare($query_LCI))
 			{
 				$LCIstmt->execute();
