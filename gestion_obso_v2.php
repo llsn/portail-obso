@@ -770,17 +770,7 @@
 
 			echo "</div>";
 			$PDF_SHEET = ob_get_contents();	
-			echo "<center>";
-			echo "<form id='exporttopdf' class='form-horizontal' method='POST' enctype='multipart/form-data' action='export_to_pdf.php'>";
-			echo "<input type='hidden' name='EXPORTPDF' value='true'>";
-			echo "<input type='hidden' name='FORMAT_PAPER' value='A3'>";
-			echo "<input type='hidden' name='FILE_NAME' value='".$application."-detail-technique-CMDB.pdf'>";
-			echo "<input type='hidden' name='DATA' value='".base64_encode(serialize($PDF_SHEET))."'>";
-
-
-			echo "<input type='submit' class='btn' value='Export en PDF de toutes les informations de $application'>";
-			echo "</form>";
-			echo "</center>";
+			
 			?>
 			<div id="debug" class="tab-pane fade">
 			<p class="debug">
@@ -808,6 +798,17 @@
 		
 			echo "</p>";
 			echo "</div>";
+			echo "<center>";
+			echo "<form id='exporttopdf' class='form-horizontal' method='POST' enctype='multipart/form-data' action='export_to_pdf.php'>";
+			echo "<input type='hidden' name='EXPORTPDF' value='true'>";
+			echo "<input type='hidden' name='FORMAT_PAPER' value='A3'>";
+			echo "<input type='hidden' name='FILE_NAME' value='".$application."-detail-technique-CMDB.pdf'>";
+			echo "<input type='hidden' name='DATA' value='".base64_encode(serialize($PDF_SHEET))."'>";
+
+
+			echo "<input type='submit' class='btn' value='Export en PDF de toutes les informations de $application'>";
+			echo "</form>";
+			echo "</center>";
 			echo "</div>";
 		}
 		echo "</div>";
