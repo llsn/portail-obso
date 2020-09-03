@@ -730,7 +730,7 @@
 			if ($LCIstmt = $con->prepare($query_LCI))
 			{
 				$LCIstmt->execute();
-				$LCItuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
+				$LCItuples = $LCIstmt->fetchAll(PDO::FETCH_ASSOC);
 				if(count($LCItuples))
 				{	
 					foreach($LCItuples as $LCIligne)
