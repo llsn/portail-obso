@@ -727,10 +727,10 @@
 						<?php
 			/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
 			$query_LCI="call cmdb.LCI('".str_replace(" ","_",$application)."');";
-			if ($stmt = $con->prepare($query_LCI))
+			if ($LCIstmt = $con->prepare($query_LCI))
 			{
-				$stmt->execute();
-				$LCItuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
+				$LCIstmt->execute();
+				$LCItuples = $LCIstmt->fetchAll(PDO::FETCH_ASSOC);
 				if(count($LCItuples))
 				{	
 					foreach($LCItuples as $LCIligne)
@@ -738,7 +738,7 @@
 						if($LCIligne['FUNCTIONALGROUPS']!="")
 						{
 							//on charge le tableau $list_serveur avec la colonne 'CONFIGURATIONNAME_WO_EXTENSION'
-							$list_serveur=array($LCIligne['CONFIGURATIONNAME_WO_EXTENSION']);
+							$LCI_list_serveur=array($LCIligne['CONFIGURATIONNAME_WO_EXTENSION']);
 							// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
 							echo "<tr style='background-color: ".status_obso_os($LCIligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
 							// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
@@ -809,8 +809,9 @@
 			echo "</div>";
 			echo "</div>";
 		}
+		echo "</div>";
 	?>
-	</div>
+	
 
 </body>
 
