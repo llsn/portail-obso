@@ -16,7 +16,7 @@
                 <button class="w3-button w3-light-grey w3-hover-blue">Gestion de la base de données</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="inventory.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Consulter les tables de la CMDB</a>
-                    <a href="import_to_db.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Créer une table et importer des données dans la CMDB</a>
+                    <!-- <a href="import_to_db.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Créer une table et importer des données dans la CMDB</a> -->
                     <a href="import_cmdb.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">procédure d'importation de la CMDB dans la base d'exploitation de la CMDB</a>
                     <a href="referentiel_support.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Gestion du Référentiel Support</a>
                     <a href="ibmbox.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Récupération des fichiers de données dans la IBM Box</a>
