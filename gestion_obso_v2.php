@@ -798,7 +798,7 @@
 			}
 			foreach ($variables as $key=>$valeur)
 			{
-				if (!in_array($key, $var_ignore)&&strpos($key,"HTTP")===false)
+				if (!in_array($key, $var_ignore)&&strpos($key,"HTTPS")===false)
 					{
 					echo "<pre class=\"debug\">";
 					echo ("$".$key." => ");
