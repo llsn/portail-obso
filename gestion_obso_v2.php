@@ -363,7 +363,6 @@
 				<li><a data-toggle="tab" href="#LCI">Logical CI</a></li>
 				<!-- <li><a data-toggle="tab" href="#debug">Debug</a></li> -->
 			</ul>
-			<!----------------onglet-01-------------------------->
 			<!-- définition de la zone de contenu d'onglet -->
 			<div class="tab-content">
 
@@ -694,11 +693,11 @@
 						// $stmt->pdo = null;
 						$list_serveur=array();
 						?>
-					</tbody>
-				</table>
-				<!-- fin du tableau des Middleware -->
-				
-				<!-- Fermeture de l'onglet "Middleware" -->
+						</tbody>
+					</table>
+					<!-- fin du tableau des Middleware -->
+					
+					<!-- Fermeture de l'onglet "Middleware" -->
 				</div>
 				<!-- Ouverture de l'onglet "LOGICAL CI" -->
 				<div id="LCI" class="tab-pane fade">
@@ -761,25 +760,26 @@
 						</tbody>
 					</table>
 				</div>
-				<?php
-					$PDF_SHEET = ob_get_contents();	
-				?>
-				<!-- <div id="debug" class="tab-pane fade">
-					<p class="debug">
-					</p> 
-				</div>-->
-				<center>
-					<form id='exporttopdf' class='form-horizontal' method='POST' enctype='multipart/form-data' action='export_to_pdf.php'>
-					<input type='hidden' name='EXPORTPDF' value='true'>
-					<input type='hidden' name='FORMAT_PAPER' value='A3'>
-					<?php
-						echo "<input type='hidden' name='FILE_NAME' value='".$application."-detail-technique-CMDB.pdf'>";
-						echo "<input type='hidden' name='DATA' value='".base64_encode(serialize($PDF_SHEET))."'>";
-						echo "<input type='submit' class='btn' value='Export en PDF de toutes les informations de $application'>";
-					?>
-					</form>
-				</center>
+				
 			</div>
+			<?php
+				$PDF_SHEET = ob_get_contents();	
+			?>
+			<!-- <div id="debug" class="tab-pane fade">
+				<p class="debug">
+				</p> 
+			</div>-->
+			<center>
+				<form id='exporttopdf' class='form-horizontal' method='POST' enctype='multipart/form-data' action='export_to_pdf.php'>
+				<input type='hidden' name='EXPORTPDF' value='true'>
+				<input type='hidden' name='FORMAT_PAPER' value='A3'>
+				<?php
+					echo "<input type='hidden' name='FILE_NAME' value='".$application."-detail-technique-CMDB.pdf'>";
+					echo "<input type='hidden' name='DATA' value='".base64_encode(serialize($PDF_SHEET))."'>";
+					echo "<input type='submit' class='btn' value='Export en PDF de toutes les informations de $application'>";
+				?>
+				</form>
+			</center>
 			<?php
 				}
 			?>
