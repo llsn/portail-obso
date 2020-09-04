@@ -806,7 +806,6 @@
 				}
 			?>
 		</div>
-		<p class="debug">
 		<?php
 			error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
 		
@@ -829,6 +828,5 @@
 					}
 			}
 		?>
-		</p>
 	</body>
 </html>
