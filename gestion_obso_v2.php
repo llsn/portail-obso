@@ -718,9 +718,10 @@
 							</th>
 						</tr>
 						<tr bgcolor='silver'>
-							<th>FUNCTIONAL GROUPS</th>
+							
 							<th>HOSTNAME</th>
 							<th>ENVIRONNEMENT</th>
+							<th>FUNCTIONAL GROUPS</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -747,6 +748,7 @@
 								switch($entete)
 								{
 									// si $entete="CONFIGURATIONNAME_WO_EXTENSION" alors on créer un formualire avec un lien vers la page fiche_machine.php en trasnmettant $valeur dans la variable "machine"
+									  
 									case "CONFIGURATIONNAME_WO_EXTENSION":
 										echo "<td><form id=\"".$valeur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$valeur."\"/></form><a href='#' onclick='document.getElementById(\"".$valeur."\").submit()'><b>".$valeur."</b></a></td>";
 										break;
@@ -755,16 +757,14 @@
 										break;
 									case "FUNCTIONALGROUPS":
 										echo "<td>$valeur</td>";
-										break;                   
+										break; 						                
 								}
 							}
 						}
 						echo "</tr>";
 					}
-				// }
-				// on cloture la connexion à la base de données MYSQL
-				$stmt->pdo = null;
-			// }
+					// on cloture la connexion à la base de données MYSQL
+					$stmt->pdo = null;
 			echo "</tbody>";
 			echo "</table>";
 
