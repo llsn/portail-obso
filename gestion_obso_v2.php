@@ -445,8 +445,9 @@
 															break;
 												}
 											}
+											echo "</tr>";
 										}
-										echo "</tr>";
+										
 									}
 									// on vide le tableau $list_serveur
 									$list_serveur=array();
@@ -581,8 +582,9 @@
 										break;                    
 								}
 							}
+							echo "</tr>";
 						}
-						echo "</tr>";
+						
 					}
 					// on vide le tableau $list_instance_db
 					$list_instance_db=array();
@@ -684,8 +686,9 @@
 											break;                    
 										}
 									}
+									echo "</tr>";
 								}
-								echo "</tr>";
+								
 							}
 						// on cloture la connexion à la base de données MYSQL
 						// $stmt->pdo = null;
