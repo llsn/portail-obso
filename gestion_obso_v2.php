@@ -714,7 +714,7 @@
 					<table id="" class="display table" style="width: 100%;">
 						<thead>
 							<tr>
-								<th colspan='5'>
+								<th colspan='3'>
 									<center>
 										<H3>LISTE DES RELATION CI de l'application <?php echo $application?>
 										
