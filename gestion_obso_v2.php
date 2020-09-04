@@ -48,6 +48,7 @@
 		<script type="text/javascript" language="javascript" src="bootstrap/js/bootstrap.min.ls.js"></script>	
 		<script type="text/javascript" language="javascript" src="vendor/components/jquery/jquery.min.js"></script>
 		<script type="text/javascript" language="javascript" src="vendor/twbs/bootstrap/js/dist/tab.js"></script>
+		<script type="text/javascript" language="javascript" src="vendor/twbs/bootstrap/js/dist/utils.js"></script>
 		<script type="text/javascript" language="javascript" src="js/pace.min.js"></script>
 
 		<script type="text/javascript" language="javascript" src="Datatables/datatables.min.js"></script>
