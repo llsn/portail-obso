@@ -692,7 +692,7 @@
 							}
 						// on cloture la connexion à la base de données MYSQL
 						// $stmt->pdo = null;
-						
+						$list_serveur=array();
 						?>
 					</tbody>
 				</table>
@@ -724,45 +724,39 @@
 						<tbody>
 						<?php
 							/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
-							// $query_LCI="call `cmdb`.`LCI`('".str_replace(" ","_",$application)."');";
-							// if ($LCIstmt = $con->prepare($query_LCI))
-							// {
-							// 	$LCIstmt->execute();
-							// 	$LCItuples = $LCIstmt->fetchAll(PDO::FETCH_ASSOC);
-								// if(count($tuples))
-								// {	
-									foreach($tuples as $ligne)
+							foreach($tuples as $ligne)
+							{
+								if($ligne['CONFIGURATIONNAME_WO_EXTENSION']!="")
+								{
+									//on charge le tableau $list_serveur avec la colonne 'CONFIGURATIONNAME_WO_EXTENSION'
+									$list_serveur=array($ligne['CONFIGURATIONNAME_WO_EXTENSION']);
+									// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
+									echo "<tr style='background-color: ".status_obso_os($ligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
+									// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
+									foreach($ligne as $entete=>$valeur)
 									{
-										if($ligne['CONFIGURATIONNAME_WO_EXTENSION']!="")
+										switch($entete)
 										{
-											//on charge le tableau $list_serveur avec la colonne 'CONFIGURATIONNAME_WO_EXTENSION'
-											$list_serveur=array($ligne['CONFIGURATIONNAME_WO_EXTENSION']);
-											// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
-											echo "<tr style='background-color: ".status_obso_os($ligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
-											// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
-											foreach($ligne as $entete=>$valeur)
-											{
-												switch($entete)
-												{
-													// si $entete="CONFIGURATIONNAME_WO_EXTENSION" alors on créer un formualire avec un lien vers la page fiche_machine.php en trasnmettant $valeur dans la variable "machine"
-													
-													case "CONFIGURATIONNAME_WO_EXTENSION":
-														echo "<td><form id=\"".$valeur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$valeur."\"/></form><a href='#' onclick='document.getElementById(\"".$valeur."\").submit()'><b>".$valeur."</b></a></td>";
-														break;
-													case "OPERATINGENVIRONMENT":
-														echo "<td>$valeur</td>";
-														break;
-													case "FUNCTIONALGROUPS":
-														echo "<td>$valeur</td>";
-														break; 						                
-												}
-											}
-											echo "</tr>";
+											// si $entete="CONFIGURATIONNAME_WO_EXTENSION" alors on créer un formualire avec un lien vers la page fiche_machine.php en trasnmettant $valeur dans la variable "machine"
+											
+											case "CONFIGURATIONNAME_WO_EXTENSION":
+												echo "<td><form id=\"".$valeur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$valeur."\"/></form><a href='#' onclick='document.getElementById(\"".$valeur."\").submit()'><b>".$valeur."</b></a></td>";
+												break;
+											case "OPERATINGENVIRONMENT":
+												echo "<td>$valeur</td>";
+												break;
+											case "FUNCTIONALGROUPS":
+												echo "<td>$valeur</td>";
+												break; 						                
 										}
-										
 									}
-									// on cloture la connexion à la base de données MYSQL
-									$stmt->pdo = null;
+									echo "</tr>";
+								}
+								
+							}
+							// on cloture la connexion à la base de données MYSQL
+							$stmt->pdo = null;
+							$list_serveur=array();
 						?>
 						</tbody>
 					</table>
