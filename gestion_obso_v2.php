@@ -520,8 +520,6 @@
 					{
 						if($ligne['DB Instance']!="")
 						{
-							//on charge le tableau $list_serveur avec la colonne 'DB Instance'
-							$list_instance_db[]=$ligne['DB Instance'];
 							// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_dbversion" contenu dans la librairie functions.php 
 							echo "<tr style='background-color: ".status_obso_dbversion($ligne['DB Middleware Version'],$host,$dbname,$user,$password).";'>";
 							// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
@@ -593,8 +591,6 @@
 						}
 						
 					}
-					// on vide le tableau $list_instance_db
-					$list_instance_db=array();
 
 				?>
 						</tbody>
@@ -650,8 +646,6 @@
 							{
 								if($ligne['MDW Subsystem Type']!="")
 								{
-									//on charge le tableau $list_serveur avec la colonne 'CONFIGURATIONNAME_WO_EXTENSION'
-									$list_serveur=array($ligne['CONFIGURATIONNAME_WO_EXTENSION']);
 									// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
 									echo "<tr style='background-color: ".status_obso_middlewareversion($ligne['MDW Middleware Version'],$host,$dbname,$user,$password).";'>";
 									// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
@@ -699,7 +693,6 @@
 							}
 						// on cloture la connexion à la base de données MYSQL
 						// $stmt->pdo = null;
-						$list_serveur=array();
 						?>
 						</tbody>
 					</table>
@@ -735,8 +728,6 @@
 							{
 								if($LCIligne['CONFIGURATIONNAME_WO_EXTENSION']!="")
 								{
-									//on charge le tableau $list_serveur avec la colonne 'CONFIGURATIONNAME_WO_EXTENSION'
-									$LCIlist_serveur=array($LCIligne['CONFIGURATIONNAME_WO_EXTENSION']);
 									// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
 									echo "<tr style='background-color: ".status_obso_os($LCIligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
 									// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
@@ -763,7 +754,6 @@
 							}
 							// on cloture la connexion à la base de données MYSQL
 							$stmt->pdo = null;
-							$LCIlist_serveur=array();
 						?>
 						</tbody>
 					</table>
