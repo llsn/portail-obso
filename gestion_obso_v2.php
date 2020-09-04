@@ -344,7 +344,7 @@
 			
 			if ($application!="")
 			{
-				$query_LCI="call `cmdb`.`LCI`('".str_replace(" ","_",$application)."');";
+				$query_LCI="call cmdb.LCI('".str_replace(" ","_",$application)."');";
 				if($LCIstmt = $con->prepare($query_LCI))
 				{
 					$LCIstmt->execute();
