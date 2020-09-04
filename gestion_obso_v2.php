@@ -361,7 +361,7 @@
 				<li><a data-toggle="tab" href="#db">Base de données</a></li>
 				<li><a data-toggle="tab" href="#mdw">Middleware</a></li>
 				<li><a data-toggle="tab" href="#LCI">Logical CI</a></li>
-				<li><a data-toggle="tab" href="#debug">Debug</a></li>
+				<!-- <li><a data-toggle="tab" href="#debug">Debug</a></li> -->
 			</ul>
 			<!----------------onglet-01-------------------------->
 			<!-- définition de la zone de contenu d'onglet -->
@@ -760,7 +760,7 @@
 						?>
 						</tbody>
 					</table>
-				</div>"
+				</div>
 				<?php
 					$PDF_SHEET = ob_get_contents();	
 				?>
