@@ -348,7 +348,7 @@
 				if($LCIstmt = $con->prepare($query_LCI))
 				{
 					$LCIstmt->execute();
-					$LCItuples = $LCIstmt->fetch();
+					$LCItuples = $LCIstmt->fetchAll(PDO::FETCH_ASSOC);
 					$LCIstmt->pdo = null;
 				}
 				/*on charge les données de la table "global_inventory" dans le tableau $list_serveur */
