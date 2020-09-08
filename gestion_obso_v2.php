@@ -718,39 +718,43 @@
 						<tbody>
 						<?php
 							$LCI_application=str_replace(" ","_",$application);
-							$query_LCI="call cmdb.Logical_IC('".$LCI_application."');";
+							$query_LCI="call `cmdb`.`Logical_IC`('$LCI_application');";
 							if($LCIstmt = $con->prepare($query_LCI))
 							{
 								$LCIstmt->execute();
-								$LCItuples = $LCIstmt->fetchAll(PDO::FETCH_ASSOC);							
-								/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
-								foreach($LCItuples as $LCIligne)
+								$LCItuples = $LCIstmt->fetchAll(PDO::FETCH_ASSOC);	
+								if(count($LCItuples))						
 								{
-									if($LCIligne['CONFIGURATIONNAME_WO_EXTENSION']!="")
+
+									/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
+									foreach($LCItuples as $LCIligne)
 									{
-										// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
-										echo "<tr style='background-color: ".status_obso_os($LCIligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
-										// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
-										foreach($LCIligne as $LCIentete=>$LCIvaleur)
+										if($LCIligne['CONFIGURATIONNAME_WO_EXTENSION']!="")
 										{
-											switch($LCIentete)
+											// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
+											echo "<tr style='background-color: ".status_obso_os($LCIligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
+											// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
+											foreach($LCIligne as $LCIentete => $LCIvaleur)
 											{
-												// si $entete="CONFIGURATIONNAME_WO_EXTENSION" alors on créer un formualire avec un lien vers la page fiche_machine.php en trasnmettant $valeur dans la variable "machine"
-												
-												case "CONFIGURATIONNAME_WO_EXTENSION":
-													echo "<td><form id=\"".$LCIvaleur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$LCIvaleur."\"/></form><a href='#' onclick='document.getElementById(\"".$LCIvaleur."\").submit()'><b>".$LCIvaleur."</b></a></td>";
-													break;
-												case "OPERATINGENVIRONMENT":
-													echo "<td>$LCIvaleur</td>";
-													break;
-												case "FUNCTIONALGROUPS":
-													echo "<td>$LCIvaleur</td>";
-													break; 						                
+												switch($LCIentete)
+												{
+													// si $entete="CONFIGURATIONNAME_WO_EXTENSION" alors on créer un formualire avec un lien vers la page fiche_machine.php en trasnmettant $valeur dans la variable "machine"
+													
+													case "CONFIGURATIONNAME_WO_EXTENSION":
+														echo "<td><form id=\"".$LCIvaleur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$LCIvaleur."\"/></form><a href='#' onclick='document.getElementById(\"".$LCIvaleur."\").submit()'><b>".$LCIvaleur."</b></a></td>";
+														break;
+													case "OPERATINGENVIRONMENT":
+														echo "<td>$LCIvaleur</td>";
+														break;
+													case "FUNCTIONALGROUPS":
+														echo "<td>$LCIvaleur</td>";
+														break; 						                
+												}
 											}
+											echo "</tr>";
 										}
-										echo "</tr>";
+										
 									}
-									
 								}
 								$LCIstmt->pdo = null;
 								// on cloture la connexion à la base de données MYSQL
