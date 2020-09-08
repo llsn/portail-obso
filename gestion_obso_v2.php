@@ -723,9 +723,9 @@
 							{
 								$LCIstmt->execute();
 								$LCItuples = $LCIstmt->fetchAll(PDO::FETCH_ASSOC);	
-								// echo "<pre>";
-								// print_r($LCItuples);
-								// echo "</pre>";
+								echo "<pre>";
+								print_r($LCItuples);
+								echo "</pre>";
 								if(count($LCItuples))						
 								{
 
