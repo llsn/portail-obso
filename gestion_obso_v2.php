@@ -717,8 +717,8 @@
 						</thead>
 						<tbody>
 						<?php
-							$LCI_application=str_replace(" ","_",$application)
-							$query_LCI="call cmdb.Logical_IC('$LCI_application');";
+							$LCI_application=str_replace(" ","_",$application);
+							$query_LCI="call cmdb.Logical_IC('".$LCI_application."');";
 							if($LCIstmt = $con->prepare($query_LCI))
 							{
 								$LCIstmt->execute();
