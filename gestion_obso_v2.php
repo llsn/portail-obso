@@ -732,8 +732,8 @@
 									/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
 									foreach($LCItuples as $LCIligne)
 									{
-										if($LCIligne['CONFIGURATIONNAME_WO_EXTENSION']!="")
-										{
+										// if($LCIligne['CONFIGURATIONNAME_WO_EXTENSION']!="")
+										// {
 											// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
 											echo "<tr style='background-color: ".status_obso_os($LCIligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
 											// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
@@ -755,7 +755,7 @@
 												}
 											}
 											echo "</tr>";
-										}
+										// }
 										
 									}
 								}
