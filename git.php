@@ -12,7 +12,7 @@ echo "</div>";
 // {
     echo "<div><pre>";
     // exec("cd /var/www/html/; /usr/bin/git pull;",$output,$result);
-    echo shell_exec("cd /var/www/html/ && git status 2>&1");
+    echo shell_exec("cd /var/www/html/; git status 2>&1");
     print_r($output);
     if($result=0)
     {   
