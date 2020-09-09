@@ -8,8 +8,8 @@ echo "<input type='submit' value='lancer le rafraichissement du code avec la der
 echo "</form>";
 echo "</div>";
 
-if (isset($GIT_REFRESH) != "TRUE") 
-{
+// if (isset($GIT_REFRESH) != "TRUE") 
+// {
     echo "<div><pre>";
     // exec("cd /var/www/html/; /usr/bin/git pull;",$output,$result);
     echo shell_exec("cd /var/www/html/ && git status 2>&1");
@@ -23,5 +23,5 @@ if (isset($GIT_REFRESH) != "TRUE")
         echo "Mise à jour échoué!!!";
     }
     echo "</pre></div>";
-}
+// }
 ?>
