@@ -9,13 +9,13 @@ echo "</form>";
 echo "</div>";
 echo "<pre>";
 echo "ID:".shell_exec("id");
-echo shell_exec("cd /var/www/html/; git status 2>&1");
+echo shell_exec("bash cd /var/www/html/; git status 2>&1");
 echo "</pre>";
 if (isset($GIT_REFRESH) != "TRUE") 
 {
     echo "<div><pre>";
     // exec("cd /var/www/html/; /usr/bin/git pull;",$output,$result);
-    echo shell_exec("cd /var/www/html/; git status 2>&1");
+    echo shell_exec("bash cd /var/www/html/; git status 2>&1");
     print_r($output);
     if($result=0)
     {   
