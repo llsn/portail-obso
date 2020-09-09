@@ -11,7 +11,7 @@ echo "</div>";
 if (isset($GIT_REFRESH) != "TRUE") 
 {
     echo "<div><pre>";
-    exec("git pull",$output,$result);
+    exec("cd /var/www/html/; /usr/bin/git pull;",$output,$result);
     print_r($output);
     if($result=0)
     {   
