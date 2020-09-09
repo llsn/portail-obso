@@ -7,8 +7,10 @@ echo "<input type='hidden' name='git_refresh' value='TRUE'/>";
 echo "<input type='submit' value='lancer le rafraichissement du code avec la dernière version GIT' class='input-lg'>";
 echo "</form>";
 echo "</div>";
-
+echo "<pre>";
 echo "ID:".shell_exec("id");
+echo shell_exec("cd /var/www/html/; git status 2>&1");
+echo "</pre>";
 if (isset($GIT_REFRESH) != "TRUE") 
 {
     echo "<div><pre>";
