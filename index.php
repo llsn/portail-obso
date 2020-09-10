@@ -22,7 +22,7 @@
                     <a href="ibmbox.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Récupération des fichiers de données dans la IBM Box</a>
                 </div>
             </div>
-            <a href="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Metabase</a>
+            <a href="http://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Metabase</a>
             <div class="w3-dropdown-hover w3-hover-blue">
                 <button class="w3-button w3-hover-blue">Consultations de données</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
@@ -53,7 +53,7 @@
             <a href="secteur_projet.php" target="_blank" class="w3-bar-item w3-button w3-hover-blue">Projets</a>
         </div>
         <div>
-            <iframe src="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/public/dashboard/3bf5b0b9-5c4b-479d-8096-826600ae50a4#night" frameborder="0" width="100%" height="100%" allowtransparency></iframe>
+            <iframe src="http://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/public/dashboard/3bf5b0b9-5c4b-479d-8096-826600ae50a4#night" frameborder="0" width="100%" height="100%" allowtransparency></iframe>
             <!-- <iframe src="https://metabase-portail-obso-portail-obsolescence.fpaas-pre.cld.cma-cgm.com/public/dashboard/c805f193-21de-4396-bd3e-16166cbe668d" frameborder="0" width="100%" height="100%" allowtransparency></iframe> --> 
         </div>        
         <footer>
