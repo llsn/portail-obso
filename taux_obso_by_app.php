@@ -46,6 +46,11 @@
                     {
                         "autosize":true,
                         "paging": false,
+                        responsive: true,
+                        keys: true,
+                        select: true,
+                        fixedHeader: true,
+                        colReorder: true,
                         language: 
                         {
                         url: "Datatables/French.json"
