@@ -16,8 +16,8 @@
     // Initialisation de la connexion à la base de données
 	$con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8',$user,$password)
         or die ('Could not connect to the database server' . pdo_connect_error());
-	$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION, PDO::MYSQL_ATTR_USE_BUFFERED_QUERY);
-    
+	$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $con->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
 ?>
 <!-- Début de la page HTML -->
 <html>
