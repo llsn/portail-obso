@@ -722,10 +722,10 @@
 												}
 
 												
-												echo "<pre>";
-												echo count($LCItuples);
-												print_r($LCItuples);
-												echo "</pre>";
+												// echo "<pre>";
+												// echo count($LCItuples);
+												// print_r($LCItuples);
+												// echo "</pre>";
 												// error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
 					
 												// $variables = get_defined_vars(); // Donne le contenu et les valeurs de toutes les variables dans la portée actuelle
@@ -764,9 +764,9 @@
 									/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
 									foreach($LCItuples as $LCIligne)
 									{
-										echo $LCIligne['FUNCTIONALGROUPS'];
-										if($LCIligne['FUNCTIONALGROUPS']!="")
-										{
+										// echo $LCIligne['FUNCTIONALGROUPS'];
+										// if($LCIligne['FUNCTIONALGROUPS']!="")
+										// {
 											// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
 											echo "<tr style='background-color: ".status_obso_os($LCIligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
 											// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
@@ -788,7 +788,7 @@
 												}
 											}
 											echo "</tr>";
-										}
+										// }
 										
 									}
 								}
