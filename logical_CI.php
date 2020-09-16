@@ -12,7 +12,7 @@
 <html>
 
 <head>
-	<title>Fiche Machine</title>
+	<title>Logical CI</title>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
     <link rel="stylesheet" href="css/w3.css">
 	<link rel="stylesheet" type="text/css" href="stylesheet/css/bootstrap.min.css" />
@@ -239,7 +239,7 @@
 								}
 							}
 						}
-						
+						$stmt->pdo = null;
 						?>
 					</tr>
 					
@@ -248,5 +248,49 @@
 				</table>
 			</center>
 		</form>
+        <?php
+            if($application!="")
+            {
+                echo "<div>";
+                echo "<form id='valid_functionalgroups' name='valid_functionalgroup' class='form-group form-group-lg' method='POST' enctype='multipart/form-data' action='logical_CI.php'>";
+                echo "<input type='hidden' name='application' value='".$application."'/>";
+                echo "<input list='list_component' name='components' id='components' width='auto' class='input' onchange='document.getElementById(\"valid_functionalgroups\").submit()' value='".$components."' onclick=\"if(this.value!='')this.value=''\">";
+                echo "<datalist id='list_component'>";
+
+                query="select distinct functionalgroups from system_inventory where functionalgroups regexp ('^".str_replace(" ","_",$application)."#')";
+                if ($stmt = $con->prepare($query)) 
+                {
+                    $stmt->execute();
+                    while ($resulttable = $stmt->$stmt->fetch())
+                    {
+                        if ($components == strtoupper($resulttable[0]))
+                        {
+                            echo '<option valeur="'.$resulttable[0].'" selected>'.$resulttable[0].'</option>';
+                        }
+                        else
+                        {
+                            echo '<option valeur="'.$resulttable[0].'">'.$resulttable[0].'</option>';
+                        }	
+                    }
+                    $stmt->pdo = null;
+                }
+                echo "</datalist>";
+                echo "</div>";
+            }
+        ?>
+
+        <div>
+            <Table>
+            <thead colspan="">
+                <tr>
+                <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+            </tfoot>
+            </table>
+        </div>
 </body>
 </html>
