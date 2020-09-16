@@ -112,7 +112,7 @@
 		}
 	</script>
 </head>
-<body style="background-color:#0A2A29; color:brown;">
+<body class="w3-main">
     <script src='js/pace.min.js'></script>    
     <header style="background-color:#0A2A29; color:white;" >
         <h1 class="w3-center">LOGICAL CI</h1>
