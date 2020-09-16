@@ -15,9 +15,11 @@
 	 
     // Initialisation de la connexion à la base de données
 	$con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8',$user,$password)
+		or die ('Could not connect to the database server' . pdo_connect_error());
+	$pdo = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8',$user,$password)
         or die ('Could not connect to the database server' . pdo_connect_error());
-	$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $con->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
+	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
 ?>
 <!-- Début de la page HTML -->
 <html>
@@ -708,7 +710,7 @@
 										<?php 
 											$LCI_application=str_replace(" ","_",$application);
 											$query_LCI="call `cmdb`.`Logical_IC`('$LCI_application');";
-											if($LCIstmt = $con->prepare($query_LCI))
+											if($LCIstmt = $pdo->prepare($query_LCI))
 											{
 												try{
 													$LCIstmt->execute();
