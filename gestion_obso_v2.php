@@ -704,7 +704,7 @@
 							<tr>
 								<th colspan='3'>
 									<center>
-										<H3>LISTE DES RELATION CI de l'application <?php echo $application?>
+										<H3>LISTE DES RELATION CI de l'application <?php echo $application?></H3>
 										<?php 
 											$LCI_application=str_replace(" ","_",$application);
 											$query_LCI="call `cmdb`.`Logical_IC`('$LCI_application');";
