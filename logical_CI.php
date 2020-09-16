@@ -111,10 +111,10 @@
 		}
 	</script>
 </head>
-<body style="background-color:#0A2A29; color:white;">
+<body style="background-color:#0A2A29; color:brown;">
     <script src='js/pace.min.js'></script>    
     <header style="background-color:#0A2A29; color:white;" >
-        <h1 class="w3-opacity w3-center">LOGICAL CI</h1>
+        <h1 class="w3-center">LOGICAL CI</h1>
     </header>
     		<!-- Mise en place du formulaire de recherche d'application -->
 		<form id="valid_app" name="valid_app" class="form-group form-group-lg" method="POST" enctype="multipart/form-data"
