@@ -743,36 +743,40 @@
 							<tr style='background-color: red;'>
 								<td>test1</td><td>test2</td><td>test3</td>
 							</tr>
+						</tbody>
+						</table>
+						
+							
 							<?php
 									/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
 									foreach($tuples as $ligne)
 									{
-										echo $ligne['CONFIGURATIONNAME_WO_EXTNESION']."<br/>";
+										echo $ligne['CONFIGURATIONNAME_WO_EXTENSION']."<br/>";
 										echo $ligne['OPERATINGENVIRONMENT']."<br/>";
 										echo $ligne['FUNCTIONALGROUPS']."<br/>";
 										// if($LCIligne['FUNCTIONALGROUPS']!="")
 										// {
 											// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
-											echo "<tr style='background-color: ".status_obso_os($ligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
-											// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
-											foreach($ligne as $entete => $valeur)
-											{
-												switch($entete)
-												{
-													// si $entete="CONFIGURATIONNAME_WO_EXTENSION" alors on créer un formualire avec un lien vers la page fiche_machine.php en trasnmettant $valeur dans la variable "machine"
+											// echo "<tr style='background-color: ".status_obso_os($ligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
+											// // on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
+											// foreach($ligne as $entete => $valeur)
+											// {
+											// 	switch($entete)
+											// 	{
+											// 		// si $entete="CONFIGURATIONNAME_WO_EXTENSION" alors on créer un formualire avec un lien vers la page fiche_machine.php en trasnmettant $valeur dans la variable "machine"
 													
-													case "CONFIGURATIONNAME_WO_EXTENSION":
-														echo "<td><form id=\"".$valeur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$valeur."\"/></form><a href='#' onclick='document.getElementById(\"".$valeur."\").submit()'><b>".$valeur."</b></a></td>";
-														break;
-													case "OPERATINGENVIRONMENT":
-														echo "<td>$valeur</td>";
-														break;
-													case "FUNCTIONALGROUPS":
-														echo "<td>$valeur</td>";
-														break; 						                
-												}
-											}
-											echo "</tr>";
+											// 		case "CONFIGURATIONNAME_WO_EXTENSION":
+											// 			echo "<td><form id=\"".$valeur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$valeur."\"/></form><a href='#' onclick='document.getElementById(\"".$valeur."\").submit()'><b>".$valeur."</b></a></td>";
+											// 			break;
+											// 		case "OPERATINGENVIRONMENT":
+											// 			echo "<td>$valeur</td>";
+											// 			break;
+											// 		case "FUNCTIONALGROUPS":
+											// 			echo "<td>$valeur</td>";
+											// 			break; 						                
+											// 	}
+											// }
+											// echo "</tr>";
 										// }
 										
 									}
@@ -786,7 +790,7 @@
 							
 						?>
 						</tbody>
-					</table>
+					
 					<?php
 						error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
 
