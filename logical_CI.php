@@ -5,6 +5,7 @@
     $STYLE = "style='border:1px solid black;border-collapse: collapse;text-align:center;'";
     $application = isset($_POST['application']) ? $_POST['application'] : null;
     $component=isset($_POST['component']) ? $_POST['component'] : null;
+    $chk_appli_obso=isset($_POST['chk_appli_obso']) ? $_POST['chk_appli_obso'] : NULL;
     $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $password)
         or die('Could not connect to the database server'.pdo_connect_error());
 ?>
