@@ -752,7 +752,13 @@
 													// si $entete="CONFIGURATIONNAME_WO_EXTENSION" alors on créer un formualire avec un lien vers la page fiche_machine.php en trasnmettant $valeur dans la variable "machine"
 													
 													case "CONFIGURATIONNAME_WO_EXTENSION":
-														echo "<td><form id=\"".$valeur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$valeur."\"/></form><a href='#' onclick='document.getElementById(\"".$valeur."\").submit()'><b>".$valeur."</b></a></td>";
+														$list_server=explode(",",$valeur);
+														echo "<td>";
+														foreach($list_server as $server)
+														{
+															echo "<form id=\"".$server."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$server."\"/></form><a href='#' onclick='document.getElementById(\"".$server."\").submit()'><b>".$server."</b></a><br/>";
+														}
+														echo "</td>";
 														break;
 													case "OPERATINGENVIRONMENT":
 														echo "<td>$valeur</td>";
