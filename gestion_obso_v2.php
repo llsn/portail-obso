@@ -374,7 +374,7 @@
 				<!-- déclaration de l'onglet "Serveurs" -->
 				<div id="server" class="tab-pane fade in active">
 					<!-- Début du tableau des serveurs -->
-					<table id="os_serveur" class="display" style="width: 100%;">
+					<table id="os_serveur" class="display table" style="width: 100%;">
 						<thead>
 							<tr>
 								<th colspan="6">
@@ -472,7 +472,7 @@
 				<div id="db" class="tab-pane fade">
 
 					<!-- Début du tableau des base de données -->
-					<table id="database" class="display" style="width: 100%;">
+					<table id="database" class="display table" style="width: 100%;">
 						<thead>
 							<tr>
 								<th colspan='7'>
