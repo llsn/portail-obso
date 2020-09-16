@@ -16,7 +16,7 @@
     // Initialisation de la connexion à la base de données
 	$con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8',$user,$password)
         or die ('Could not connect to the database server' . pdo_connect_error());
-    
+	$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
 ?>
 <!-- Début de la page HTML -->
@@ -710,8 +710,16 @@
 											$query_LCI="call `cmdb`.`Logical_IC`('$LCI_application');";
 											if($LCIstmt = $con->prepare($query_LCI))
 											{
-												$LCIstmt->execute();
-												$LCItuples = $LCIstmt->fetchAll(PDO::FETCH_ASSOC);	
+												try{
+													$LCIstmt->execute();
+													$LCItuples = $LCIstmt->fetchAll(PDO::FETCH_ASSOC);	
+												}
+												catch (PDOException $message)
+												{
+													echo 'Connection failed: ' . $message->getMessage();
+												}
+
+												}
 												echo "<pre>";
 												echo count($LCItuples);
 												print_r($LCItuples);
