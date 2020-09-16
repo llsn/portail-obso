@@ -17,7 +17,7 @@
 	$con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8',$user,$password)
         or die ('Could not connect to the database server' . pdo_connect_error());
 	$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $con->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
+    $con->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
 ?>
 <!-- Début de la page HTML -->
 <html>
