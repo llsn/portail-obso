@@ -707,49 +707,50 @@
 								<th colspan='3'>
 									<center>
 										<H3>LISTE DES RELATION CI de l'application <?php echo $application?></H3>
-										<?php 
-											$LCI_application=str_replace(" ","_",$application);
-											$query_LCI="call `cmdb`.`Logical_IC`('$LCI_application');";
-											if($LCIstmt = $pdo->prepare($query_LCI))
-											{
-												try{
-													$LCIstmt->execute();
-													$LCItuples = $LCIstmt->fetchAll(PDO::FETCH_ASSOC);	
-												}
-												catch (PDOException $message)
-												{
-													echo 'Connection failed: ' . $message->getMessage();
-												}
-
-												
-												// echo "<pre>";
-												// echo count($LCItuples);
-												// print_r($LCItuples);
-												// echo "</pre>";
-												// error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
-					
-												// $variables = get_defined_vars(); // Donne le contenu et les valeurs de toutes les variables dans la portée actuelle
-												// $var_ignore=array("GLOBALS", "_ENV", "_SERVER","_GET","host","dbname","user","password","port","socket"); // Détermine les var à ne pas afficher
-												// echo ("<strong>Etat des variables a la ligne : ".__LINE__." dans le fichier : ".__FILE__."</strong><br />\n");
-												// $nom_fonction=__FUNCTION__;
-												// if (isset($nom_fonction)&&$nom_fonction!="")
-												// {
-												// 	echo ("<strong>Dans la fonction : ".$nom_fonction."</strong><br />\n");
-												// }
-												// foreach ($variables as $key=>$valeur)
-												// {
-												// 	if (!in_array($key, $var_ignore)&&strpos($key,"HTTPS")===false)
-												// 		{
-												// 		echo "<pre class=\"debug\">";
-												// 		echo ("$".$key." => ");
-												// 		print_r($valeur);
-												// 		echo "</pre>\n";
-												// 		}
-												// }
-												if(count($LCItuples))						
-												{
-										?>
 									</center>
+									<?php 
+										$LCI_application=str_replace(" ","_",$application);
+										$query_LCI="call `cmdb`.`Logical_IC`('$LCI_application');";
+										if($stmt = $pdo->prepare($query_LCI))
+										{
+											try{
+												$stmt->execute();
+												$tuples = $stmt->fetchAll(PDO::FETCH_ASSOC);	
+											}
+											catch (PDOException $message)
+											{
+												echo 'Connection failed: ' . $message->getMessage();
+											}
+
+											
+											// echo "<pre>";
+											// echo count($LCItuples);
+											// print_r($LCItuples);
+											// echo "</pre>";
+											// error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
+				
+											// $variables = get_defined_vars(); // Donne le contenu et les valeurs de toutes les variables dans la portée actuelle
+											// $var_ignore=array("GLOBALS", "_ENV", "_SERVER","_GET","host","dbname","user","password","port","socket"); // Détermine les var à ne pas afficher
+											// echo ("<strong>Etat des variables a la ligne : ".__LINE__." dans le fichier : ".__FILE__."</strong><br />\n");
+											// $nom_fonction=__FUNCTION__;
+											// if (isset($nom_fonction)&&$nom_fonction!="")
+											// {
+											// 	echo ("<strong>Dans la fonction : ".$nom_fonction."</strong><br />\n");
+											// }
+											// foreach ($variables as $key=>$valeur)
+											// {
+											// 	if (!in_array($key, $var_ignore)&&strpos($key,"HTTPS")===false)
+											// 		{
+											// 		echo "<pre class=\"debug\">";
+											// 		echo ("$".$key." => ");
+											// 		print_r($valeur);
+											// 		echo "</pre>\n";
+											// 		}
+											// }
+											if(count($tuples))						
+											{
+									?>
+									
 								</th>
 							</tr>
 							<tr bgcolor='silver'>
@@ -760,30 +761,30 @@
 							</tr>
 						</thead>
 						<tbody>
-						<?php
+							<?php
 									/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
-									foreach($LCItuples as $LCIligne)
+									foreach($tuples as $ligne)
 									{
 										// echo $LCIligne['FUNCTIONALGROUPS'];
 										// if($LCIligne['FUNCTIONALGROUPS']!="")
 										// {
 											// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
-											echo "<tr style='background-color: ".status_obso_os($LCIligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
+											echo "<tr style='background-color: ".status_obso_os($ligne['OSVERSION'],$host,$dbname,$user,$password).";'>";
 											// on parcour chaque ligne et l'on sépare les entete de colonne avec les valeurs
-											foreach($LCIligne as $LCIentete => $LCIvaleur)
+											foreach($ligne as $entete => $valeur)
 											{
-												switch($LCIentete)
+												switch($entete)
 												{
 													// si $entete="CONFIGURATIONNAME_WO_EXTENSION" alors on créer un formualire avec un lien vers la page fiche_machine.php en trasnmettant $valeur dans la variable "machine"
 													
 													case "CONFIGURATIONNAME_WO_EXTENSION":
-														echo "<td><form id=\"".$LCIvaleur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$LCIvaleur."\"/></form><a href='#' onclick='document.getElementById(\"".$LCIvaleur."\").submit()'><b>".$LCIvaleur."</b></a></td>";
+														echo "<td><form id=\"".$valeur."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$valeur."\"/></form><a href='#' onclick='document.getElementById(\"".$valeur."\").submit()'><b>".$valeur."</b></a></td>";
 														break;
 													case "OPERATINGENVIRONMENT":
-														echo "<td>$LCIvaleur</td>";
+														echo "<td>$valeur</td>";
 														break;
 													case "FUNCTIONALGROUPS":
-														echo "<td>$LCIvaleur</td>";
+														echo "<td>$valeur</td>";
 														break; 						                
 												}
 											}
@@ -792,7 +793,7 @@
 										
 									}
 								}
-								$LCIstmt->pdo = null;
+								// $LCIstmt->pdo = null;
 								// on cloture la connexion à la base de données MYSQL
 								$stmt->pdo = null;
 							}
