@@ -139,7 +139,7 @@
 
 									if($chk_appli_obso=="on")
 									{
-										$querytable="SELECT * FROM cmdb.list_application_with_os_obsolete;";
+										$querytable="SELECT distinct * FROM cmdb.list_application_with_os_obsolete;";
 									}
 									else
 									{
