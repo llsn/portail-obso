@@ -769,10 +769,10 @@
 														$composant=str_replace('|','<br/>',$valeur);
 														echo "<td>".$composant."</td>";
 														break; 	
-													case "Nb COMPONENTS":
+													case "Nb Components":
 														echo "<td>$valeur</td>";
 														break;				                
-													case "Nb SERVERS":
+													case "Nb Servers":
 														echo "<td>$valeur</td>";
 														break;	
 												}
