@@ -701,8 +701,8 @@
 				<div id="LCI" class="tab-pane fade">
 					
 					<!-- Début du tableau des Logical CI -->
-					<!-- <table id="" class="display table" style="width: 98%;"> -->
-					<table id="" style="width: 98%;">
+					<table id="" class="display table" style="width: 98%;">
+					<!-- <table id="" style="width: 98%;"> -->
 						<thead>
 							<tr>
 								<th colspan='3'>
