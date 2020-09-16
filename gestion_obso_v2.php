@@ -729,7 +729,9 @@
 							</tr>
 							<tr bgcolor='silver'>
 								<th>FUNCTIONAL GROUPS</th>
+								<th>Nb COMPONENTS</th>
 								<th>HOSTNAME</th>
+								<th>Nb SERVERS</th>
 								<th>ENVIRONNEMENT</th>
 								
 							</tr>
@@ -766,7 +768,13 @@
 													case "FUNCTIONALGROUPS":
 														$composant=str_replace('|','<br/>',$valeur);
 														echo "<td>".$composant."</td>";
-														break; 						                
+														break; 	
+													case "Nb COMPONENTS":
+														echo "<td>$valeur</td>";
+														break;				                
+													case "Nb SERVERS":
+														echo "<td>$valeur</td>";
+														break;	
 												}
 											}
 											echo "</tr>";
