@@ -724,11 +724,6 @@
 											}
 											if(count($tuples))						
 											{
-									
-											echo "<pre>";
-											echo count($tuples)."<br/>";
-											print_r($tuples)."<br/>";
-											echo "</pre>";
 									?>
 								</th>
 							</tr>
@@ -740,12 +735,6 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr style='background-color: red;'>
-								<td>test1</td><td>test2</td><td>test3</td>
-							</tr>
-						
-						
-							
 							<?php
 									/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
 									foreach($tuples as $ligne)
