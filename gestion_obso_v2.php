@@ -705,7 +705,20 @@
 								<th colspan='3'>
 									<center>
 										<H3>LISTE DES RELATION CI de l'application <?php echo $application?>
-										
+										<?php 
+											$LCI_application=str_replace(" ","_",$application);
+											$query_LCI="call `cmdb`.`Logical_IC`('$LCI_application');";
+											if($LCIstmt = $con->prepare($query_LCI))
+											{
+												$LCIstmt->execute();
+												$LCItuples = $LCIstmt->fetchAll(PDO::FETCH_ASSOC);	
+												echo "<pre>";
+												echo count($LCItuples);
+												print_r($LCItuples);
+												echo "</pre>";
+												if(count($LCItuples))						
+												{
+										?>
 									</center>
 								</th>
 							</tr>
@@ -718,18 +731,6 @@
 						</thead>
 						<tbody>
 						<?php
-							$LCI_application=str_replace(" ","_",$application);
-							$query_LCI="call `cmdb`.`Logical_IC`('$LCI_application');";
-							if($LCIstmt = $con->prepare($query_LCI))
-							{
-								$LCIstmt->execute();
-								$LCItuples = $LCIstmt->fetchAll(PDO::FETCH_ASSOC);	
-								echo "<pre>";
-								print_r($LCItuples);
-								echo "</pre>";
-								if(count($LCItuples))						
-								{
-
 									/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
 									foreach($LCItuples as $LCIligne)
 									{
