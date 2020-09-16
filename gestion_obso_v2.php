@@ -739,14 +739,13 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr style='backgroup-color: red;'>
-								<td>test1</td><td>test</td><td>test3</td>
+							<tr style='background-color: red;'>
+								<td>test1</td><td>test2</td><td>test3</td>
 							</tr>
 							<?php
 									/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
 									foreach($tuples as $ligne)
 									{
-										echo "<br/><pre>".$ligne."</pre><br/>";
 										// echo $LCIligne['FUNCTIONALGROUPS'];
 										// if($LCIligne['FUNCTIONALGROUPS']!="")
 										// {
