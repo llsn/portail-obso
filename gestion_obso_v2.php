@@ -374,7 +374,7 @@
 				<!-- déclaration de l'onglet "Serveurs" -->
 				<div id="server" class="tab-pane fade in active">
 					<!-- Début du tableau des serveurs -->
-					<table id="" class="display" style="width: 100%;">
+					<table id="os_serveur" class="display" style="width: 100%;">
 						<thead>
 							<tr>
 								<th colspan="6">
@@ -472,7 +472,7 @@
 				<div id="db" class="tab-pane fade">
 
 					<!-- Début du tableau des base de données -->
-					<table id="" class="display" style="width: 100%;">
+					<table id="database" class="display" style="width: 100%;">
 						<thead>
 							<tr>
 								<th colspan='7'>
@@ -600,7 +600,7 @@
 				<!-- Ouverture de l'onglet "Middleware" -->
 				<div id="mdw" class="tab-pane fade">
 					<!-- Début du tableau des Middleware -->
-					<table id="" class="display table" style="width: 100%;">
+					<table id="middleware" class="display table" style="width: 100%;">
 						<thead>
 							<tr>
 								<th colspan='5'>
@@ -701,7 +701,7 @@
 				<div id="LCI" class="tab-pane fade">
 					
 					<!-- Début du tableau des Logical CI -->
-					<table id="" class="display table" style="width: 98%;">
+					<table id="logical_ci" class="display table" style="width: 98%;">
 					<!-- <table id="" style="width: 98%;"> -->
 						<thead>
 							<tr>
