@@ -204,6 +204,7 @@
 	<body>
 		<script src="js/pace.min.js"></script>
 		<!-- Titre de la page -->
+		<?php echo "<pre>".$application."</pre>";?>
 		<center>
 			<H3 class='jumbotron'> Gestion de l'obsolescence</h3>
 		</center>
