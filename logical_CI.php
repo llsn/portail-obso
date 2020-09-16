@@ -128,7 +128,7 @@
 							<h4> Application concernée</h4>
 						</td>
 						<td colspan='2'>
-							<input list='list_data_app' name='application' id='application' width='auto' class='input-lg'
+							<input list='list_data_app' name='application' id='application' width='auto' class='w3-ul w3-card-4'
 								onchange='document.getElementById("valid_app").submit()' value='<?php echo $application?>'
 								onclick="if(this.value!='')this.value=''">
 							<datalist id="list_data_app">
