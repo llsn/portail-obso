@@ -723,8 +723,12 @@
 											}
 											if(count($tuples))						
 											{
-									?>
 									
+											echo "<pre>";
+											echo count($tuples)."<br/>";
+											print_r($tuples)."<br/>";
+											echo "</pre>";
+									?>
 								</th>
 							</tr>
 							<tr bgcolor='silver'>
@@ -772,10 +776,7 @@
 								$stmt->pdo = null;
 								
 							}
-							echo "<pre>";
-							echo count($LCItuples);
-							print_r($LCItuples);
-							echo "</pre>";
+							
 							error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
 
 							$variables = get_defined_vars(); // Donne le contenu et les valeurs de toutes les variables dans la portée actuelle
