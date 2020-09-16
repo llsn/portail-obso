@@ -122,7 +122,7 @@
 			action="logical_CI.php">
 			<!-- Création du tableau de recherche -->
 			<center>
-				<Table class='table-hover' width='90%'>
+				<Table class='w3-table-all w3-hoverable' width='90%'>
 					<tr>
 						<td>
 							<h4> Application concernée</h4>
