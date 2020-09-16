@@ -711,7 +711,7 @@
 											if($LCIstmt = $con->prepare($query_LCI))
 											{
 												$LCIstmt->execute();
-												$LCItuples = $LCIstmt->fetchAll(PDO::FETCH_ASSOC);	
+												$LCItuples = $LCIstmt->fetch();	
 												echo "<pre>";
 												echo count($LCItuples);
 												print_r($LCItuples);
