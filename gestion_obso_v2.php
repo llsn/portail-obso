@@ -705,7 +705,7 @@
 					<!-- <table id="" style="width: 98%;"> -->
 						<thead>
 							<tr>
-								<th colspan='3'>
+								<th colspan='5'>
 									<center>
 										<H3>LISTE DES RELATION CI de l'application <?php echo $application?></H3>
 									</center>
