@@ -112,7 +112,7 @@
 								);
 							},
 							"pagingType": "full_numbers",
-							fixedHeader: true
+							fixedHeader: false
 							
 						}
 						
