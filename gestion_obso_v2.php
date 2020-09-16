@@ -747,7 +747,9 @@
 									/* on parcours le tableau $tuples et l'on créé le tableau $ligne contenu le détail de chaque colonne de la table "global_inventory"*/
 									foreach($tuples as $ligne)
 									{
-										// echo $LCIligne['FUNCTIONALGROUPS'];
+										echo $ligne['CONFIGURATIONNAME_WO_EXTNESION']."<br/>";
+										echo $ligne['OPERATINGENVIRONMENT']."<br/>";
+										echo $ligne['FUNCTIONALGROUPS']."<br/>";
 										// if($LCIligne['FUNCTIONALGROUPS']!="")
 										// {
 											// on colore la ligne selon son niveau d'obosolescence avec la fonction "status_obso_middlewareversion" contenu dans la librairie functions.php
