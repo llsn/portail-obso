@@ -122,8 +122,8 @@
 			action="logical_CI.php">
 			<!-- Création du tableau de recherche -->
 			<center>
-				<div class='w3-table-all w3-hoverable' width='90%'>
-					<div>
+				<Table class='w3-table-all w3-hoverable' width='90%'>
+					<tr>
 						<td>
 							<h4> Application concernée</h4>
 						</td>
@@ -187,8 +187,8 @@
 						</td>
 						
 						
-					</div>
-					<div>
+					</tr>
+					<tr>
 
 						<?php
 						ob_start();
@@ -241,11 +241,11 @@
 						}
 						
 						?>
-					</div>
+					</tr>
 					
 					
 					
-				</div>
+				</table>
 			</center>
 		</form>
 </body>
