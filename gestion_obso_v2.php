@@ -758,7 +758,7 @@
 														echo "<td>$valeur</td>";
 														break;
 													case "FUNCTIONALGROUPS":
-														echo "<td>$valeur</td>";
+														echo "<td>".str_replace("|","<br/>",$valeur)."</td>";
 														break; 						                
 												}
 											}
