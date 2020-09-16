@@ -712,7 +712,7 @@
 											{
 												try{
 													$LCIstmt->execute();
-													$LCItuples = $LCIstmt->fetchAll();	
+													$LCItuples = $LCIstmt->fetchAll(PDO::FETCH_ASSOC);	
 												}
 												catch (PDOException $message)
 												{
