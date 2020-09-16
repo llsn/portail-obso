@@ -118,7 +118,7 @@
     </header>
     		<!-- Mise en place du formulaire de recherche d'application -->
 		<form id="valid_app" name="valid_app" class="form-group form-group-lg" method="POST" enctype="multipart/form-data"
-			action="gestion_obso_v2.php">
+			action="logical_CI.php">
 			<!-- Création du tableau de recherche -->
 			<center>
 				<Table class='table-hover' width='90%'>
