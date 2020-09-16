@@ -719,7 +719,7 @@
 													echo 'Connection failed: ' . $message->getMessage();
 												}
 
-												}
+												
 												echo "<pre>";
 												echo count($LCItuples);
 												print_r($LCItuples);
