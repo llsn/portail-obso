@@ -9,7 +9,7 @@ if (isset($GIT_REFRESH) != "TRUE")
 {
     echo "<div><pre>";
     // exec("git pull;",$output,$result);
-    echo exec("bash -c \"git status\"",$output,$result);
+    exec("bash -c \"git status\"",$output,$result);
     print_r($output);
     if($result=0)
     {   
