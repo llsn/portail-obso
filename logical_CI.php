@@ -16,9 +16,7 @@
 	
 	if ($affichage != null && $var_consult_component == "true")
 	{
-		echo "je charge array_affichage!!!";
 		$array_affichage=explode("#",$affichage);
-		print_r($array_affichage);
 		$application=$array_affichage[0];
 		$env=$array_affichage[1];
 		$component=$array_affichage[2];
@@ -340,7 +338,7 @@
 						sinon on récupere dans la table "point_of_contact_by_app" les valeurs de la ligne correspondant à l'application*/
 						if($application!='')
 						{
-							$querycall="call `HOPEX`.`point_of_contact_by_app` ('$application')";
+							$querycall="call `HOPEX`.`point_of_contact_by_app` ('". replace_str($application,"_"," ")."')";
 							if ($stmt = $con->prepare($querycall)) 
 							{
 								$stmt->execute();
