@@ -156,6 +156,9 @@
 								?>
 							</datalist>
 						</td>
+						<td>
+						<h4> Environnement disponible pour <?php echo $application; ?></h4>
+						</td>
 						</form>
 						<?php
             if($application!="")
@@ -196,7 +199,7 @@
 			else
 			{
 				echo "<td>";
-				echo "<input list='list_env' name='env' id='env' width='auto' class='input' onchange='document.getElementById(\"valid_env\").submit()' value='".$env."' onclick=\"if(this.value!='')this.value=''\" disabled>";
+				echo "<input  disabled>";
 				echo "</td>";
 			}
         ?>
