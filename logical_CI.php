@@ -231,7 +231,7 @@
 					try
 					{
 						$stmt->execute();
-						while ($resulttable = $stmt->$stmt->fetch())
+						while ($resulttable = $stmt->fetch())
 						{
 							if ($components == strtoupper($resulttable[0]))
 							{
