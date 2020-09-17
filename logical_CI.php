@@ -192,7 +192,13 @@
                 echo "</datalist>";
 				echo "</td>";
 				echo "</form>";
-            }
+			}
+			else
+			{
+				echo "<td>";
+				echo "<input list='list_env' name='env' id='env' width='auto' class='input' onchange='document.getElementById(\"valid_env\").submit()' value='".$env."' onclick=\"if(this.value!='')this.value=''\" disabled>";
+				echo "</td>";
+			}
         ?>
 						
 						
