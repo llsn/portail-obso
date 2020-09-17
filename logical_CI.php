@@ -246,7 +246,7 @@
 				echo "</td>";
 				echo "</form>";
 			}
-			elseif ($application == "" && $env =="")
+			else
 			{
 				echo "<td>";
 				echo "<input  disabled>";
