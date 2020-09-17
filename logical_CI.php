@@ -155,6 +155,45 @@
 								?>
 							</datalist>
 						</td>
+						</form>
+						<?php
+            if($application!="")
+            {
+                echo "<td>";
+                echo "<form id='valid_functionalgroups' name='valid_functionalgroup' class='form-group form-group-lg' method='POST' enctype='multipart/form-data' action='logical_CI.php'>";
+                echo "<input type='hidden' name='application' value='".$application."'/>";
+                echo "<input list='list_component' name='components' id='components' width='auto' class='input' onchange='document.getElementById(\"valid_functionalgroups\").submit()' value='".$components."' onclick=\"if(this.value!='')this.value=''\">";
+                echo "<datalist id='list_component'>";
+                $query_component = "select distinct substring_index(substring_index(functionalgroups,'#',2),'#',-1) as ENV from system_inventory where functionalgroups like ('%".$application."%') order by ENV";
+				echo "<br/><pre>".$query_component."</pre><br/>";
+				if ($stmt = $con->prepare($query_component)) 
+                {
+					try
+					{
+						$stmt->execute();
+						while ($resulttable = $stmt->fetch())
+						{
+							if ($components == strtoupper($resulttable[0]))
+							{
+								echo '<option valeur="'.$resulttable[0].'" selected>'.$resulttable[0].'</option>';
+							}
+							else
+							{
+								echo '<option valeur="'.$resulttable[0].'">'.$resulttable[0].'</option>';
+							}	
+						}
+					}	
+					catch(PDOException $message)
+					{
+						echo '<br/>Connection failed: ' . $message->getMessage();
+					}
+                    $stmt->pdo = null;
+                }
+                echo "</datalist>";
+				echo "</td>";
+				echo "</form>";
+            }
+        ?>
 						
 						
 					</tr>
@@ -217,44 +256,8 @@
 					
 				</table>
 			</center>
-		</form>
-        <?php
-            if($application!="")
-            {
-                echo "<div>";
-                echo "<form id='valid_functionalgroups' name='valid_functionalgroup' class='form-group form-group-lg' method='POST' enctype='multipart/form-data' action='logical_CI.php'>";
-                echo "<input type='hidden' name='application' value='".$application."'/>";
-                echo "<input list='list_component' name='components' id='components' width='auto' class='input' onchange='document.getElementById(\"valid_functionalgroups\").submit()' value='".$components."' onclick=\"if(this.value!='')this.value=''\">";
-                echo "<datalist id='list_component'>";
-                $query_component = "select distinct substring_index(substring_index(functionalgroups,'#',2),'#',-1) as ENV from system_inventory where functionalgroups like ('%".$application."%') order by ENV";
-				echo "<br/><pre>".$query_component."</pre><br/>";
-				if ($stmt = $con->prepare($query_component)) 
-                {
-					try
-					{
-						$stmt->execute();
-						while ($resulttable = $stmt->fetch())
-						{
-							if ($components == strtoupper($resulttable[0]))
-							{
-								echo '<option valeur="'.$resulttable[0].'" selected>'.$resulttable[0].'</option>';
-							}
-							else
-							{
-								echo '<option valeur="'.$resulttable[0].'">'.$resulttable[0].'</option>';
-							}	
-						}
-					}	
-					catch(PDOException $message)
-					{
-						echo '<br/>Connection failed: ' . $message->getMessage();
-					}
-                    $stmt->pdo = null;
-                }
-                echo "</datalist>";
-                echo "</div>";
-            }
-        ?>
+		
+  
 
         <div>
             <Table>
