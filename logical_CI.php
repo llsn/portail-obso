@@ -425,52 +425,60 @@
 									$affichage=$affichage."#".$component;
 								}
 							}
-							$querycall="select CONFIGURATIONNAME_WO_EXTENSION,STATUS,OPERATINGENVIRONMENT, OSNAME, OSVERSION, `DB Middleware Edition`,`DB Middleware Version`,`DB Instance`, `Middleware Edition`,`Middleware Version` from global_inventory where functionalgroups like '%$affichage%'";
+							$querycall="select CONFIGURATIONNAME_WO_EXTENSION,STATUS,OPERATINGENVIRONMENT, OSNAME, OSVERSION, `DB Middleware Edition`,`DB Middleware Version`,`DB Instance`, `MDW Middleware Edition`,`MDW Middleware Version` from global_inventory where functionalgroups like '%$affichage%'";
 							if ($stmt = $con->prepare($querycall)) 
 							{
-								$stmt->execute();
-								$tuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
-								if (count($tuples)) 
+								try
 								{
-									$columns_names = array_keys($tuples[0]);
-									echo "<center><H3>Données techniques pour $affichage</H3></center>";
-									echo "<table id='' class='display table' style='width: 98%;'>";
-									echo "<thead>";
-									echo "<tr>";
-									foreach ($columns_names as $col) 
+									$stmt->execute();
+									$tuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
+									if (count($tuples)) 
 									{
-										echo '<th>'.$col.'</th>';
-									} 
-									echo "</tr>";
-									echo "</thead>";
-									echo "<tbody>";
-									foreach ($tuples as $tuple) 
-									{
-										echo '<tr>';
-										foreach ($tuple as $entete => $col) 
+										$columns_names = array_keys($tuples[0]);
+										echo "<center><H3>Données techniques pour $affichage</H3></center>";
+										echo "<table id='' class='display table' style='width: 98%;'>";
+										echo "<thead>";
+										echo "<tr>";
+										foreach ($columns_names as $col) 
 										{
-											switch (strtoupper($entete)) 
+											echo '<th>'.$col.'</th>';
+										} 
+										echo "</tr>";
+										echo "</thead>";
+										echo "<tbody>";
+										foreach ($tuples as $tuple) 
+										{
+											echo '<tr>';
+											foreach ($tuple as $entete => $col) 
 											{
-												default:
-													echo '<td>'.$col.'</td>';
-													break;
+												switch (strtoupper($entete)) 
+												{
+													default:
+														echo '<td>'.$col.'</td>';
+														break;
+												}
 											}
-										}
-										echo '</tr>';
+											echo '</tr>';
+										} 
+										echo "</tbody>";
+										echo "<tfoot>";
+										echo "<tr>";
+										foreach ($columns_names as $col) 
+										{
+											echo '<th>'.$col.'</th>';
+										} 
+										echo "</tr>";
+										echo "</tfoot>";
+								
 									} 
-									echo "</tbody>";
-									echo "<tfoot>";
-									echo "<tr>";
-									foreach ($columns_names as $col) 
+									else 
 									{
-										echo '<th>'.$col.'</th>';
-									} 
-									echo "</tr>";
-									echo "</tfoot>";
-								} 
-								else 
+										echo 'Pas de résultat';
+									}
+								}
+								catch(PDOException $message)
 								{
-									echo 'Pas de résultat';
+									echo "Error Request: $message";
 								}
 							}
 						}
