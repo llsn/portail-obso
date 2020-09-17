@@ -867,6 +867,7 @@
 
     echo "<input type='submit' class='btn' value='Export en PDF'>";
     echo "</form>";
+    echo "<a href=\"javascript:history.go(-1)\">Retour à la page précédente</a>";
     echo "</center>";
     ?>
 </body>
