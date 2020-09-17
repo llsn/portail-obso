@@ -425,7 +425,7 @@
 									$affichage=$affichage."#".$component;
 								}
 							}
-							$querycall="select * from system_inventory where functionalgroups like '%$affichage%'";
+							$querycall="select CONFIGURATIONNAME_WO_EXTENSION,STATUS,OPERATINGENVIRONMENT, OSNAME, OSVERSION, `DB Middleware Edition`,`DB Middleware Version`,`DB Instance`, `Middleware Edition`,`Middleware Version` from global_inventory where functionalgroups like '%$affichage%'";
 							if ($stmt = $con->prepare($querycall)) 
 							{
 								$stmt->execute();
