@@ -74,47 +74,16 @@
                             },
                             'pageLength'
                         ],
-                        initComplete: function () 
+                        "initComplete": function () 
                         {
-                            // Setup - add a text input to each footer cell
-                            $('#example tfoot th').each
-                                ( 
-                                    function () 
-                                    {
-                                        var title = $(this).text();
-                                        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-                                    } 
-                                );
-                            
-                                // DataTable
-                                var table = $('#example').DataTable();
-                            
-                                // Apply the search
-                                table.columns().every( function () 
+                            var api = this.api();
+                            api.$('td').dblclick
+                            ( 
+                                function () 
                                 {
-                                    var that = this;
-                            
-                                    $( 'input', this.footer() ).on( 'keyup change clear', 
-                                    function () 
-                                    {
-                                        if ( that.search() !== this.value ) {
-                                            that
-                                                .search( this.value )
-                                                .draw();
-                                        }
-                                    } );
-                                } );
-                                
-                                var r = $('#example tfoot tr');
-                                r.find('th').each
-                                (
-                                    function()
-                                        {
-                                            $(this).css('padding', 8);
-                                        }
-                                );
-                                $('#example thead').append(r);
-                                $('#search_0').css('text-align', 'center');
+                                    api.search( this.innerHTML ).draw();
+                                } 
+                            );
                         },
                         "pagingType": "full_numbers",
 						fixedHeader: true
