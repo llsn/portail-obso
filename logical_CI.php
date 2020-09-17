@@ -16,8 +16,8 @@
 	{
 		$array_affichage=explode($affichage,"#");
 		$application=$array_affichage[0];
-		$env=$array_affichage[1];
-		$component=$array_affichage[2];
+		$env=$array_affichage[2];
+		$component=$array_affichage[4];
 
 	}
 ?>
