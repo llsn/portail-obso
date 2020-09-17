@@ -11,7 +11,7 @@ if ($GIT_REFRESH == "TRUE")
     // exec("git pull;",$output,$result);
     exec("bash -c \"git status\"",$output,$result);
     print_r($output);
-    if($result=0)
+    if($result==0)
     {   
         
         echo "Mise à jour réussi";
