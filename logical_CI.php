@@ -11,7 +11,15 @@
     $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $password)
 		or die('Could not connect to the database server'.pdo_connect_error());
 	$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $con->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
+	$con->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
+	if ($affichage != null && $var_consult_component == 'true')
+	{
+		$array_affichage=explode($affichage,"#");
+		$application=$array_affichage[0];
+		$env=$array_affichage[1];
+		$component=$array_affichage[2];
+
+	}
 ?>
 <html>
 
