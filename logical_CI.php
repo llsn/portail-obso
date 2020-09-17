@@ -5,7 +5,6 @@
     $STYLE = "style='border:1px solid black;border-collapse: collapse;text-align:center;'";
     $application = isset($_POST['application']) ? $_POST['application'] : null;
     $component=isset($_POST['component']) ? $_POST['component'] : null;
-    $chk_appli_obso=isset($_POST['chk_appli_obso']) ? $_POST['chk_appli_obso'] : NULL;
     $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $password)
         or die('Could not connect to the database server'.pdo_connect_error());
 ?>
@@ -133,18 +132,8 @@
 								onclick="if(this.value!='')this.value=''">
 							<datalist id="list_data_app">
 								<?php
-									/* vérifie si la case à cocher chk_appli_obso est à "on"
-									si chk_appli_obso est à "on" alors on charger les données de la vue "list_application_with_os_obsolete" 
-									sinon on charge les données de la table "application" dans l'ordre alphabetique*/
-
-									if($chk_appli_obso=="on")
-									{
-										$querytable="SELECT distinct * FROM cmdb.list_application_with_os_obsolete;";
-									}
-									else
-									{
-										$querytable="select application from cmdb.application where archived = 0 order by application";
-									}
+									
+									$querytable="select distinct substring_index(functionalgroups,'#',1) as APP from system_inventory where FUNCTIONALGROUPS <> '' order by APP";
 									if ($stmt = $con->prepare($querytable))
 									{
 										$stmt->execute();
@@ -163,27 +152,6 @@
 									}
 								?>
 							</datalist>
-							<?php
-							/* si la variable de la case à cocher chk_appli_obso est à "on" alors
-							on force la valeur de la case à cocher chk_appli_obso à "on"
-							sinon on force la valeur de la case à cocher à "off" */
-							if($chk_appli_obso=="on")
-							{
-								?>
-							<input type='checkbox' name='chk_appli_obso' id='chk_appli_obso' class='input-lg'
-								onclick='document.getElementById("valid_app").submit()' checked>
-							<label>Filtrer uniquement les applications avec des OS obsoletes</label>
-							<?php
-							}
-							else
-							{
-								?>
-							<input type='checkbox' name='chk_appli_obso' id='chk_appli_obso' class='input-lg'
-								onclick='document.getElementById("valid_app").submit()'>
-							<label> Filtrer uniquement les applications avec des OS obsoletes</label>
-							<?php
-							}
-							?>
 						</td>
 						
 						
