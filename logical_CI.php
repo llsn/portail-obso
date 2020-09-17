@@ -227,18 +227,25 @@
                 $query_component = "select distinct functionalgroups from system_inventory where functionalgroups like ('%".$application."%')";
                 if ($stmt = $con->prepare($query_component)) 
                 {
-                    $stmt->execute();
-                    while ($resulttable = $stmt->$stmt->fetch())
-                    {
-                        if ($components == strtoupper($resulttable[0]))
-                        {
-                            echo '<option valeur="'.$resulttable[0].'" selected>'.$resulttable[0].'</option>';
-                        }
-                        else
-                        {
-                            echo '<option valeur="'.$resulttable[0].'">'.$resulttable[0].'</option>';
-                        }	
-                    }
+					try
+					{
+						$stmt->execute();
+						while ($resulttable = $stmt->$stmt->fetch())
+						{
+							if ($components == strtoupper($resulttable[0]))
+							{
+								echo '<option valeur="'.$resulttable[0].'" selected>'.$resulttable[0].'</option>';
+							}
+							else
+							{
+								echo '<option valeur="'.$resulttable[0].'">'.$resulttable[0].'</option>';
+							}	
+						}
+					}	
+					catch(PDOException $message)
+					{
+						echo '<br/>Connection failed: ' . $message->getMessage();
+					}
                     $stmt->pdo = null;
                 }
                 echo "</datalist>";
