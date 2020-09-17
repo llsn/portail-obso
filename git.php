@@ -5,7 +5,7 @@ echo "<div>";
 echo "<form id='git_refresh' class='form-horizontal' method='POST' enctype='multipart/form-data' action='git.php'>";
 
 echo "<br/><pre>".$GIT_REFRESH."</pre><br/>";
-if (isset($GIT_REFRESH) != "TRUE") 
+if ($GIT_REFRESH != "TRUE") 
 {
     echo "<div><pre>";
     // exec("git pull;",$output,$result);
