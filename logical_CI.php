@@ -3,7 +3,8 @@
     require 'functions.php';
 
     $STYLE = "style='border:1px solid black;border-collapse: collapse;text-align:center;'";
-    $application = isset($_POST['application']) ? $_POST['application'] : null;
+	$application = isset($_POST['application']) ? $_POST['application'] : null;
+	$env = isset($_POST['env']) ? $_POST['env'] : null;
     $component=isset($_POST['component']) ? $_POST['component'] : null;
     $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $password)
 		or die('Could not connect to the database server'.pdo_connect_error());
@@ -161,7 +162,7 @@
             {
                 echo "<td>";
                 echo "<form id='valid_functionalgroups' name='valid_functionalgroup' class='form-group form-group-lg' method='POST' enctype='multipart/form-data' action='logical_CI.php'>";
-                echo "<input type='hidden' name='application' value='".$application."'/>";
+                echo "<input type='hidden' name='env' value='".$env."'/>";
                 echo "<input list='list_component' name='components' id='components' width='auto' class='input' onchange='document.getElementById(\"valid_functionalgroups\").submit()' value='".$components."' onclick=\"if(this.value!='')this.value=''\">";
                 echo "<datalist id='list_component'>";
                 $query_component = "select distinct substring_index(substring_index(functionalgroups,'#',2),'#',-1) as ENV from system_inventory where functionalgroups like ('%".$application."%') order by ENV";
@@ -272,5 +273,29 @@
             </tfoot>
             </table>
         </div>
+		<p class="debug">
+		<?php
+			error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
+		
+			$variables = get_defined_vars(); // Donne le contenu et les valeurs de toutes les variables dans la portée actuelle
+			$var_ignore=array("GLOBALS", "_ENV", "_SERVER","_GET","host","dbname","user","password","port","socket"); // Détermine les var à ne pas afficher
+			echo ("<strong>Etat des variables a la ligne : ".__LINE__." dans le fichier : ".__FILE__."</strong><br />\n");
+			$nom_fonction=__FUNCTION__;
+			if (isset($nom_fonction)&&$nom_fonction!="")
+			{
+				echo ("<strong>Dans la fonction : ".$nom_fonction."</strong><br />\n");
+			}
+			foreach ($variables as $key=>$valeur)
+			{
+				if (!in_array($key, $var_ignore)&&strpos($key,"HTTPS")===false)
+					{
+					echo "<pre class=\"debug\">";
+					echo ("$".$key." => ");
+					print_r($valeur);
+					echo "</pre>\n";
+					}
+			}
+		?>
+		</p> 
 </body>
 </html>
