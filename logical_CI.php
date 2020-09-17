@@ -189,6 +189,10 @@
         <h1 class="w3-center">LOGICAL CI</h1>
     </header>
     		<!-- Mise en place du formulaire de recherche d'application -->
+		<?php
+		if($affiche ==null && $var_consult_component != 'true')
+		{
+			?>
 		<form id="valid_app" name="valid_app" class="form-group form-group-lg" method="POST" enctype="multipart/form-data"
 			action="logical_CI.php">
 			<!-- Création du tableau de recherche -->
@@ -321,6 +325,8 @@
 				echo "<input  disabled>";
 				echo "</td>";
 			}
+			echo "</table>";
+		}
         ?>
 						
 						
