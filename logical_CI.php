@@ -338,7 +338,8 @@
 						sinon on récupere dans la table "point_of_contact_by_app" les valeurs de la ligne correspondant à l'application*/
 						if($application!='')
 						{
-							$querycall="call `HOPEX`.`point_of_contact_by_app` ('". replace_str($application,"_"," ")."')";
+							$HOPEX_APP=replace_str($application,"_"," ");
+							$querycall="call `HOPEX`.`point_of_contact_by_app` ('".$HOPEX_APP."')";
 							if ($stmt = $con->prepare($querycall)) 
 							{
 								$stmt->execute();
