@@ -206,7 +206,7 @@
 	<body>
 		<script src="js/pace.min.js"></script>
 		<!-- Titre de la page -->
-		<?php echo "<pre>".$application."</pre>";?>
+
 		<center>
 			<H3 class='jumbotron'> Gestion de l'obsolescence</h3>
 		</center>
@@ -751,6 +751,7 @@
 											{
 												switch($entete)
 												{
+
 													// si $entete="CONFIGURATIONNAME_WO_EXTENSION" alors on créer un formualire avec un lien vers la page fiche_machine.php en trasnmettant $valeur dans la variable "machine"
 													
 													case "CONFIGURATIONNAME_WO_EXTENSION":
