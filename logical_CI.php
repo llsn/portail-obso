@@ -443,7 +443,7 @@
 										} 
 										echo "</tr>";
 										echo "</tfoot>";
-								
+										echo "</table>";
 									} 
 									else 
 									{
@@ -458,8 +458,8 @@
 						}
 						$stmt->pdo = null;
 						?>
-					</tr>
-				</table>
+
+
 				<a href="javascript:history.go(-1)">Retour à la page précédente</a>
 			</center>
 		
