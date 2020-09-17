@@ -4,9 +4,6 @@ $GIT_REFRESH=isset($_POST['git_refresh']) ? $_POST['git_refresh'] : "FALSE";
 echo "<div>";
 echo "<form id='git_refresh' class='form-horizontal' method='POST' enctype='multipart/form-data' action='git.php'>";
 
-
-
-echo "</div>";
 echo "<br/><pre>".$GIT_REFRESH."</pre><br/>";
 if (isset($GIT_REFRESH) != "TRUE") 
 {
@@ -28,4 +25,5 @@ if (isset($GIT_REFRESH) != "TRUE")
 }
 echo "<input type='submit' value='lancer le rafraichissement du code avec la dernière version GIT' class='input-lg'>";
 echo "</form>";
+echo "</div>";
 ?>
