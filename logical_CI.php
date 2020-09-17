@@ -55,7 +55,7 @@
                 $('table.display').DataTable
                 ( 
                     { 
-                        "autoWidth": false,
+                        "autoWidth": true,
                         responsive: true,
                         keys: true,
                         select: true,
