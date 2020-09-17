@@ -17,11 +17,11 @@
 	if ($affichage != null && $var_consult_component == "true")
 	{
 		echo "je charge array_affichage!!!";
-		$array_affichage=explode($affichage,"#");
+		$array_affichage=explode("#",$affichage);
 		print_r($array_affichage);
-		$application=$array_affichage[1];
-		$env=$array_affichage[3];
-		$component=$array_affichage[5];
+		$application=$array_affichage[0];
+		$env=$array_affichage[1];
+		$component=$array_affichage[2];
 
 	}
 ?>
