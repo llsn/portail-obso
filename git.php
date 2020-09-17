@@ -13,7 +13,7 @@ if (isset($GIT_REFRESH) != "TRUE")
     print_r($output);
     if($result=0)
     {   
-        echo "<input type='hidden' name='git_refresh' value='TRUE'/>";
+        
         echo "Mise à jour réussi";
     }
     else
@@ -23,6 +23,7 @@ if (isset($GIT_REFRESH) != "TRUE")
     }
     echo "</pre></div>";
 }
+echo "<input type='hidden' name='git_refresh' value='TRUE'/>";
 echo "<input type='submit' value='lancer le rafraichissement du code avec la dernière version GIT' class='input-lg'>";
 echo "</form>";
 echo "</div>";
