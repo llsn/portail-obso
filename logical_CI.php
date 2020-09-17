@@ -201,11 +201,13 @@
 				echo "<td>";
 				echo "<input  disabled>";
 				echo "</td>";
+				echo "<td>";
+				echo "<h4> Composants disponibles pour <?php echo $application; ?></h4>";
+				echo "</td>";
+
+
 			}
         ?>
-		<td>
-			<h4> Composants disponibles pour <?php echo $application; ?></h4>
-		</td>
 		</form>
 		<?php
             if($application!="" && $env !="")
@@ -213,6 +215,7 @@
                 echo "<td>";
                 echo "<form id='valid_component' name='valid_functionalgroup' class='form-group form-group-lg' method='POST' enctype='multipart/form-data' action='logical_CI.php'>";
 				echo "<input type='hidden' name='application' value='".$application."'/>";
+				echo "<input type='hidden' name='application' value='".$env."'/>";
                 echo "<input list='list_component' name='component' id='component' width='auto' class='input' onchange='document.getElementById(\"valid_component\").submit()' value='".$component."' onclick=\"if(this.value!='')this.value=''\">";
                 echo "<datalist id='list_component'>";
                 $query_component = "select distinct substring_index(substring_index(substring_index(functionalgroups,'#',3),'#',-1),'|',1) as COMPONENT from system_inventory where functionalgroups like ('%".$application."#".$env."%') order by COMPONENT";
