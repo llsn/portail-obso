@@ -14,6 +14,7 @@
 	$con->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
 	if ($affichage != null && $var_consult_component == 'true')
 	{
+		echo "je charge array_affichage!!!";
 		$array_affichage=explode($affichage,"#");
 		$application=$array_affichage[1];
 		$env=$array_affichage[3];
