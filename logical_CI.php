@@ -15,9 +15,9 @@
 	if ($affichage != null && $var_consult_component == 'true')
 	{
 		$array_affichage=explode($affichage,"#");
-		$application=$array_affichage[0];
-		$env=$array_affichage[2];
-		$component=$array_affichage[4];
+		$application=$array_affichage[1];
+		$env=$array_affichage[3];
+		$component=$array_affichage[5];
 
 	}
 ?>
