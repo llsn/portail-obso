@@ -228,7 +228,7 @@
 							</datalist>
 						</td>
 						<td>
-						<h4> Environnements disponible pour <?php echo $application; ?></h4>
+							<h4> Environnements disponible pour <?php echo $application; ?></h4>
 						</td>
 						</form>
 						<?php
@@ -373,14 +373,6 @@
 										echo '</tr>';
 									} 
 									echo "</tbody>";
-									echo "<tfoot>";
-									echo "<tr>";
-									foreach ($columns_names as $col) 
-									{
-										echo '<th>'.$col.'</th>';
-									} 
-									echo "</tr>";
-									echo "</tfoot>";
 									echo "</table>";
 								} 
 								else 
