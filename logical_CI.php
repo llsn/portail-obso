@@ -224,8 +224,7 @@
                 echo "<input type='hidden' name='application' value='".$application."'/>";
                 echo "<input list='list_component' name='components' id='components' width='auto' class='input' onchange='document.getElementById(\"valid_functionalgroups\").submit()' value='".$components."' onclick=\"if(this.value!='')this.value=''\">";
                 echo "<datalist id='list_component'>";
-                $var_application=str_replace(' ','_',$application);
-                $query_component = "select distinct functionalgroups from system_inventory where functionalgroups regexp ('^".$var_application."#')";
+                $query_component = "select distinct functionalgroups from system_inventory where functionalgroups like ('%".$application."%')";
                 if ($stmt = $con->prepare($query_component)) 
                 {
                     $stmt->execute();
