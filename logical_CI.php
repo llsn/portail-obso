@@ -36,9 +36,95 @@
 
 	<!-- Initialisation des tableaux de données de la page -->
 	<script>
-		$(document).ready(function () {
-			$('table.display').DataTable();
-		});
+		$(document).ready
+        (
+            function () 
+            {
+                $('table.display').DataTable
+                ( 
+                    { 
+                        "autoWidth": false,
+                        responsive: true,
+                        keys: true,
+                        select: true,
+                        fixedHeader: true,
+                        colReorder: true,
+                        language: 
+                        {
+                        url: "Datatables/French.json"
+                        },
+                        dom: 'Bfrtip',
+                        lengthMenu: 
+                        [
+                            [ 10, 25, 50, -1 ],
+                            [ '10 lgnes', '25 lignes', '50 lignes', 'toutes les lignes' ]
+                        ],
+                        buttons: 
+                        [
+                            'print',
+                            'copy',
+                            'excel',
+                            'csv',
+                            {
+                                extend: 'pdfHtml5',
+                                orientation: 'landscape',
+                                pageSize: 'A3'
+                            },
+                            'pageLength'
+                        ],
+                        initComplete: function () 
+                        {
+                            // Setup - add a text input to each footer cell
+                            $('#example tfoot th').each
+                                ( 
+                                    function () 
+                                    {
+                                        var title = $(this).text();
+                                        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+                                    } 
+                                );
+                            
+                                // DataTable
+                                var table = $('#example').DataTable();
+                            
+                                // Apply the search
+                                table.columns().every( function () 
+                                {
+                                    var that = this;
+                            
+                                    $( 'input', this.footer() ).on( 'keyup change clear', 
+                                    function () 
+                                    {
+                                        if ( that.search() !== this.value ) {
+                                            that
+                                                .search( this.value )
+                                                .draw();
+                                        }
+                                    } );
+                                } );
+                                
+                                var r = $('#example tfoot tr');
+                                r.find('th').each
+                                (
+                                    function()
+                                        {
+                                            $(this).css('padding', 8);
+                                        }
+                                );
+                                $('#example thead').append(r);
+                                $('#search_0').css('text-align', 'center');
+                        },
+                        "pagingType": "full_numbers",
+						fixedHeader: true
+                        
+                    }
+                     
+                );
+                
+                
+                
+            }
+        );
 
 		function chargement() {
 			document.getElementById('chargement').style.display = 'none';
