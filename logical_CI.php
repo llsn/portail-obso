@@ -434,7 +434,7 @@
 								{
 									$columns_names = array_keys($tuples[0]);
 									echo "<center><H3>Données techniques pour $affichage</H3></center>";
-									echo "<table id='' class='display' style='width: 100%;'>";
+									echo "<table id='' class='display table' style='width: 98%;'>";
 									echo "<thead>";
 									echo "<tr>";
 									foreach ($columns_names as $col) 
