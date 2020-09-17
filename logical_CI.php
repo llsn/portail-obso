@@ -7,6 +7,7 @@
 	$env = isset($_POST['env']) ? $_POST['env'] : null;
 	$component=isset($_POST['component']) ? $_POST['component'] : null;
 	$var_consult_component=isset($_POST['var_consult_component']) ? $_POST['var_consult_component'] : FALSE;
+	$affichage = isset($_POST['affichage']) ? $_POST['affichage'] : null;
     $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $password)
 		or die('Could not connect to the database server'.pdo_connect_error());
 	$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -416,15 +417,23 @@
 						sinon on récupere dans la table "point_of_contact_by_app" les valeurs de la ligne correspondant à l'application*/
 						if($application!='' || $var_consult_component=='true')
 						{
-							echo "<center><H2>$application</H2></center>";
-							$affichage=$application;
-							if($env!="")
+							if($var_consult_component!='true')
 							{
-								$affichage=$affichage."#".$env;
-								if($component!='')
+								echo "<center><H2>$application</H2></center>";
+								$affichage=$application;
+								if($env!="")
 								{
-									$affichage=$affichage."#".$component;
+									$affichage=$affichage."#".$env;
+									if($component!='')
+									{
+										$affichage=$affichage."#".$component;
+									}
 								}
+							}
+							else 
+							{
+								$application=explode("#",$affichage)
+								echo "<center><H2>".$application[0]."</H2></center>";
 							}
 							$querycall="select FUNCTIONALGROUPS,CONFIGURATIONNAME_WO_EXTENSION,STATUS,OPERATINGENVIRONMENT, OSNAME, OSVERSION, `DB Middleware Edition`,`DB Middleware Version`,`DB Instance`, `MDW Middleware Edition`,`MDW Middleware Version` from global_inventory where functionalgroups like '%$affichage%'";
 							if ($stmt = $con->prepare($querycall)) 
