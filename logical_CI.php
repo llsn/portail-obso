@@ -314,6 +314,72 @@
 					
 					
 				</table>
+				<?php
+						
+
+						/* si la variable application est vide alors on ne fait rien
+						sinon on récupere dans la table "point_of_contact_by_app" les valeurs de la ligne correspondant à l'application*/
+						if($application!='')
+						{
+							echo "<center><H2>$application</H2></center>";
+							$affichage=$application;
+							if($env!="")
+							{
+								$affichage=$affichage."#".$env;
+								if($component!='')
+								{
+									$affichage=$affichage."#".$component;
+								}
+							}
+							$querycall="select * from system_inventory where functionalgroups like '%$affichage%'";
+							if ($stmt = $con->prepare($querycall)) 
+							{
+								$stmt->execute();
+								$tuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
+								if (count($tuples)) 
+								{
+									$columns_names = array_keys($tuples[0]);
+									echo "<center><H3>Données techniques pour $affichage</H3></center>";
+									echo "<table id='' class='display' style='width: 100%;'>";
+									echo "<thead>";
+									echo "<tr>";
+									foreach ($columns_names as $col) 
+									{
+										echo '<th>'.$col.'</th>';
+									} 
+									echo "</tr>";
+									echo "</thead>";
+									echo "<tbody>";
+									foreach ($tuples as $tuple) 
+									{
+										echo '<tr>';
+										foreach ($tuple as $entete => $col) 
+										{
+											switch (strtoupper($entete)) 
+											{
+												default:
+													echo '<td>'.$col.'</td>';
+													break;
+											}
+										}
+										echo '</tr>';
+									} 
+									echo "</tbody>";
+									echo "</table>";
+								} 
+								else 
+								{
+									echo 'Pas de résultat';
+								}
+							}
+						}
+						$stmt->pdo = null;
+						?>
+					</tr>
+					
+					
+					
+				</table>
 			</center>
 		
   
