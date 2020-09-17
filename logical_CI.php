@@ -496,6 +496,7 @@
 						?>
 					</tr>
 				</table>
+				<a href="javascript:history.go(-1)">Retour à la page précédente</a>
 			</center>
 		
 
