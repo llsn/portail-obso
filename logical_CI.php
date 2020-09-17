@@ -5,7 +5,8 @@
     $STYLE = "style='border:1px solid black;border-collapse: collapse;text-align:center;'";
 	$application = isset($_POST['application']) ? $_POST['application'] : null;
 	$env = isset($_POST['env']) ? $_POST['env'] : null;
-    $component=isset($_POST['component']) ? $_POST['component'] : null;
+	$component=isset($_POST['component']) ? $_POST['component'] : null;
+	$var_consult_component=isset($_POST['var_consult_component']) ? $_POST['var_consult_component'] : FALSE;
     $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $password)
 		or die('Could not connect to the database server'.pdo_connect_error());
 	$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -413,7 +414,7 @@
 
 						/* si la variable application est vide alors on ne fait rien
 						sinon on récupere dans la table "point_of_contact_by_app" les valeurs de la ligne correspondant à l'application*/
-						if($application!='')
+						if($application!='' || $var_consult_component=='true')
 						{
 							echo "<center><H2>$application</H2></center>";
 							$affichage=$application;
