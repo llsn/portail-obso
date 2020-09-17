@@ -410,7 +410,8 @@
 			{
 				foreach ($list_functional_group as $ligne)
 				{
-					echo $ligne."<br/>\n";
+					echo "<form id='".$ligne."' method='POST' action='locigal_CI.php'><input type='hidden' name='affichage' value='".$ligne."'/><input type='hidden' name='var_consult_component' value='true'/></form><a href='#' onclick='document.getElementById(\"$ligne\").submit()' ><b>".$ligne."</b></a>";
+                    echo "<br/>";
 				}
 			}
                     	echo "</td>";
