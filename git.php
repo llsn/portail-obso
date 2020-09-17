@@ -8,8 +8,8 @@ echo "<input type='submit' value='lancer le rafraichissement du code avec la der
 echo "</form>";
 echo "</div>";
 echo "<pre>";
-echo "ID:".shell_exec("id");
-echo shell_exec("bash cd /var/www/html/; git status 2>&1");
+// echo "ID:".shell_exec("id");
+echo shell_exec("bash -c \"git status\"");
 echo "</pre>";
 if (isset($GIT_REFRESH) != "TRUE") 
 {
