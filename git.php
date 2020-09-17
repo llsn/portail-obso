@@ -14,8 +14,8 @@ echo "</pre>";
 if (isset($GIT_REFRESH) != "TRUE") 
 {
     echo "<div><pre>";
-    // exec("cd /var/www/html/; /usr/bin/git pull;",$output,$result);
-    echo shell_exec("bash cd /var/www/html/; git status 2>&1");
+    // exec("git pull;",$output,$result);
+    echo shell_exec("bash -c \"git status\"");
     print_r($output);
     if($result=0)
     {   
