@@ -8,14 +8,17 @@
 	$component=isset($_POST['component']) ? $_POST['component'] : null;
 	$var_consult_component=isset($_POST['var_consult_component']) ? $_POST['var_consult_component'] : FALSE;
 	$affichage = isset($_POST['affichage']) ? $_POST['affichage'] : null;
-    $con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $password)
+	
+	$con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $password)
 		or die('Could not connect to the database server'.pdo_connect_error());
 	$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$con->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
-	if ($affichage != null && $var_consult_component == 'true')
+	
+	if ($affichage != null && $var_consult_component == "true")
 	{
 		echo "je charge array_affichage!!!";
 		$array_affichage=explode($affichage,"#");
+		print_r($array_affichage);
 		$application=$array_affichage[1];
 		$env=$array_affichage[3];
 		$component=$array_affichage[5];
