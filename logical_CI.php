@@ -326,10 +326,6 @@
 			echo "</table>";
 		}
         ?>
-						
-						
-					</tr>
-					<tr>
 
 						<?php
 						ob_start();
@@ -383,11 +379,7 @@
 						}
 						$stmt->pdo = null;
 						?>
-					</tr>
-					
-					
-					
-				</table>
+
 				<?php
 						
 
