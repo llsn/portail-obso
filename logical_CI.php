@@ -164,7 +164,7 @@
                 echo "<form id='valid_env' name='valid_functionalgroup' class='form-group form-group-lg' method='POST' enctype='multipart/form-data' action='logical_CI.php'>";
 				echo "<input type='hidden' name='application' value='".$application."'/>";
                 echo "<input list='list_env' name='env' id='env' width='auto' class='input' onchange='document.getElementById(\"valid_env\").submit()' value='".$env."' onclick=\"if(this.value!='')this.value=''\">";
-                echo "<datalist id='list_component'>";
+                echo "<datalist id='list_env'>";
                 $query_env = "select distinct substring_index(substring_index(functionalgroups,'#',2),'#',-1) as ENV from system_inventory where functionalgroups like ('%".$application."%') order by ENV";
 				if ($stmt = $con->prepare($query_env)) 
                 {
