@@ -433,7 +433,7 @@
 							else 
 							{
 								$application=explode("#",$affichage);
-								echo "<center><H2>".$application[0][1]."</H2></center>";
+								echo "<center><H2>".$application[0]."</H2></center>";
 							}
 							$querycall="select FUNCTIONALGROUPS,CONFIGURATIONNAME_WO_EXTENSION,STATUS,OPERATINGENVIRONMENT, OSNAME, OSVERSION, `DB Middleware Edition`,`DB Middleware Version`,`DB Instance`, `MDW Middleware Edition`,`MDW Middleware Version` from global_inventory where functionalgroups like '%$affichage%'";
 							if ($stmt = $con->prepare($querycall)) 
