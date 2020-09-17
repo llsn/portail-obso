@@ -201,15 +201,15 @@
 				echo "<td>";
 				echo "<input  disabled>";
 				echo "</td>";
-				echo "<td>";
-				echo "<h4> Composants disponibles pour <?php echo $application; ?></h4>";
-				echo "</td>";
-
+				
 
 			}
         ?>
 		</form>
 		<?php
+			echo "<td>";
+			echo "<h4> Composants disponibles pour <?php echo $application; ?></h4>";
+			echo "</td>";
             if($application!="" && $env !="")
             {
                 echo "<td>";
