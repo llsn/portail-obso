@@ -225,7 +225,8 @@
                 echo "<input list='list_component' name='components' id='components' width='auto' class='input' onchange='document.getElementById(\"valid_functionalgroups\").submit()' value='".$components."' onclick=\"if(this.value!='')this.value=''\">";
                 echo "<datalist id='list_component'>";
                 $query_component = "select distinct substring_index(substring_index(functionalgroups,'#',2),'#',-1) from system_inventory where functionalgroups like ('%".$application."%')";
-                if ($stmt = $con->prepare($query_component)) 
+				echo "<br/><pre>".$query_component."</pre><br/>";
+				if ($stmt = $con->prepare($query_component)) 
                 {
 					try
 					{
