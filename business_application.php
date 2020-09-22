@@ -326,7 +326,7 @@
 			echo "</table>";
 		}
         ?>
-
+        </center>
 						<?php
 						ob_start();
 						echo "<center><H2>$application</H2></center>";
