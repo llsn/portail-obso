@@ -41,10 +41,42 @@
 	<script type="text/javascript" language="javascript" src="vendor/datatables/datatables/media/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" language="javascript" src="vendor/twbs/bootstrap/js/dist/tab.js"></script>
 	<!-- 	<script type="text/javascript" language="javascript" src="javascript/DataTables-1.10.20/examples/resources/syntax/shCore.js"></script>
-		<script type="text/javascript" language="javascript" src="javascript/DataTables-1.10.20/examples/resources/demo.js"></script>
-	
-		<script type="text/javascript" language="javascript" src="js/pace.min.js"></script>-->
+		<script type="text/javascript" language="javascript" src="javascript/DataTables-1.10.20/examples/resources/demo.js"></script>-->
+	<script type="text/javascript" language="javascript" src="js/pace.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Datatables/datatables.css"/>
+    <link rel="stylesheet" type="text/css" href="Datatables/stylesheet.css"/>
 
+    <script type="text/javascript" language="javascript" src="Datatables/datatables.js"></script>
+    <!-- Chargement des feuilles de style -->
+    <link rel="stylesheet" type="text/css" href="stylesheet/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables/media/css/jquery.dataTables.css" />
+    <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables/media/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="Datatables/AutoFill-2.3.4/css/autoFill.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="Datatables/Responsive-2.2.3/css/responsive.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="Datatables/Responsive-2.2.3/css/responsive.jqueryui.min.css" />
+    <link rel="stylesheet" type="text/css" href="Datatables/FixedHeader-3.1.6/css/fixedHeader.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="Datatables/FixedColumns-3.3.0/css/fixedColumns.dataTables.min.css" /> 
+
+    <!-- Chargement des scripts javascripts pour la mise en forme des tableaux-->
+    <script type="text/javascript" language="javascript" src="bootstrap/js/bootstrap.min.ls.js"></script>	
+    <script type="text/javascript" language="javascript" src="vendor/components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="vendor/twbs/bootstrap/js/dist/tab.js"></script>
+    <script type="text/javascript" language="javascript" src="vendor/twbs/bootstrap/js/dist/util.js"></script>
+    <script type="text/javascript" language="javascript" src="js/pace.min.js"></script>
+
+    <script type="text/javascript" language="javascript" src="Datatables/datatables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="Datatables/jQuery-3.3.1/jquery-3.3.1.js"></script>
+    <script type="text/javascript" language="javascript" src="Datatables/DataTables-1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="Datatables/Buttons-1.6.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" language="javascript" src="Datatables/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" language="javascript" src="Datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" language="javascript" src="Datatables/Buttons-1.6.1/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" language="javascript" src="Datatables/AutoFill-2.3.4/js/dataTables.autoFill.min.js"></script>
+    <script type="text/javascript" language="javascript" src="Datatables/FixedHeader-3.1.6/js/fixedHeader.dataTables.js"></script>
+    <script type="text/javascript" language="javascript" src="Datatables/FixedColumns-3.3.0/js/fixedColumns.dataTables.js"></script>
+    <script type="text/javascript" language="javascript" src="Datatables/Responsive-2.2.3/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" language="javascript" src="Datatables/Responsive-2.2.3/js/responsive.jqueryui.min.js"></script>
+    <script type="text/javascript" language="javascript" src="Datatables/default/datatables.js"></script>
 
 	<!-- Initialisation des tableaux de données de la page -->
 	<script>
