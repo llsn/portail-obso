@@ -192,7 +192,7 @@
 		{
 			?>
 		<form id="valid_app" name="valid_app" class="form-group form-group-lg" method="POST" enctype="multipart/form-data"
-			action="logical_CI.php">
+			action="business_application.php">
 			<!-- Création du tableau de recherche -->
 			<center>
 				<Table class='w3-table-all w3-hoverable' width='90%'>
@@ -235,7 +235,7 @@
             if($application!="")
             {
                 echo "<td>";
-                echo "<form id='valid_env' name='valid_functionalgroup' class='form-group form-group-lg' method='POST' enctype='multipart/form-data' action='logical_CI.php'>";
+                echo "<form id='valid_env' name='valid_functionalgroup' class='form-group form-group-lg' method='POST' enctype='multipart/form-data' action='business_application.php'>";
 				echo "<input type='hidden' name='application' value='".$application."'/>";
                 echo "<input list='list_env' name='env' id='env' width='auto' class='input' onchange='document.getElementById(\"valid_env\").submit()' value='".$env."' onclick=\"if(this.value!='')this.value=''\">";
                 echo "<datalist id='list_env'>";
