@@ -324,7 +324,7 @@
 			// 	echo "</td>";
 			// }
 			echo "</table>";
-		// }
+		}
         ?>
         </center>
 						<?php
