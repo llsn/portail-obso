@@ -389,7 +389,8 @@
                     {
                         foreach ($list_business_application as $ligne) 
                         {
-                            echo "<form id='".$ligne."' method='POST' action='components_detail.php'><input type='hidden' name='var_logical_CI' value='".$ligne."'/><input type='hidden' name='var_consult_component' value='true'/></form><a href='#' onclick='document.getElementById(\"$ligne\").submit()' ><b>".$ligne."</b></a>";
+                            //echo "<form id='".$ligne."' method='POST' action='components_detail.php'><input type='hidden' name='var_logical_CI' value='".$ligne."'/><input type='hidden' name='var_consult_component' value='true'/></form><a href='#' onclick='document.getElementById(\"$ligne\").submit()' ><b>".$ligne."</b></a>";
+                            echo "<form id='".$ligne."' method='POST' action='business_application.php'><input type='hidden' name='affichage' value='".$ligne."'/><input type='hidden' name='var_consult_component' value='true'/></form><a href='#' onclick='document.getElementById(\"$ligne\").submit()' ><b>".$ligne."</b></a>";
                             echo "<br/>";
                         }
                     }
