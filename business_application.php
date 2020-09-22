@@ -398,7 +398,7 @@
 									// }
 								}
 							}
-							$querycall="select replace(BUSINESSAPPLICATIONS,'|','\n') as `BUSINESSAPPLICATIONS`,CONFIGURATIONNAME_WO_EXTENSION,STATUS,OPERATINGENVIRONMENT, OSNAME, OSVERSION, `DB Middleware Edition`,`DB Middleware Version`,`DB Instance`, `MDW Middleware Edition`,`MDW Middleware Version` from global_inventory where BUSINESSAPPLICATIONS like '%$affichage%'";
+							$querycall="select replace(BUSINESSAPPLICATIONS,'|','<br/>') as `BUSINESSAPPLICATIONS`,CONFIGURATIONNAME_WO_EXTENSION,STATUS,OPERATINGENVIRONMENT, OSNAME, OSVERSION, `DB Middleware Edition`,`DB Middleware Version`,`DB Instance`, `MDW Middleware Edition`,`MDW Middleware Version` from global_inventory where BUSINESSAPPLICATIONS like '%$affichage%'";
 							if ($stmt = $con->prepare($querycall)) 
 							{
 								try
@@ -408,9 +408,11 @@
 									if (count($tuples)) 
 									{
 										$columns_names = array_keys($tuples[0]);
-										echo "<center><H3>Données techniques pour $affichage</H3></center><br/>";
-										echo "<table id='data' class='display table' style='width: 98%;'>";
-										echo "<thead>";
+                                        echo "<center><H3>Données techniques pour $affichage</H3></center><br/>";
+                                        ?>
+									    <table id='data' class='display table' style='width: 98%;'>
+									    <?php
+                                    	echo "<thead>";
 										echo "<tr>";
 										foreach ($columns_names as $col) 
 										{
