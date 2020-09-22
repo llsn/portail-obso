@@ -344,7 +344,7 @@
 								{
 									$columns_names = array_keys($tuples[0]);
 									echo "<center><H3>Personnes en charges de l'application $application</H3></center><br/>";
-									echo "<table id='owners' class='display' style='width: 100%;'>";
+									echo "<table id='owners' class='display table' style='width: 100%;'>";
 									echo "<thead>";
 									echo "<tr>";
 									foreach ($columns_names as $col) 
@@ -410,7 +410,7 @@
 									{
 										$columns_names = array_keys($tuples[0]);
 										echo "<center><H3>Données techniques pour $affichage</H3></center><br/>";
-										echo "<table id='data' class='display' style='width: 98%;'>";
+										echo "<table id='data' class='display table' style='width: 98%;'>";
 										echo "<thead>";
 										echo "<tr>";
 										foreach ($columns_names as $col) 
