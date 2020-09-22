@@ -47,71 +47,70 @@
 
 
 	<!-- Initialisation des tableaux de données de la page -->
-	<script>
-		$(document).ready
-        (
-            function () 
-            {
-                $('table.display').DataTable
-                ( 
-                    { 
-                        "autoWidth": false,
-                        responsive: true,
-                        keys: true,
-                        select: true,
-                        fixedHeader: true,
-                        colReorder: true,
-                        language: 
-                        {
-                        url: "Datatables/French.json"
-                        },
-                        dom: 'Bfrtip',
-                        lengthMenu: 
-                        [
-                            [ 10, 25, 50, -1 ],
-                            [ '10 lgnes', '25 lignes', '50 lignes', 'toutes les lignes' ]
-                        ],
-                        buttons: 
-                        [
-                            'print',
-                            'copy',
-                            'excel',
-                            'csv',
-                            {
-                                extend: 'pdfHtml5',
-                                orientation: 'landscape',
-                                pageSize: 'A3'
-                            },
-                            'pageLength'
-                        ],
-                        "initComplete": function () 
-                        {
-                            var api = this.api();
-                            api.$('td').dblclick
-                            ( 
-                                function () 
-                                {
-                                    api.search( this.innerHTML ).draw();
-                                } 
-                            );
-                        },
-                        "pagingType": "full_numbers",
-						fixedHeader: true
-                        
-                    }
-                     
-                );
-                
-                
-                
-            }
-        );
+		<!-- Initialisation des tableaux de données de la page -->
+		<script>
+			
+			$(document).ready
+			(
+				function () 
+				{
+					table=$('table.display').DataTable
+					( 
+						{
+							language: 
+							{
+							url: "Datatables/French.json"
+							},
+							dom: 'Bfrtip',
+							lengthMenu: 
+							[
+								[ 10, 25, 50, -1 ],
+								[ '10 rows', '25 rows', '50 rows', 'Show all' ]
+							],
+							buttons: 
+							[
+								'copy',
+								'excel',
+								'csv',
+								{
+									extend: 'pdfHtml5',
+									orientation: 'landscape',
+									pageSize: 'A4'
+								},
+								'pageLength'
+							],
+							"initComplete": function () 
+							{
+								var api = this.api();
+								api.$('td').click
+								( 
+									function () 
+									{
+										api.search( this.innerHTML ).draw();
+									} 
+								);
+							},
+							"pagingType": "full_numbers",
+							fixedHeader: false
+							
+						}
+						
+					);
+					
+					
+					
+				}
+			);
+			
+			function chargement() 
+			{
+				document.getElementById('chargement').style.display = 'none';
+				document.getElementById('site').style.visibility = 'visible';
+			}
 
-		function chargement() {
-			document.getElementById('chargement').style.display = 'none';
-			document.getElementById('site').style.visibility = 'visible';
-		}
-	</script>
+			
+	
+		</script>
 	<!-- forcage de paramètres des feuilles de style précédemment chargées -->
 	<style type="text/css">
 		div.dataTables_wrapper {
