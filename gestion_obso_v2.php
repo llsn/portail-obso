@@ -349,7 +349,7 @@
 			{
 				
 				/*on charge les données de la table "global_inventory" dans le tableau $list_serveur */
-				$queryserver="select CONFIGURATIONNAME_WO_EXTENSION,STATUS,OPERATINGENVIRONMENT,OSNAME,OSVERSION,FUNCTIONALGROUPS,`DB Subsystem Type`,`DB Middleware Edition`,`DB Middleware Version`,`DB Instance Name`,`DB Instance`,`MDW Subsystem Type`,`MDW Middleware Edition`,`MDW Middleware Version`,`MDW Type`,`MDW STATUS`,`CRITICALITY` from cmdb.global_inventory where status <> 'ARCHIVED' and businessservices REGEXP '(^|\|)".$application."(\||$)' order by OPERATINGENVIRONMENT;";
+				$queryserver="select CONFIGURATIONNAME_WO_EXTENSION,STATUS,OPERATINGENVIRONMENT,OSNAME,OSVERSION,FUNCTIONALGROUPS,`DB Subsystem Type`,`DB Middleware Edition`,`DB Middleware Version`,`DB Instance Name`,`DB Instance`,`MDW Subsystem Type`,`MDW Middleware Edition`,`MDW Middleware Version`,`MDW Type`,`MDW STATUS`,`CRITICALITY` from cmdb.global_inventory where status <> 'ARCHIVED' and businessservices REGEXP '(^|\\|)".$application."(\\||$)' order by OPERATINGENVIRONMENT;";
 
 				if ($stmt = $con->prepare($queryserver))
 				{
