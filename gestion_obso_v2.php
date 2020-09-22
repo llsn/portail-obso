@@ -729,7 +729,6 @@
 							</tr>
 							<tr bgcolor='silver'>
 								<th>FUNCTIONAL GROUPS</th>
-								<th>Nb COMPONENTS</th>
 								<th>HOSTNAME</th>
 								<th>Nb SERVERS</th>
 								<th>ENVIRONNEMENT</th>
