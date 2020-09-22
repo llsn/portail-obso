@@ -411,16 +411,18 @@
                                         echo "<center><H3>Données techniques pour $affichage</H3></center><br/>";
                                         ?>
 									    <table id='data' class='display table' style='width: 98%;'>
-									    <?php
-                                    	echo "<thead>";
-										echo "<tr>";
+                                    	<thead>
+                                        <?php
+                                        echo "<tr>";
 										foreach ($columns_names as $col) 
 										{
 											echo '<th>'.$col.'</th>';
 										} 
-										echo "</tr>";
-										echo "</thead>";
-										echo "<tbody>";
+                                        echo "</tr>";
+                                        ?>
+										</thead>
+										<tbody>
+                                        <?php
 										foreach ($tuples as $tuple) 
 										{
 											echo '<tr>';
@@ -434,17 +436,21 @@
 												}
 											}
 											echo '</tr>';
-										} 
-										echo "</tbody>";
-										echo "<tfoot>";
+                                        } 
+                                        ?>
+										</tbody>
+                                        <tfoot>
+                                        <?php
 										echo "<tr>";
 										foreach ($columns_names as $col) 
 										{
 											echo '<th>'.$col.'</th>';
 										} 
-										echo "</tr>";
-										echo "</tfoot>";
-										echo "</table>";
+                                        echo "</tr>";
+                                        ?>
+										</tfoot>
+										</table>
+                                        <?php
 									} 
 									else 
 									{
