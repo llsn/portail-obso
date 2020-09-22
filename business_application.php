@@ -26,7 +26,7 @@
 <html>
 
 <head>
-	<title>Logical CI</title>
+	<title>Business Application</title>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
     <link rel="stylesheet" href="css/w3.css">
 	<link rel="stylesheet" type="text/css" href="stylesheet/css/bootstrap.min.css" />
