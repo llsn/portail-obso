@@ -471,7 +471,7 @@
 														}
 														// echo "<form id='".$col."' method='POST' action='logical_CI.php'><input type='hidden' name='affichage' value='".$col."'/><input type='hidden' name='var_consult_component' value='true'/></form><a href='#' onclick='document.getElementById(\"$col\").submit()' ><b>".$col."</b></a><br/>";
 													break;
-													case "CONFIGURATIONNAME":
+													case "CONFIGURATIONNAME_WO_EXTENSION":
 														$list_server=explode('<BR/>',$col);
 														foreach($list_server as $server)
 														{
