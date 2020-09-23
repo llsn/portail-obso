@@ -766,8 +766,16 @@
 														echo "<td>$valeur</td>";
 														break;
 													case "FUNCTIONALGROUPS":
-														$composant=str_replace('|','<br/>',$valeur);
-														echo "<td>".$composant."</td>";
+														$list_components=explode('|',$valeur);
+														echo "<td>";
+														// $composant=str_replace('|','<br/>',$valeur);
+														// echo "<td>".$composant."</td>";
+														foreach($list_components as $component)
+														{
+															echo "<form id='".$component."' method='POST' action='logical_CI.php'><input type='hidden' name='affichage' value='".$component."'/><input type='hidden' name='var_consult_component' value='true'/></form><a href='#' onclick='document.getElementById(\"$component\").submit()' ><b>".$component."</b></a>";
+
+														}
+														echo "</td>";
 														break; 	
 													case "Nb Components":
 														echo "<td>$valeur</td>";
