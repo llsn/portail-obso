@@ -426,6 +426,7 @@
                     echo "Pas d'info";
                 }
                 echo "</td>";
+                echo "</tr>";
                 echo "<tr>";
                 echo "<th colspan='1' >Date installation</th>";
                 if ($installdate != '') 
