@@ -429,7 +429,7 @@
 									// }
 								}
 							}
-							$querycall="select replace(BUSINESSAPPLICATIONS,'|','<br/>') as `BUSINESSAPPLICATIONS`,CONFIGURATIONNAME_WO_EXTENSION,STATUS,OPERATINGENVIRONMENT, OSNAME, OSVERSION, `DB Middleware Edition`,`DB Middleware Version`,`DB Instance`, `MDW Middleware Edition`,`MDW Middleware Version` from global_inventory where BUSINESSAPPLICATIONS like '%$affichage%' group by BUSINESSAPPLICATIONS";
+							$querycall="select replace(BUSINESSAPPLICATIONS,'|','<br/>') as `BUSINESSAPPLICATIONS`,CONFIGURATIONNAME_WO_EXTENSION,STATUS,OPERATINGENVIRONMENT, OSNAME, OSVERSION, `DB Middleware Edition`,`DB Middleware Version`,`DB Instance`, `MDW Middleware Edition`,`MDW Middleware Version` from global_inventory where BUSINESSAPPLICATIONS REGEXP \'(^|////|)'%$affichage%'(\\\\||$)\' group by BUSINESSAPPLICATIONS";
 							if ($stmt = $con->prepare($querycall)) 
 							{
 								try
