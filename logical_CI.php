@@ -462,18 +462,21 @@
 													default:
 														echo '<td>'.$col.'</td>';
 														break;
+													"FUNCTIONALGROUPS":
+														echo "<form id='".$col."' method='POST' action='logical_CI.php'><input type='hidden' name='affichage' value='".$col."'/><input type='hidden' name='var_consult_component' value='true'/></form><a href='#' onclick='document.getElementById(\"$col\").submit()' ><b>".$col."</b></a><br/>";
+														break;
 												}
 											}
 											echo '</tr>';
 										} 
 										echo "</tbody>";
 										echo "<tfoot>";
-										echo "<tr>";
-										foreach ($columns_names as $col) 
-										{
-											echo '<th>'.$col.'</th>';
-										} 
-										echo "</tr>";
+										// echo "<tr>";
+										// foreach ($columns_names as $col) 
+										// {
+										// 	echo '<th>'.$col.'</th>';
+										// } 
+										// echo "</tr>";
 										echo "</tfoot>";
 										echo "</table>";
 									} 
