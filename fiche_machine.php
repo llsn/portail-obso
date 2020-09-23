@@ -271,7 +271,7 @@
                     $result_ponderation = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     if (count($result_ponderation) != 0) 
                     {
-                        echo "<td colspan='5' bgcolor='".$BGCOLOR_OS."'>";
+                        echo "<td colspan='3' bgcolor='".$BGCOLOR_OS."'>";
                         echo "<h4>".$result_ponderation[0][ponderation]."</h4>";
                         echo "</td>";
                     }
@@ -281,25 +281,25 @@
                 echo "<th colspan='1'>Status</th>";
                 if ($status=='ARCHIVED')
                 {
-                    echo "<td colspan='2' bgcolor='#F95858' style='text-align:center;color:white;'><b>".$status."</b></td>";
+                    echo "<td colspan='1' bgcolor='#F95858' style='text-align:center;color:white;'><b>".$status."</b></td>";
                 }
                 else
                 {
-                    echo "<td colspan='2'>".$status."</td>";
+                    echo "<td colspan='1'>".$status."</td>";
                 }
                 
                 echo "<th colspan='1'>Criticité</th>";
-                echo "<td colspan='2'>".$criticity."</td>";
+                echo "<td colspan='1'>".$criticity."</td>";
                 echo "</tr>";
                 echo "<tr>";
                 echo "<th colspan='1'>Operating Environment</th>";
-                echo "<td colspan='2'>".$environment."</td>";
+                echo "<td colspan='1'>".$environment."</td>";
                 echo "<th colspan='1'>Machine Virtuel</th>";
-                echo "<td colspan='2'>".$virtual_server."</td>";
+                echo "<td colspan='1'>".$virtual_server."</td>";
                 echo "</tr>";
                 echo "<tr>";
                 echo "<th colspan='1'>Operating System</th>";
-                echo "<td colspan='2'>".$osname."</td>";
+                echo "<td colspan='1'>".$osname."</td>";
                 if($parent!='')
                 {
                     
