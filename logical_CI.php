@@ -457,15 +457,17 @@
 											echo '<tr>';
 											foreach ($tuple as $entete => $col) 
 											{
+												echo "<td>";
 												switch (strtoupper($entete)) 
 												{
 													default:
-														echo '<td>'.$col.'</td>';
+														echo $col;
 														break;
 													case "FUNCTIONALGROUPS":
 														echo "<form id='".$col."' method='POST' action='logical_CI.php'><input type='hidden' name='affichage' value='".$col."'/><input type='hidden' name='var_consult_component' value='true'/></form><a href='#' onclick='document.getElementById(\"$col\").submit()' ><b>".$col."</b></a><br/>";
 														break;
 												}
+												echo "</td>";
 											}
 											echo '</tr>';
 										} 
