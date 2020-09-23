@@ -251,7 +251,7 @@
                 echo "<div class='tab-content'>";
                 echo "<div id='details' class='tab-pane fade in active'>";
                 echo "<center>";
-                echo "<table id='' class='table table-hover' style='width: 100%;'>";
+                echo "<table id='' class='table table-hover' style='width: 98%;'>";
                 echo "<thead>";
                 echo "<tr>";
                 echo "<th colspan='5' bgcolor='silver'>";
@@ -261,7 +261,7 @@
                 echo "</thead>";
                 echo "<tbody>";
                 echo "<tr>";
-                echo "<td colspan='3' bgcolor='". $BGCOLOR_OS."'>";
+                echo "<td colspan='5' bgcolor='". $BGCOLOR_OS."'>";
                 echo "<h4><b>".$machine."</b></h4>";
                 echo "</td>";
                 $queryponderation = "call cmdb.poderation(".$data[0].",1, @ponderation);";
