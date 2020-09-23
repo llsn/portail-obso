@@ -500,14 +500,14 @@
                                         ?>
 										</tbody>
                                         <tfoot>
-                                        <?php
-										echo "<tr>";
-										foreach ($columns_names as $col) 
-										{
-											echo '<th>'.$col.'</th>';
-										} 
-                                        echo "</tr>";
-                                        ?>
+                                        <!-- <?php
+										// echo "<tr>";
+										// foreach ($columns_names as $col) 
+										// {
+										// 	echo '<th>'.$col.'</th>';
+										// } 
+                                        // echo "</tr>";
+                                        ?> -->
 										</tfoot>
 										</table>
                                         <?php
