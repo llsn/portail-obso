@@ -791,6 +791,9 @@
 							}	
 						?>
 				</div>
+				<?php
+				$PDF_SHEET = ob_get_contents();	
+				?>
 				<div id="debug" class="tab-pane fade">
 					<p class="debug">
 					<?php
@@ -818,9 +821,7 @@
 					</p> 
 				</div>
 			</div>
-			<?php
-				$PDF_SHEET = ob_get_contents();	
-			?>
+			
 			
 			<center>
 				<form id='exporttopdf' class='form-horizontal' method='POST' enctype='multipart/form-data' action='export_to_pdf.php'>
