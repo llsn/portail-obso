@@ -359,11 +359,12 @@
                 echo "<tr>";
                 echo "<th colspan='1' >OS Version</th><td colspan='5' bgcolor='$BGCOLOR_OS' >".$osversion."</td>"; 
                 echo "</tr>";
-                echo "<tr><th colspan='1' >Business Services</th>";
+                echo "<tr><th colspan='1' >Business Services</th><th colspan='1' >Business Application</th><th colspan='1' >Functional Group</th></tr>";
+                echo "<tr><td>";
                 if ($businessservices != '') 
                 {
                     $list_business_services=explode('|',$businessservices);
-                    echo "<td colspan='5' >";
+                    // echo "<td colspan='5' >";
                     if (count($list_business_services))
                     {
                         foreach ($list_business_services as $ligne) 
@@ -372,19 +373,20 @@
                             echo "<br/>";
                         }
                     }
-                    echo "</td>";
+                    // echo "</td>";
                 } 
                 else 
                 {
-                    echo "<td colspan='5' >Pas d'info</td>";
+                    // echo "<td colspan='5' >Pas d'info</td>";
+                    echo "Pas d'info";
                 }
-                echo "</tr>";
-                echo "<tr>";
-                echo "<th colspan='1' >Business Application</th>";
+                echo "</td>";
+                echo "<td>";
+                // echo "<th colspan='1' >Business Application</th>";
                 if ($businessapplication != '') 
                 {
                     $list_business_application=explode('|',$businessapplication);
-                    echo "<td colspan='5' >";
+                    // echo "<td colspan='5' >";
                     if (count($list_business_application))
                     {
                         foreach ($list_business_application as $ligne) 
@@ -394,19 +396,20 @@
                             echo "<br/>";
                         }
                     }
-                    echo "</td>";
+                    // echo "</td>";
                 } 
                 else 
                 {
-                    echo "<td colspan='5' >Pas d'info</td>";
+                    // echo "<td colspan='5' >Pas d'info</td>";
+                    echo "Pas d'info";
                 }
-                echo "</tr>";
-                echo "<tr>";
-                echo "<th colspan='1' >Functional Group</th>";
+                echo "</td>";
+                echo "<td>";
+                // echo "<th colspan='1' >Functional Group</th>";
                 if ($functionalgroup != '') 
                 {
 		    	$list_functional_group=explode('|',$functionalgroup);
-			echo "<td colspan='5'>";
+			// echo "<td colspan='5'>";
 			if (count($list_functional_group))
 			{
 				foreach ($list_functional_group as $ligne)
@@ -415,13 +418,14 @@
                     echo "<br/>";
 				}
 			}
-                    	echo "</td>";
+                    	// echo "</td>";
                 } 
                 else 
                 {
-                    echo "<td colspan='5' >Pas d'info</td>";
+                    // echo "<td colspan='5' >Pas d'info</td>";
+                    echo "Pas d'info";
                 }
-                echo "</tr>";
+                echo "</td>";
                 echo "<tr>";
                 echo "<th colspan='1' >Date installation</th>";
                 if ($installdate != '') 
