@@ -289,13 +289,13 @@
                 }
                 
                 echo "<th colspan='1'>Criticité</th>";
-                echo "<td colspan='1'>".$criticity."</td>";
+                echo "<td colspan='2'>".$criticity."</td>";
                 echo "</tr>";
                 echo "<tr>";
                 echo "<th colspan='1'>Operating Environment</th>";
                 echo "<td colspan='1'>".$environment."</td>";
                 echo "<th colspan='1'>Machine Virtuel</th>";
-                echo "<td colspan='1'>".$virtual_server."</td>";
+                echo "<td colspan='2'>".$virtual_server."</td>";
                 echo "</tr>";
                 echo "<tr>";
                 echo "<th colspan='1'>Operating System</th>";
@@ -307,7 +307,7 @@
                     {
                         case (stristr($osname,'aix')):
                             echo "<th colspan='1'>Fils de</th>";
-                            echo "<td colspan='1'><form id='".$parent."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' ><b>".$parent."</b></a><td>";
+                            echo "<td colspan='2'><form id='".$parent."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' ><b>".$parent."</b></a><td>";
                         break;
                         case (stristr($osname,'windows')):
                             $subwinquery="select distinct `parent` from cmdb.relationship where `parent`= '".$parent."';";
@@ -320,26 +320,26 @@
                             if($subwinparent!='')
                             {
                                 echo "<th colspan='1'>Fils de</th>";
-                                echo "<td colspan='1'><form id='".$subwinparent."' method='POST' action='relationship.php'><input type='hidden' name='var_parent' value='".$subwinparent."'/></form><a href='#' onclick='document.getElementById(\"$subwinparent\").submit()' ><b>".$subwinparent."</b></a><td>";
+                                echo "<td colspan='2'><form id='".$subwinparent."' method='POST' action='relationship.php'><input type='hidden' name='var_parent' value='".$subwinparent."'/></form><a href='#' onclick='document.getElementById(\"$subwinparent\").submit()' ><b>".$subwinparent."</b></a><td>";
                             }
                             else
                             {
                                 echo "<th colspan='1'>Fils de</th>";
-                                echo "<td colspan='1'><form id='".$parent."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' ><b>".$parent."</b></a><td>";
+                                echo "<td colspan='2'><form id='".$parent."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' ><b>".$parent."</b></a><td>";
 
                             }
                         break;
                         case (stristr($osname,'linux')):
                             echo "<th colspan='1'>Fils de</th>";
-                            echo "<td colspan='1'><form id='".$parent."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' ><b>".$parent."</b></a><td>";
+                            echo "<td colspan='2'><form id='".$parent."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' ><b>".$parent."</b></a><td>";
                         break;
                         case (stristr($osname,'systemp')):
                             echo "<th colspan='1'>Détail du contenu de</th>";
-                            echo "<td colspan='1'><form id='".$parent."' method='POST' action='virtual_by_hardware.php'><input type='hidden' name='id_machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' ><b>".$parent."</b></a><td>";
+                            echo "<td colspan='2'><form id='".$parent."' method='POST' action='virtual_by_hardware.php'><input type='hidden' name='id_machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' ><b>".$parent."</b></a><td>";
                         break;
                         default:
                             echo "<th colspan='1'>Fils de</th>";
-                            echo "<td colspan='1'>Machine parent</td>";
+                            echo "<td colspan='2'>Machine parent</td>";
                         break;
                     }
                 }
@@ -348,18 +348,18 @@
                     if(stristr($osname,'vmnix'))
                     {
                         echo "<th colspan='1'>Détail du contenu de</th>";
-                        echo "<td colspan='1'><form id='".$machine."' method='POST' action='virtual_by_hardware.php'><input type='hidden' name='id_machine' value='".$machine."'/></form><a href='#' onclick='document.getElementById(\"$machine\").submit()' ><b>".$machine."</b></a><td>";
+                        echo "<td colspan='2'><form id='".$machine."' method='POST' action='virtual_by_hardware.php'><input type='hidden' name='id_machine' value='".$machine."'/></form><a href='#' onclick='document.getElementById(\"$machine\").submit()' ><b>".$machine."</b></a><td>";
                     }
                     else
                     {
-                        echo "<td colspan='1'><font color='red' style='bold'>Pas de parent renseigné dans la CMDB</font></td>";
+                        echo "<td colspan='2'><font color='red' style='bold'>Pas de parent renseigné dans la CMDB</font></td>";
                     }
                 }
                 echo "</tr>";
                 echo "<tr>";
-                echo "<th colspan='1' >OS Version</th><td colspan='3' bgcolor='$BGCOLOR_OS' >".$osversion."</td>"; 
+                echo "<th colspan='1' >OS Version</th><td colspan='4' bgcolor='$BGCOLOR_OS' >".$osversion."</td>"; 
                 echo "</tr>";
-                echo "<tr><th colspan='1' >Business Services</th><th colspan='1' >Business Application</th><th colspan='2' >Functional Group</th></tr>";
+                echo "<tr><th colspan='1' >Business Services</th><th colspan='1' >Business Application</th><th colspan='3' >Functional Group</th></tr>";
                 echo "<tr><td>";
                 if ($businessservices != '') 
                 {
