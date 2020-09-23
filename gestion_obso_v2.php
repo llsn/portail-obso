@@ -773,7 +773,6 @@
 														foreach($list_components as $component)
 														{
 															echo "<form id='".$component."' method='POST' action='logical_CI.php'><input type='hidden' name='affichage' value='".$component."'/><input type='hidden' name='var_consult_component' value='true'/></form><a href='#' onclick='document.getElementById(\"$component\").submit()' ><b>".$component."</b></a><br/>";
-
 														}
 														echo "</td>";
 														break; 	
