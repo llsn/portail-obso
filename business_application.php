@@ -456,10 +456,11 @@
                                         <?php
 										foreach ($tuples as $tuple) 
 										{
-											echo '<tr>';
+                                            echo '<tr>';
+                                            echo '<td>';
 											foreach ($tuple as $entete => $col) 
 											{   
-                                                echo '<td>';
+                                                
 												switch (strtoupper($entete)) 
 												{
                                                     default:
@@ -473,8 +474,9 @@
                                                         }
                                                     break;
                                                 }
-                                                echo '<td>';
-											}
+                                                
+                                            }
+                                            echo '<td>';
 											echo '</tr>';
                                         } 
                                         ?>
