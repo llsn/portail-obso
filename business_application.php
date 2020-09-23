@@ -457,21 +457,21 @@
 										foreach ($tuples as $tuple) 
 										{
                                             echo '<tr>';
-                                            echo '<td>';
 											foreach ($tuple as $entete => $col) 
 											{   
-                                                
 												switch (strtoupper($entete)) 
 												{
                                                     default:
-														echo $col;
+														echo "<td>".$col."</td>";
                                                         break;
                                                     case "CONFIGURATIONNAME_WO_EXTENSION":
                                                         $list_server=explode('<BR/>',$col);
+                                                        echo "<td>";
                                                         foreach($list_server as $server)
                                                         {
                                                             echo "<form id=\"".$server."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$server."\"/></form><a href='#' onclick='document.getElementById(\"".$server."\").submit()'><b>".$server."</b></a><br/>";
                                                         }
+                                                        echo "</td>";
                                                     break;
                                                 }
                                                 
