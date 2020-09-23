@@ -359,7 +359,7 @@
                 echo "<tr>";
                 echo "<th colspan='1' >OS Version</th><td colspan='3' bgcolor='$BGCOLOR_OS' >".$osversion."</td>"; 
                 echo "</tr>";
-                echo "<tr><th colspan='1' >Business Services</th><th colspan='1' >Business Application</th><th colspan='1' >Functional Group</th></tr>";
+                echo "<tr><th colspan='1' >Business Services</th><th colspan='1' >Business Application</th><th colspan='2' >Functional Group</th></tr>";
                 echo "<tr><td>";
                 if ($businessservices != '') 
                 {
@@ -404,7 +404,7 @@
                     echo "Pas d'info";
                 }
                 echo "</td>";
-                echo "<td>";
+                echo "<td colspan='2'>";
                 // echo "<th colspan='1' >Functional Group</th>";
                 if ($functionalgroup != '') 
                 {
