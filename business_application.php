@@ -429,7 +429,7 @@
 									// }
 								}
 							}
-							$querycall="select distinct replace(BUSINESSAPPLICATIONS,'|','<br/>') as `BUSINESSAPPLICATIONS`,group_concat(distinct CONFIGURATIONNAME_WO_EXTENSION) as `CONFIGURATIONNAME_WO_EXTENSION`,STATUS,OPERATINGENVIRONMENT, OSNAME, OSVERSION from global_inventory where BUSINESSAPPLICATIONS REGEXP '(^|\\\\|)".$affichage."(\\\\||$)' group by BUSINESSAPPLICATIONS,OPERATINGENVIRONMENT, OSVERSION,OSNAME";
+							$querycall="select distinct replace(BUSINESSAPPLICATIONS,'|','<br/>') as `BUSINESSAPPLICATIONS`,replace(group_concat(distinct CONFIGURATIONNAME_WO_EXTENSION),',','<br/>') as `CONFIGURATIONNAME_WO_EXTENSION`,STATUS,OPERATINGENVIRONMENT, OSNAME, OSVERSION from global_inventory where BUSINESSAPPLICATIONS REGEXP '(^|\\\\|)".$affichage."(\\\\||$)' group by BUSINESSAPPLICATIONS,OPERATINGENVIRONMENT, OSVERSION,OSNAME";
 							if ($stmt = $con->prepare($querycall)) 
 							{
 								try
@@ -463,7 +463,14 @@
 												{
 													default:
 														echo '<td>'.$col.'</td>';
-														break;
+                                                        break;
+                                                    case "CONFIGURATIONNAME_WO_EXTENSION":
+                                                        $list_server=explode('<BR/>',$col);
+                                                        foreach($list_server as $server)
+                                                        {
+                                                            echo "<form id=\"".$server."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$server."\"/></form><a href='#' onclick='document.getElementById(\"".$server."\").submit()'><b>".$server."</b></a><br/>";
+                                                        }
+                                                    break;
 												}
 											}
 											echo '</tr>';
