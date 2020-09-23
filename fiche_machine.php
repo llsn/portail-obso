@@ -357,7 +357,7 @@
                 }
                 echo "</tr>";
                 echo "<tr>";
-                echo "<th colspan='1' >OS Version</th><td colspan='5' bgcolor='$BGCOLOR_OS' >".$osversion."</td>"; 
+                echo "<th colspan='1' >OS Version</th><td colspan='3' bgcolor='$BGCOLOR_OS' >".$osversion."</td>"; 
                 echo "</tr>";
                 echo "<tr><th colspan='1' >Business Services</th><th colspan='1' >Business Application</th><th colspan='1' >Functional Group</th></tr>";
                 echo "<tr><td>";
@@ -431,20 +431,20 @@
                 echo "<th colspan='1' >Date installation</th>";
                 if ($installdate != '') 
                 {
-                    echo "<td colspan='2' >".date('d/m/Y', strtotime($installdate))."</td>";
+                    echo "<td colspan='1' >".date('d/m/Y', strtotime($installdate))."</td>";
                 } 
                 else 
                 {
-                    echo "<td colspan='2' >Pas d'info</td>";
+                    echo "<td colspan='1' >Pas d'info</td>";
                 }
                 echo "<th colspan='1' >Date de désinstallation</th>";
                 if ($uninstalldate != '') 
                 {
-                    echo "<td colspan='2' >".date('d/m/Y', strtotime($uninstalldate))."</td>";
+                    echo "<td colspan='1' >".date('d/m/Y', strtotime($uninstalldate))."</td>";
                 } 
                 else 
                 {
-                    echo "<td colspan='2' >Pas d'info</td>";
+                    echo "<td colspan='1' >Pas d'info</td>";
                 }
                 echo "</tr>";                         
                 $stmt->pdo = null;
