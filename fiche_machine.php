@@ -357,7 +357,7 @@
                 }
                 echo "</tr>";
                 echo "<tr>";
-                echo "<th colspan='1' >OS Version</th><td colspan='1' bgcolor='$BGCOLOR_OS' >".$osversion."</td>"; 
+                echo "<th colspan='1' >OS Version</th><td colspan='2' bgcolor='$BGCOLOR_OS' >".$osversion."</td>"; 
                 echo "</tr>";
                 echo "<tr><th colspan='1' >Business Services</th><th colspan='1' >Business Application</th><th colspan='2' >Functional Group</th></tr>";
                 echo "<tr><td>";
