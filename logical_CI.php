@@ -431,7 +431,7 @@
 									}
 								}
 							}
-							$querycall="select replace(FUNCTIONALGROUPS,'|','<BR/>') as `FUNCTIONALGROUPS`, group_concat(distinct CONFIGURATIONNAME_WO_EXTENSION) as `CONFIGURATIONNAME_WO_EXTENSION`, STATUS,	group_concat(distinct OPERATINGENVIRONMENT) as `OPERATINGENVIRONMENT`, group_concat(distinct OSNAME) as `OSNAME`, group_concat(distinct OSVERSION) as `OSVERSION`, `DB Middleware Edition`, group_concat(distinct `DB Middleware Version`) as `DB Middleware Version`,	replace(group_concat(distinct `DB Instance`),',','<BR/>') as `DB Instance`, `MDW Middleware Edition`, group_concat(distinct`MDW Middleware Version`) as `MDW Middleware Version` from global_inventory where functionalgroups like '%$affichage%' group by `FUNCTIONALGROUPS`, OPERATINGENVIRONMENT,OSNAME,OSVERSION, `DB Middleware Version`, `MDW Middleware Version`";	
+							$querycall="select replace(FUNCTIONALGROUPS,'|','<BR/>') as `FUNCTIONALGROUPS`, replace(group_concat(distinct CONFIGURATIONNAME_WO_EXTENSION),',','<BR/>) as `CONFIGURATIONNAME_WO_EXTENSION`, STATUS,	group_concat(distinct OPERATINGENVIRONMENT) as `OPERATINGENVIRONMENT`, group_concat(distinct OSNAME) as `OSNAME`, group_concat(distinct OSVERSION) as `OSVERSION`, `DB Middleware Edition`, group_concat(distinct `DB Middleware Version`) as `DB Middleware Version`,	replace(group_concat(distinct `DB Instance`),',','<BR/>') as `DB Instance`, `MDW Middleware Edition`, group_concat(distinct`MDW Middleware Version`) as `MDW Middleware Version` from global_inventory where functionalgroups like '%$affichage%' group by `FUNCTIONALGROUPS`, OPERATINGENVIRONMENT,OSNAME,OSVERSION, `DB Middleware Version`, `MDW Middleware Version`";	
 							if ($stmt = $con->prepare($querycall)) 
 							{
 								try
@@ -462,7 +462,7 @@
 												{
 													default:
 														echo $col;
-														break;
+													break;
 													case "FUNCTIONALGROUPS":
 														$list_components=explode('<BR/>',$col);
 														foreach($list_components as $component)
@@ -470,7 +470,14 @@
 															echo "<form id='".$component."' method='POST' action='logical_CI.php'><input type='hidden' name='affichage' value='".$component."'/><input type='hidden' name='var_consult_component' value='true'/></form><a href='#' onclick='document.getElementById(\"$component\").submit()' ><b>".$component."</b></a><br/>";
 														}
 														// echo "<form id='".$col."' method='POST' action='logical_CI.php'><input type='hidden' name='affichage' value='".$col."'/><input type='hidden' name='var_consult_component' value='true'/></form><a href='#' onclick='document.getElementById(\"$col\").submit()' ><b>".$col."</b></a><br/>";
-														break;
+													break;
+													case "CONFIGURATIONNAME":
+														$list_server=explode('<BR/>',$col);
+														foreach($list_server as $server)
+														{
+															echo "<form id=\"".$server."\" method=\"POST\" action=\"fiche_machine.php\"><input type=\"hidden\" name=\"machine\" value=\"".$server."\"/></form><a href='#' onclick='document.getElementById(\"".$server."\").submit()'><b>".$server."</b></a><br/>";
+														}
+													break;
 												}
 												echo "</td>";
 											}
