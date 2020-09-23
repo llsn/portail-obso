@@ -429,7 +429,7 @@
 									// }
 								}
 							}
-							$querycall="select distinct replace(BUSINESSAPPLICATIONS,'|','<br/>') as `BUSINESSAPPLICATIONS`,group_concat(distinct CONFIGURATIONNAME_WO_EXTENSION),STATUS,OPERATINGENVIRONMENT, osname, osversion from global_inventory where BUSINESSAPPLICATIONS REGEXP '(^|\\\\|)".$affichage."(\\\\||$)' group by BUSINESSAPPLICATIONS,operatingenvironment, osname,osversion";
+							$querycall="select distinct replace(BUSINESSAPPLICATIONS,'|','<br/>') as `BUSINESSAPPLICATIONS`,group_concat(distinct CONFIGURATIONNAME_WO_EXTENSION) as `CONFIGURATIONNAME_WO_EXTENSION`,STATUS,OPERATINGENVIRONMENT, OSNAME, OSVERSION from global_inventory where BUSINESSAPPLICATIONS REGEXP '(^|\\\\|)".$affichage."(\\\\||$)' group by BUSINESSAPPLICATIONS,OPERATINGENVIRONMENT, OSVERSION,OSNAME";
 							if ($stmt = $con->prepare($querycall)) 
 							{
 								try
