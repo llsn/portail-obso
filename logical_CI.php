@@ -431,7 +431,7 @@
 									}
 								}
 							}
-							$querycall="select replace(FUNCTIONALGROUPS,'|','<BR/>') as `FUNCTIONALGROUPS`,CONFIGURATIONNAME_WO_EXTENSION,STATUS,OPERATINGENVIRONMENT, OSNAME, OSVERSION, `DB Middleware Edition`,`DB Middleware Version`,`DB Instance`, `MDW Middleware Edition`,`MDW Middleware Version` from global_inventory where functionalgroups like '%$affichage%'";
+							$querycall="select replace(FUNCTIONALGROUPS,'|','<BR/>') as `FUNCTIONALGROUPS`, group_concat(distinct CONFIGURATIONNAME_WO_EXTENSION) as `CONFIGURATIONNAME_WO_EXTENSION`, STATUS,	group_concat(distinct OPERATINGENVIRONMENT) as `OPERATINGENVIRONMENT`, group_concat(distinct OSNAME) as `OSNAME`, group_concat(distinct OSVERSION) as `OSVERSION`, `DB Middleware Edition`, group_concat(distinct `DB Middleware Version`) as `DB Middleware Version`,	group_concat(distinct `DB Instance`) as `DB Instance`, `MDW Middleware Edition`, group_concat(distinct`MDW Middleware Version`) as `MDW Middleware Version` from global_inventory where functionalgroups like '%$affichage%' group by `FUNCTIONALGROUPS`, OPERATINGENVIRONMENT,OSNAME,OSVERSION, `DB Middleware Version`, `MDW Middleware Version`";	
 							if ($stmt = $con->prepare($querycall)) 
 							{
 								try
