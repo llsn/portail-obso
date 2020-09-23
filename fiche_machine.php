@@ -254,7 +254,7 @@
                 echo "<table id='' class='table table-hover' style='width: 100%;'>";
                 echo "<thead>";
                 echo "<tr>";
-                echo "<th colspan='6' bgcolor='silver'>";
+                echo "<th colspan='3' bgcolor='silver'>";
                 echo "<h4>FICHE MACHINE</h4>";
                 echo "</th>";
                 echo "</tr>";
