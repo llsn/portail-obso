@@ -271,7 +271,7 @@
                     $result_ponderation = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     if (count($result_ponderation) != 0) 
                     {
-                        echo "<td colspan='4' bgcolor='".$BGCOLOR_OS."'>";
+                        echo "<td colspan='5' bgcolor='".$BGCOLOR_OS."'>";
                         echo "<h4>".$result_ponderation[0][ponderation]."</h4>";
                         echo "</td>";
                     }
