@@ -478,7 +478,7 @@
                                                         echo "<td>";
 														foreach($list_components as $component)
 														{
-															echo "<form id='".$component."' method='POST' action='Business_application.php'><input type='hidden' name='affichage' value='".$component."'/><input type='hidden' name='var_consult_component' value='true'/></form><a href='#' onclick='document.getElementById(\"$component\").submit()' ><b>".$component."</b></a><br/>";
+															echo "<form id='".$component."' method='POST' action='Business_Application.php'><input type='hidden' name='affichage' value='".$component."'/><input type='hidden' name='var_consult_component' value='true'/></form><a href='#' onclick='document.getElementById(\"$component\").submit()' ><b>".$component."</b></a><br/>";
                                                         }
                                                         echo "</td>";
 													break;
