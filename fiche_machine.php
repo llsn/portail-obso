@@ -254,7 +254,7 @@
                 echo "<table id='' class='table table-hover' style='width: 98%;'>";
                 echo "<thead>";
                 echo "<tr>";
-                echo "<th colspan='5' bgcolor='silver'>";
+                echo "<th colspan='6' bgcolor='silver'>";
                 echo "<h4>FICHE MACHINE</h4>";
                 echo "</th>";
                 echo "</tr>";
@@ -271,7 +271,7 @@
                     $result_ponderation = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     if (count($result_ponderation) != 0) 
                     {
-                        echo "<td colspan='4' bgcolor='".$BGCOLOR_OS."'>";
+                        echo "<td colspan='5' bgcolor='".$BGCOLOR_OS."'>";
                         echo "<h4>".$result_ponderation[0][ponderation]."</h4>";
                         echo "</td>";
                     }
