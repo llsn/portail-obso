@@ -254,14 +254,14 @@
                 echo "<table id='' class='table table-hover' style='width: 100%;'>";
                 echo "<thead>";
                 echo "<tr>";
-                echo "<th colspan='3' bgcolor='silver'>";
+                echo "<th colspan='4' bgcolor='silver'>";
                 echo "<h4>FICHE MACHINE</h4>";
                 echo "</th>";
                 echo "</tr>";
                 echo "</thead>";
                 echo "<tbody>";
                 echo "<tr>";
-                echo "<td colspan='1' bgcolor='". $BGCOLOR_OS."'>";
+                echo "<td colspan='3' bgcolor='". $BGCOLOR_OS."'>";
                 echo "<h4><b>".$machine."</b></h4>";
                 echo "</td>";
                 $queryponderation = "call cmdb.poderation(".$data[0].",1, @ponderation);";
