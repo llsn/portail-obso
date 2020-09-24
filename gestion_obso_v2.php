@@ -902,7 +902,7 @@
 							</form>
 						</tr>
 						<tr>
-							<th>Date</th><th colspan="3"><center>Commentaires</center></th>
+							<th>Date</th><th colspan="3"><center>Notes</center></th>
 						</tr>
 						<?php
 							$querycomment = "select * from cmdb.comment where application='$application'";
