@@ -26,10 +26,13 @@
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
 	
-	if ($var_add_line != null) {
-		if ($COMMENTAIRES != '') {
-			$query_add_comment = "call `cmdb`.`insert_application_comment`($application, '".str_ireplace("'", "\'", $COMMENTAIRES)."');";
-			if ($stmt = $con->prepare($query_add_comment)) {
+	if ($var_add_line != null) 
+	{
+		if ($COMMENTAIRES != '') 
+		{
+			$query_add_comment = "call `cmdb`.`insert_application_comment`('$application', '".str_ireplace("'", "\'", $COMMENTAIRES)."');";
+			if ($stmt = $con->prepare($query_add_comment)) 
+			{
 				$result = $stmt->execute();
 			}
 			$stmt->pdo = null;
@@ -894,7 +897,6 @@
 							<td colspan="2">
 								<input type="hidden" name="application" value="<?php echo $application; ?>"/>
 								<input type="hidden" name="var_add_line" value="true"/>
-								<input type="hidden" name="add_comment_for_id" value="<?php echo $id; ?>"/>
 								<textarea cols="180" rows="5" style='width:auto' class='input-lg' name="COMMENTAIRES"></textarea>
 							</td>
 							<td>
@@ -916,8 +918,10 @@
 									// echo "<pre>";
 									// print_r($ligne);
 									// echo "</pre>";
-									foreach ($ligne as $entete => $valeur) {
-										switch ($entete) {
+									foreach ($ligne as $entete => $valeur) 
+									{
+										switch ($entete) 
+										{
 											case 'date_comment':
 												echo "<th>$valeur</th>";
 												break;
@@ -929,7 +933,7 @@
 												break;
 										}
 									}
-									echo "<form id='DEL_$line_id' name='DEL_$line_id' method='POST' enctype='multipart/form-data' action='gestion_obso_v2.php'>
+									echo "<td><form id='DEL_$line_id' name='DEL_$line_id' method='POST' enctype='multipart/form-data' action='gestion_obso_v2.php'>
 											<input type='hidden' name='delete_comment_for_id' value='".$line_id."'/>
 											<input type='hidden' name='ID' value='".$id."'/>
 											<input type='hidden' name='appication' value='".$application."'/>
