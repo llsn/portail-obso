@@ -348,7 +348,7 @@
                     if(stristr($osname,'vmnix'))
                     {
                         echo "<th colspan='1'>Détail du contenu de</th>";
-                        echo "<td colspan='2'><form id='".$machine."' method='POST' action='virtual_by_hardware.php'><input type='hidden' name='id_machine' value='".$machine."'/></form><a href='#' onclick='document.getElementById(\"$machine\").submit()' ><b>".$machine."</b></a><td>";
+                        echo "<td colspan='1'><form id='".$machine."' method='POST' action='virtual_by_hardware.php'><input type='hidden' name='id_machine' value='".$machine."'/></form><a href='#' onclick='document.getElementById(\"$machine\").submit()' ><b>".$machine."</b></a><td>";
                     }
                     else
                     {
