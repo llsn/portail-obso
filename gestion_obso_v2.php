@@ -923,17 +923,17 @@
 										switch ($entete) 
 										{
 											case 'date_comment':
-												echo "<th>$valeur</th>";
+												$date_comment=$valeur;
 												break;
 											case 'message':
-												echo '<td colspan="2">'.nl2br($valeur).'<td>';
+												$message=nl2br($valeur);
 												break;
 											case 'id':
 												$line_id = $valeur;
 												break;
 										}
 									}
-									echo "<td><form id='DEL_$line_id' name='DEL_$line_id' method='POST' enctype='multipart/form-data' action='gestion_obso_v2.php'>
+									echo "<th>$date_comment</th><td colspan='2'>'$message'<td><td><form id='DEL_$line_id' name='DEL_$line_id' method='POST' enctype='multipart/form-data' action='gestion_obso_v2.php'>
 											<input type='hidden' name='delete_comment_for_id' value='".$line_id."'/>
 											<input type='hidden' name='ID' value='".$id."'/>
 											<input type='hidden' name='appication' value='".$application."'/>
