@@ -936,7 +936,7 @@
 									echo "<th>$date_comment</th><td colspan='2'>'$message'<td><form id='DEL_$line_id' name='DEL_$line_id' method='POST' enctype='multipart/form-data' action='gestion_obso_v2.php'>
 											<input type='hidden' name='delete_comment_for_id' value='".$line_id."'/>
 											<input type='hidden' name='ID' value='".$id."'/>
-											<input type='hidden' name='appication' value='".$application."'/>
+											<input type='hidden' name='application' value='".$application."'/>
 											<input type='submit' class='btn btn-danger' value='supprimer la ligne' onClick=\"ConfirmMessage('DEL_$line_id')\"/></form> </td>";
 									echo '</tr>';
 								}
