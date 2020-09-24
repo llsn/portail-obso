@@ -36,11 +36,25 @@
 				$result = $stmt->execute();
 			}
 			$stmt->pdo = null;
+			$var_add_line=null;
 		} else {
 			echo '<div bgcolor="#00FF00"><center><h4>Le commentaire est vide - enregistrement refusé<h4><center></table></div>';
 		}
 	}
 
+	if ($var_delete_line != null) 
+	{
+			$query_delete_comment = "delete from `cmdb`.`comment` where id =$ID;";
+			if ($stmt = $con->prepare($query_delete_comment)) 
+			{
+				$result = $stmt->execute();
+			}
+			$stmt->pdo = null;
+			$var_delete_line=null;
+		} else {
+			echo '<div bgcolor="#00FF00"><center><h4>Le commentaire est vide - enregistrement refusé<h4><center></table></div>';
+		}
+	}
 
 ?>
 <!-- Début de la page HTML -->
