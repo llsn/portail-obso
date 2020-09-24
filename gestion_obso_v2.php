@@ -884,21 +884,20 @@
 					<table class="table table-bordered"  width="100%">
 					<thead>
 						<tr>
-							<th colspan="4"><h2><center>Historique des commentaires</center></h2></th>
+							<th colspan="4"><h2><center>Notes pour $application</center></h2></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<th> Commentaires </th>
+							<th> Notes </th>
 							<form id="comment" name="comment" method="POST" enctype="multipart/form-data" action="gestion_obso_v2.php">
 							<td colspan="2">
 								<input type="hidden" name="application" value="<?php echo $application; ?>"/>
-								<input type='hidden' name='consult' value='1'/>
 								<input type="hidden" name="add_comment_for_id" value="<?php echo $id; ?>"/>
 								<textarea cols="180" rows="5" style='width:auto' class='input-lg' name="COMMENTAIRES"></textarea>
 							</td>
 							<td>
-								<input type="submit" class="btn btn-info" value="ajouter ce commentaire">
+								<input type="submit" class="btn btn-info" value="ajouter cette note">
 							</td>
 							</form>
 						</tr>
