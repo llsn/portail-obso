@@ -884,7 +884,7 @@
 					<table class="table table-bordered"  width="100%">
 					<thead>
 						<tr>
-							<th colspan="4"><h2><center>Notes pour $application</center></h2></th>
+							<th colspan="4"><h2><center>Notes pour <?php echo $application ?></center></h2></th>
 						</tr>
 					</thead>
 					<tbody>
