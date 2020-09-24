@@ -253,10 +253,10 @@
 			}
 
 			/*body{width:40%;}*/
-			.message-box{margin-bottom:20px;border-top:#F0F0F0 2px solid;background:#FAF8F8;padding:10px;}
+			/* .message-box{margin-bottom:20px;border-top:#F0F0F0 2px solid;background:#FAF8F8;padding:10px;}
 			.btnEditAction{background-color:#2FC332;border:0;padding:2px 10px;color:#FFF;}
 			.btnDeleteAction{background-color:#D60202;border:0;padding:2px 10px;color:#FFF;margin-bottom:15px;}
-			#btnAddAction{background-color:#09F;border:0;padding:5px 10px;color:#FFF;}
+			#btnAddAction{background-color:#09F;border:0;padding:5px 10px;color:#FFF;} */
 		</style>
 		<script>
 			window.paceOptions = {
