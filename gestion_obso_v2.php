@@ -14,7 +14,7 @@
     $taux_db=isset($_POST['taux_db']) ? $_POST['taux_db'] : NULL;
 	$taux_mdw=isset($_POST['taux_mdw']) ? $_POST['taux_mdw'] : NULL;
 	$ID=isset($_POST['ID']) ? $_POST['ID'] : null;
-	$var_add_line = isset($_POST['add_comment_for_id']) ? $_POST['add_comment_for_id'] : null;
+	$var_add_line = isset($_POST['var_add_line']) ? $_POST['var_add_line'] : null;
     $var_delete_line = isset($_POST['delete_comment_for_id']) ? $_POST['delete_comment_for_id'] : null;
 	$COMMENTAIRES = isset($_POST['COMMENTAIRES']) ? $_POST['COMMENTAIRES'] : null;
 
@@ -893,6 +893,7 @@
 							<form id="comment" name="comment" method="POST" enctype="multipart/form-data" action="gestion_obso_v2.php">
 							<td colspan="2">
 								<input type="hidden" name="application" value="<?php echo $application; ?>"/>
+								<input type="hidden" name="var_add_line" value="true"/>
 								<input type="hidden" name="add_comment_for_id" value="<?php echo $id; ?>"/>
 								<textarea cols="180" rows="5" style='width:auto' class='input-lg' name="COMMENTAIRES"></textarea>
 							</td>
