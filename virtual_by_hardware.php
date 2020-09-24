@@ -253,7 +253,7 @@
                                             $hostname = $valeur_sub_server;
                                             break;
                                         case 'BUSINESSSERVICES':
-                                            $business_services = "- ".str_replace(',','<br/> - ',$valeur_sub_server);
+                                            $business_services = "- ".str_replace('|','<br/> - ',$valeur_sub_server);
                                             break;
                                         case 'OSNAME':
                                             $osname = $valeur_sub_server;
