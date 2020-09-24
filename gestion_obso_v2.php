@@ -766,8 +766,8 @@
 														echo "<td>$valeur</td>";
 														break;
 													case "FUNCTIONALGROUPS":
-														$list_components=explode('|',$valeur);
 														echo "<td>";
+														$list_components=explode('|',$valeur);
 														// $composant=str_replace('|','<br/>',$valeur);
 														// echo "<td>".$composant."</td>";
 														foreach($list_components as $component)
