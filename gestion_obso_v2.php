@@ -867,7 +867,100 @@
 				$PDF_SHEET = ob_get_contents();	
 				?>
 				<div id="notes" class="tab-pane fade">
-				
+					<table class="table table-bordered"  width="100%">
+					<thead>
+						<tr>
+							<th colspan="4"><h2><center>Historique des commentaires</center></h2></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th> Commentaires </th>
+							<form id="comment" name="comment" method="POST" enctype="multipart/form-data" action="gestion_obso_v2.php">
+							<td colspan="2">
+								<input type="hidden" name="application" value="<?php echo $application; ?>"/>
+								<input type='hidden' name='consult' value='1'/>
+								<input type="hidden" name="add_comment_for_id" value="<?php echo $id; ?>"/>
+								<textarea cols="180" rows="5" style='width:auto' class='input-lg' name="COMMENTAIRES"></textarea>
+							</td>
+							<td>
+								<input type="submit" class="btn btn-info" value="ajouter ce commentaire">
+							</td>
+							</form>
+						</tr>
+						<tr>
+							<th>Date</th><th colspan="3"><center>Commentaires</center></th>
+						</tr>
+						<?php
+							$querycomment = "select * from cmdb.comment where application='$application'";
+
+							if ($stmt = $con->prepare($querycomment)) {
+								$stmt->execute();
+								$tuples = $stmt->fetchAll(PDO::FETCH_ASSOC);
+								foreach ($tuples as $ligne) {
+									echo '<tr>';
+									// echo "<pre>";
+									// print_r($ligne);
+									// echo "</pre>";
+									foreach ($ligne as $entete => $valeur) {
+										switch ($entete) {
+											case 'date_comment':
+												echo "<th>$valeur</th>";
+												break;
+											case 'message':
+												echo '<td colspan="2">'.nl2br($valeur).'<td>';
+												break;
+											case 'id':
+												$line_id = $valeur;
+												break;
+										}
+									}
+									echo "<form id='DEL_$line_id' name='DEL_$line_id' method='POST' enctype='multipart/form-data' action='gestion_obso_v2.php'>
+									<input type='hidden' name='delete_comment_for_id' value='".$line_id."'/>
+									<input type='hidden' name='PROJET_ID' value='".$id."'/>
+									<input type='hidden' name='RFS_NUMBER_CMA' value='".$var_RFS_NUMBER_CMA."'/>
+									<input type='hidden' name='consult' value='1'/>
+									<input type='submit' class='btn btn-danger' value='supprimer la ligne' onClick=\"ConfirmMessage('DEL_$line_id')\"/></form> </td>";
+									echo '</tr>';
+								}
+								$stmt->pdo = null;
+							}
+		// debug de variables
+		// echo "<p class=\"debug\">";
+		// error_reporting(E_ALL);   // Activer le rapport d'erreurs PHP . Vous pouvez n'utiliser que cette ligne, elle donnera déjà beaucoup de détails.
+		// $variables = get_defined_vars(); // Donne le contenu et les valeurs de toutes les variables dans la portée actuelle
+		// $var_ignore=array("GLOBALS", "_ENV", "_SERVER","_GET","host","dbname","user","password","port","socket"); // Détermine les var à ne pas afficher
+		// echo ("<strong>Etat des variables a la ligne : ".__LINE__." dans le fichier : ".__FILE__."</strong><br />\n");
+		// $nom_fonction=__FUNCTION__;
+		// if (isset($nom_fonction)&&$nom_fonction!="")
+		// {
+			// echo ("<strong>Dans la fonction : ".$nom_fonction."</strong><br />\n");
+		// }
+		// foreach ($variables as $key=>$value)
+		// {
+			// if (!in_array($key, $var_ignore)&&strpos($key,"HTTP")===false)
+			// {
+			// echo "<pre class=\"debug\">";
+			// echo ("$".$key." => ");
+			// print_r($value);
+			// echo "</pre>\n";
+			// }
+		// }
+		// echo "</p>";
+						?>
+						<script type="text/javascript">
+						function ConfirmMessage(Name_Form) 
+						{
+								if (confirm("Êtes-vous de vouloir supprimer cette ligne?")) 
+								{
+								// Clic sur OK
+								document.getElementById(Name_Form).submit()
+								}
+							}
+						</script>
+					</tbody>
+					
+				</table>
 					
 				</div>
 				<div id="debug" class="tab-pane fade">
