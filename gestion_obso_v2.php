@@ -44,7 +44,7 @@
 
 	if ($var_delete_line != null) 
 	{
-		$query_delete_comment = "delete from `cmdb`.`comment` where id =$ID;";
+		$query_delete_comment = "delete from `cmdb`.`comment` where id =$var_delete_line;";
 		if ($stmt = $con->prepare($query_delete_comment)) 
 		{
 			$result = $stmt->execute();
@@ -946,7 +946,7 @@
 									}
 									echo "<th>$date_comment</th><td colspan='2'>'$message'<td><form id='DEL_$line_id' name='DEL_$line_id' method='POST' enctype='multipart/form-data' action='gestion_obso_v2.php'>
 											<input type='hidden' name='delete_comment_for_id' value='".$line_id."'/>
-											<input type='hidden' name='ID' value='".$id."'/>
+											<input type='hidden' name='ID' value='".$line_id."'/>
 											<input type='hidden' name='application' value='".$application."'/>
 											<input type='submit' class='btn btn-danger' value='supprimer la ligne' onClick=\"ConfirmMessage('DEL_$line_id')\"/></form> </td>";
 									echo '</tr>';
