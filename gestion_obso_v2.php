@@ -13,7 +13,11 @@
     $taux_server=isset($_POST['taux_server']) ? $_POST['taux_server'] : NULL;
     $taux_db=isset($_POST['taux_db']) ? $_POST['taux_db'] : NULL;
 	$taux_mdw=isset($_POST['taux_mdw']) ? $_POST['taux_mdw'] : NULL;
-	 
+	$ID=isset($_POST['ID']) ? $_POST['ID'] : null;
+	$var_add_line = isset($_POST['add_comment_for_id']) ? $_POST['add_comment_for_id'] : null;
+    $var_delete_line = isset($_POST['delete_comment_for_id']) ? $_POST['delete_comment_for_id'] : null;
+	$COMMENTAIRES = isset($_POST['COMMENTAIRES']) ? $_POST['COMMENTAIRES'] : null;
+
     // Initialisation de la connexion à la base de données
 	$con = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8',$user,$password)
 		or die ('Could not connect to the database server' . pdo_connect_error());
@@ -22,9 +26,19 @@
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
 	
+	if ($var_add_line != null) {
+		if ($COMMENTAIRES != '') {
+			$query_add_comment = "call `cmdb`.`insert_application_comment`($application, '".str_ireplace("'", "\'", $COMMENTAIRES)."');";
+			if ($stmt = $con->prepare($query_add_comment)) {
+				$result = $stmt->execute();
+			}
+			$stmt->pdo = null;
+		} else {
+			echo '<div bgcolor="#00FF00"><center><h4>Le commentaire est vide - enregistrement refusé<h4><center></table></div>';
+		}
+	}
 
-	// $db_handle = new DBController();
-	// $comments = $db_handle->runQuery("SELECT * FROM comment");
+
 ?>
 <!-- Début de la page HTML -->
 <html>
@@ -916,11 +930,10 @@
 										}
 									}
 									echo "<form id='DEL_$line_id' name='DEL_$line_id' method='POST' enctype='multipart/form-data' action='gestion_obso_v2.php'>
-									<input type='hidden' name='delete_comment_for_id' value='".$line_id."'/>
-									<input type='hidden' name='PROJET_ID' value='".$id."'/>
-									<input type='hidden' name='RFS_NUMBER_CMA' value='".$var_RFS_NUMBER_CMA."'/>
-									<input type='hidden' name='consult' value='1'/>
-									<input type='submit' class='btn btn-danger' value='supprimer la ligne' onClick=\"ConfirmMessage('DEL_$line_id')\"/></form> </td>";
+											<input type='hidden' name='delete_comment_for_id' value='".$line_id."'/>
+											<input type='hidden' name='ID' value='".$id."'/>
+											<input type='hidden' name='appication' value='".$application."'/>
+											<input type='submit' class='btn btn-danger' value='supprimer la ligne' onClick=\"ConfirmMessage('DEL_$line_id')\"/></form> </td>";
 									echo '</tr>';
 								}
 								$stmt->pdo = null;
