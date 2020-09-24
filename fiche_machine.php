@@ -307,7 +307,7 @@
                     {
                         case (stristr($osname,'aix')):
                             echo "<th colspan='1'>Fils de</th>";
-                            echo "<td colspan='2'><form id='".$parent."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' ><b>".$parent."</b></a><td>";
+                            echo "<td colspan='1'><form id='".$parent."' method='POST' action='fiche_machine.php'><input type='hidden' name='machine' value='".$parent."'/></form><a href='#' onclick='document.getElementById(\"$parent\").submit()' ><b>".$parent."</b></a><td>";
                         break;
                         case (stristr($osname,'windows')):
                             $subwinquery="select distinct `parent` from cmdb.relationship where `parent`= '".$parent."';";
